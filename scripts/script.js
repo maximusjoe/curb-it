@@ -1,1 +1,1 @@
-console.log('Team 35 rules')
+console.log('Team 35 rules');
