@@ -32,47 +32,6 @@
     <script src="scripts/firebase_api.js"></script>
 
     <script src="scripts/login.js"></script>
-
-    <!-- <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDlIgYn99FTaPE2i4Klg42_mY2ZIE6JRGo",
-            authDomain: "team-35-ddc6a.firebaseapp.com",
-            projectId: "team-35-ddc6a",
-            storageBucket: "team-35-ddc6a.appspot.com",
-            messagingSenderId: "929353867295",
-            appId: "1:929353867295:web:3f87a4724dfca45a86752a"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
-    <script>
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
-                },
-                uiShown: function() {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'main.html',
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                firebase.auth.EmailAuthProvider.PROVIDER_ID
-            ]
-        };
-        ui.start('#firebaseui-auth-container', uiConfig);
-    </script> -->
 </body>
 
 </html>
