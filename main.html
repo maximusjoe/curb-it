@@ -6,11 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/jpg" href="/public/img/favicon.ico" />
     <title>Curb-It-Logged-In</title>
+
+    <style>
+      #username {
+        color: blue;
+      }
+
+      #email {
+        background-color: blueviolet;
+        color: white;
+      }
+    </style>
+
   </head>
 
   <body>
     <h1>The best app</h1>
     <h2 id="Toni">Testing-Tony is in the repo!</h2>
     <h2>You have logged in successfully</h2>
+
+    <h3>Your name is <span id="username"></span></h3>
+    <p>Your email is <span id="email"></span></p>
+    <p>testing</p>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+
+    <script src="scripts/firebase_api.js"></script>
+
+    <script src="scripts/profile.js"></script>
   </body>
 </html>
