@@ -1,19 +1,33 @@
+
 $(document).ready(function() {
 
     $('#submit-button').click(function(e) {
         e.preventDefault();
 
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-              // User is signed in.
-              db.collection("users").doc(user.uid).collection("postedRequests").doc(postedRequests.uid).set({
-                address: $("#address-input").val(),
-                items: $("#list-input").val(),
-                photo: $("#photo-input").val(),
-                date: $("date-input").val(),
-                time: $("time-input").val(),
-                postedDate: getDateTime.val()
-              })
+            if (user) {  
+                var dateControl = document.querySelector('input[type="date"]');
+                var timeControl = document.querySelector('input[type="time"]');
+                
+                console.log($("#address-input").val().toString());
+                console.log($("#list-input").val().toString());
+                console.log($("#photo-input").val().toString());
+                console.log(dateControl.value);
+                console.log(timeControl.value);
+                console.log(getDateTime().toString());
+
+                db.collection("users").doc(user.uid).collection("postedRequests").get().then(function(querySnapshot) {  
+                    var postID = querySnapshot.size + 1;
+                    console.log(postID); 
+                     db.collection("users").doc(user.uid).collection("postedRequests").doc(postID.toString()).set({
+                         address: $("#address-input").val().toString(),
+                         items: $("#list-input").val().toString(),
+                         photo: $("#photo-input").val().toString(),
+                         date: dateControl.value,
+                         time: timeControl.value,
+                         postedDate: getDateTime()
+                       });
+                    });
 
             } else {
               // No user is signed in.
