@@ -66,6 +66,10 @@
             float: right;
             margin-right: 5px;
         }
+        #username {
+            text-align: center;
+            color: blue;
+        }
     </style>
 </head>
 
@@ -101,6 +105,7 @@
 
     <div>
         <h1 style="text-align: center; margin-top: 50px; margin-bottom: 50px;">Image of Profile</h1>
+        <h2 id="username"></h2> <br/> <br/>
     </div>
     <div>
         <div class="beside" id="acceptedRequest">Accepted Request</div>
@@ -141,20 +146,20 @@
 
         <div class="postBoxes">
             <h4>12 Items
-                <button>Edit</button>                
+                <button>Edit</button>
             </h4>
             <p>Anywhere</p>
         </div>
 
         <div class="postBoxes">
             <h4>2 Items
-                <button>Edit</button>               
+                <button>Edit</button>
             </h4>
             <p>This City</p>
         </div>
         <div class="postBoxes">
             <h4>22 Items
-                <button>Edit</button>               
+                <button>Edit</button>
             </h4>
             <p>Somewhere</p>
         </div>
@@ -164,6 +169,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+
+    <script src="scripts/firebase_api.js"></script>
+
+    <script src="scripts/profile.js"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
