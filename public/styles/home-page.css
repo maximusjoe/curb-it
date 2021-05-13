@@ -1,13 +1,7 @@
 body {
-    display:flex;
+    display: flex;
     flex-direction: column;
     min-height: 100vh
-}
-
-.button-container {
-    display: flex;
-    align-content: center;
-    justify-content: center;
 }
 
 .button {
@@ -16,25 +10,27 @@ body {
     height: 2.5rem;
     width: 100%;
     max-width: 300px;
-    border:none;
+    border: none;
     border-radius: 8px;
     color: #fff;
     background-color: green;
     outline: none;
 }
 
+#main-content {
+    text-align: center;
+    flex-grow: 1;
+}
+
 input:hover {
-    filter:brightness(110%);
+    filter: brightness(110%);
 }
 
 input:active {
-    transform: translate(0,0.07rem);
+    transform: translate(0, 0.07rem);
 }
 
-.main-content {
-    text-align: center;
-    flex-grow:1;
-}
+
 
 footer {
     /* color: #888888; */
