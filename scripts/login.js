@@ -40,4 +40,23 @@ $(document).ready(function() {
     };
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
+    loginBox.style.display = "none";
 });
+
+var loginBox = document.getElementById("content");
+var mainView = document.getElementById("main-view");
+var logos = document.getElementById("logos");
+var loginButton = document.getElementById("login-btn");
+var loginUI = document.getElementById("firebaseui-auth-container");
+
+
+function showLogin() {
+    document.body.style.backgroundColor = "lightgray";
+    loginButton.style.display = "none";
+  
+    loginBox.style.display = "inline";
+    
+    setTimeout(function(){ 
+      loginUI.style.opacity = 1;
+  }, 250);
+  }

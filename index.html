@@ -12,7 +12,7 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link href="./public/styles/styles.css" rel="stylesheet" />
+    <link href="./public/styles/index.css" rel="stylesheet" />
     <link
       type="text/css"
       rel="stylesheet"
@@ -23,11 +23,26 @@
   </head>
 
   <body>
-    <h1>The best app</h1>
-    <h2 id="Toni">Testing-Tony is in the repo!</h2>
-    <h2>Testing-Max is in the repo!</h2>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+    <div class="log">
+      <img src="./public/img/logo.png" alt="logo" />
+    </div>
+    <div class="container-fluid" id="main-view">
+      <div class="logo" id="logos">
+        <div class="d-grid gap-2 col-3 mx-auto center">
+          <a
+            onclick="showLogin()"
+            class="btn btn-success btn-lg .col-3"
+            id="login-btn"
+            >login</a
+          >
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <!-- <h1>Sign In</h1> -->
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
+    </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script
