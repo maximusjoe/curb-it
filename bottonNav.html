@@ -6,23 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            margin: 0;
+        }
         #sticky {
-            position: fixed;
+            overflow: hidden;
+            position: fixed;            
+            background-color: gray;
             bottom: 0;
             width: 100%;
-            background-color: lightgray;
             padding: 10px;
         }
         #sticky a {
             padding: 20px;
         }
         #sticky a:hover {
-            background-color: gray;
+            background-color: lightgray;
             padding-top: 10px;
         }
     </style>
 </head>
 <body>
+
     <nav id="sticky">
         <a href="main.html">Home</a>
         <a>Request</a>
