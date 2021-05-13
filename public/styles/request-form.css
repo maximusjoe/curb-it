@@ -23,6 +23,17 @@
     width: 70%;
 }
 
+.each-item {
+    border: 1px solid rgb(10, 116, 98);
+    background-color: white;
+    height: 5vh;
+    padding-left: 5pt;
+    padding-right: 5pt;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #dimension {
     display: grid;
     grid-template-columns: 50% 50%;
