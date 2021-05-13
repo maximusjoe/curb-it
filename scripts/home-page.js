@@ -1,14 +1,22 @@
 jQuery(function () {
-    'use strict'
-    $('#make-request-button').on('click', (e) => {
-        $('#make-request-post').toggle(0);
-    })
-
-    db.collection("publicRequests").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
+    // publicRequests
+    db.collection("publicRequests").where("available", "==", true)
+        .onSnapshot((querySnapshot) => {
+            var postsArray = [];
+            querySnapshot.forEach((doc) => {
+                postsArray.push(doc.data());
+            });
+            for (let i = 0; i < postsArray.length; i++) {
+                $('#newsfeed-container').append(`<a href="#" class="list-group-item list-group-item-action" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">${postsArray[i].ID}</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">${postsArray[i].address}.</p>
+          <small>${postsArray[i].items}.</small>
+        </a>`)
+            }
         });
-    });
 
     const arrayOfItems = [{
         ID: '123456789',
@@ -26,15 +34,6 @@ jQuery(function () {
         height: 20,
         postedDate: '12/05/2021@12:20:21'
     }];
-    for (let i = 0; i < arrayOfItems.length; i++) {
-        $('#newsfeed-container').append(`<a href="#" class="list-group-item list-group-item-action" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">${arrayOfItems[i].ID}</h5>
-            <small>3 days ago</small>
-          </div>
-          <p class="mb-1">${arrayOfItems[i].address}.</p>
-          <small>${arrayOfItems[i].items}.</small>
-        </a>`)
-    }
+
 
 })
