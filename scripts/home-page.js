@@ -17,23 +17,4 @@ jQuery(function () {
         </a>`)
             }
         });
-
-    const arrayOfItems = [{
-        ID: '123456789',
-        address: "111-helpme",
-        city: "poco",
-        items: [
-            'jar',
-            'bottle',
-            'can',
-            'battery'
-        ],
-        numOfItems: 8,
-        photo: 'idkyet',
-        width: 112,
-        height: 20,
-        postedDate: '12/05/2021@12:20:21'
-    }];
-
-
 })
