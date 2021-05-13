@@ -38,7 +38,6 @@ $(document).ready(function() {
                             name: n,
                             address: address,
                             city: city,
-                            //photo: $("#photo-input").val(),
                             list: itemArray,
                             width: width,
                             height: height,
@@ -46,17 +45,17 @@ $(document).ready(function() {
                             postedDate: getDateTime()
                         });
 
-                        db.collection("publicRequests").add({
-                            name: n,
-                            address: address,
-                            city: city,
-                            //photo: $("#photo-input").val(),
-                            list: itemArray,
-                            width: width,
-                            height: height,
-                            numberOfItem: numberOfItem,
-                            postedDate: getDateTime()
-                        });
+                        // db.collection("publicRequests").add({
+                        //     name: n,
+                        //     address: address,
+                        //     city: city,
+                        //     //photo: $("#photo-input").val(),
+                        //     list: itemArray,
+                        //     width: width,
+                        //     height: height,
+                        //     numberOfItem: numberOfItem,
+                        //     postedDate: getDateTime()
+                        // });
 
 
                     })
