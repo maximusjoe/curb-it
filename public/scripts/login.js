@@ -40,7 +40,6 @@ $(document).ready(function() {
     };
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
-    loginBox.style.display = "none";
 });
 
 var loginBox = document.getElementById("content");
