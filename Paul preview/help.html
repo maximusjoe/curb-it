@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" type="image/jpg" href="../public/img/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="../public/styles/nav.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+  
+    <style>
+        #contactForm {
+            width: 80%;
+            padding: 10px;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: lightgray;
+        }
+        #contactForm p{
+            margin-bottom: 0;
+        }
+        #contactForm input {
+            width: 90%;
+        }
+        #contactForm textarea {
+            width: 90%;
+        }
+        #contactForm select {
+            width: 90%;
+        }
+        #middle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .onEdit {
+            text-align: center;
+        }
+        
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* adding scale(0) after the translate will make it disappear */
+            border: 1px solid black;
+            padding: 30px;
+            z-index: 10;
+            background-color: white;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .5);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <img src="../public/img/logo.png" alt="logo" width="40px" />
+      <a class="navbar-brand" href="notification.html">Alert</a>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="main.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profileTog.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login/Sign-in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Body  -->
+    <br/>
+    <div id="contactForm">
+        <h2 style="text-align: center;">Contact Form</h2>
+        <div>
+            <p>Your Name</p>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <br/>
+        <div>
+            <p>Email</p>
+            <input type="text" id="email" placeholder="Enter your email">
+        </div>
+        <br/>
+        <div>
+            <p>Option</p>
+            <select>
+                <option>Question</option>
+                <option>Login help</option>
+                <option>Fundraiser</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <br/>
+        <div>
+            <p>Message</p>
+            <textarea placeholder="Your message here..."></textarea>
+        </div>
+        <br/>
+        <button id="middle">Submit</button>
+    </div>
+
+    <div style="display:none" id='popup'>
+        <h1 class="onEdit">Checkmark! Image</h1>
+        <h2 class="onEdit">Sent</h2>
+        <h2 class="onEdit">Successfully!</h2>
+    </div>
+
+    <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
+    <div style="display:none" id='overlay'></div>
+    
+    <!-- Botton nav bar -->
+  <nav id="sticky">
+    <a href="main.html">Home</a>
+    <a href="request_form.html">Request</a>
+    <a href="search.html">Search</a>
+    <a href="notification.html">Alert</a>
+    <a href="setting.html">Setting</a>
+  </nav>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+  </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#middle").click(function() {
+            let delay = 2000;
+            $("#popup").show();
+            $("#overlay").show();
+
+            setTimeout(function() {
+                window.location = 'main.html';
+            }, delay);
+        });
+
+        
+    });
+</script>
+</body>
+</html>

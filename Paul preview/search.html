@@ -17,51 +17,13 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
   <title>Curb It</title>
   <style>
-    .main-content {
-
-      text-align: center;
-    }
-
-    hr {
-      margin-right: auto;
-      margin-left: auto;
-      width: 90%;
-    }
-
-    .mainBox {
-      margin-right: auto;
-      margin-left: auto;
-      width: 90%;
-      background-color: darkgray;
-      padding: 30px 10px 10px 10px;
-      margin-top: 15px;
-    }
-
-    .mainBox button {
-      float: right;
-      margin-right: 5px;
-      padding: 15px;
-    }
-    #filterContainer {
-      margin-right: auto;
-      margin-left: auto;
-      background-color: lightgray;
-      width: 90%;
-      text-align: center;
-      display:none;
-    }
-    #filterContainer input {
-      padding: 10px;
-      margin-top: 15px;
-      background-color: darkgray;
-      width: 90%;
-    }
-    #filterContainer button {
-      padding: 5px 20px;
-      margin: 10px;
-    }
-
-    
+      #heads {
+          margin-left: 5%;
+      }
+      #heads input {
+          width: 80%;
+          height: 50px;
+      }
   </style>
 </head>
 
@@ -100,50 +62,12 @@
   </nav>
 
   <!-- Main Contents -->
-  <br />
-  <div class="main-content">
-    <div class="button-container">
-      <a class="btn btn-success" href="request_form.html" role="button">Create New Request</a>
-      <br />
-    </div>
-    <p id="make-request-post">redirect/pop-up to post-successful window</p>
-    <div class="newsfeed">Im inside main</div>
-  </div>
-  <br />
-  <span style="margin-left: 5%">Posted requestd</span>
-  <button style="float: right; margin-right: 5%;" id="filter">filter</button>
-  <hr />
-  <!-- Filter Container -->
-  <div id="filterContainer">
-    <input type="text" value="Area">
-    <input type="text" value="Number of itmes">
-    <input type="text" value="Other option ...">
-    <br/><br/>
-    <button>Reset</button>
-    <button>Apply</button>
+  <br/>
+  <div id="heads">
+    <h2>Recycling Info</h2>
+    <input type="text" placeholder="Type to search">
   </div>
 
-  <!-- Item Boxes -->
-  <div class="mainBox">
-    <h4>12 Items
-      <button>Accept</button>    
-    </h4>
-    <p>Downtown Vancouver</p>
-  </div>
-
-  <div class="mainBox">
-    <h4>8 Items
-      <button>Accept</button>
-    </h4>
-    <p>South Burnaby</p>
-  </div>
-
-  <div class="mainBox">
-    <h4>15 Items
-      <button>Accept</button>
-    </h4>
-    <p>Richmond</p>
-  </div>
 
   <!-- Botton nav bar -->
   <nav id="sticky">
@@ -166,14 +90,6 @@
   <script src="scripts/firebase_api.js"></script>
   <script src="scripts/home-page.js"></script>
 
-  <script>
-    $(document).ready(function () {
-            $("#filter").click(function () {
-                $("#filterContainer").toggle();
-            });
-
-        });
-  </script>
 </body>
 
 </html>
