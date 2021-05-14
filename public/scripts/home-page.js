@@ -1,20 +1,34 @@
-jQuery(function () {
-    // publicRequests
-    db.collection("publicRequests").where("available", "==", true)
-        .onSnapshot((querySnapshot) => {
-            var postsArray = [];
-            querySnapshot.forEach((doc) => {
-                postsArray.push(doc.data());
-            });
-            for (let i = 0; i < postsArray.length; i++) {
-                $('#newsfeed-container').append(`<a href="#" class="list-group-item list-group-item-action" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">${postsArray[i].ID}</h5>
-            <small>3 days ago</small>
-          </div>
-          <p class="mb-1">${postsArray[i].address}.</p>
-          <small>${postsArray[i].items}.</small>
-        </a>`)
-            }
+$(document).ready(function() {
+
+    function allRequests() {
+        firebase.auth().onAuthStateChanged(function(user) {
+            db.collection("users")
+                .get()
+                .then(function(userCol) {
+                    userCol.forEach(function(eachUser) {
+                        console.log("Username: " + eachUser.data().name);
+                        userRequests(eachUser.id)
+                    })
+                })
+        })
+    }
+
+    allRequests();
+
+    function userRequests(userID) {
+        firebase.auth().onAuthStateChanged(function(user) {
+            db.collection("users").doc(userID).collection("postedRequests")
+                .get() //READ asynch
+                .then(function(reqCol) {
+                    reqCol.forEach(function(req) { //read each document in the collection
+                        console.log("Reuqest: " + req.id);
+                        let str = '<div>' + req.data().address + '</div>';
+                        $("#content").append(str);
+                    })
+                })
         });
-})
+    }
+
+
+
+});

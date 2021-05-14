@@ -12,32 +12,47 @@
     <title>Curb-It</title>
 </head>
 
-<body>
+<body id="body">
     <div id="title">Request Form</div>
 
     <div id="form-wrapper">
         <form id="form">
             <div id="address">
-                <label id="address-label">Address:</label>
-                <input id="address-input" type="text" multiple/>
+                <div>
+                    <label id="address-label">Address:</label><br>
+                    <input id="address-input" type="text" /> <br>
+                </div>
+                <div>
+                    <label id="city-label">City:</label><br>
+                    <input id="city-input" type="text" />
+                </div>
             </div>
             <div id="item-list">
-                <label id="list-label">Item list:</label>
-                <input id="list-input" type="text" multiple/>
-                <button id="add-item">Add</button>
+                <label id="list-label">Item list:</label><br>
+                <input id="list-input" type="search" />
+                <button type="submit" id="add-button">Add</button><br>
+            </div>
+            <div id="number">
+                <label id="number-label">Number of items:</label><br>
+                <input type="number" id="number-input">
             </div>
             <div id="add-photo">
-                <label id="photo-label">Photos:</label>
+                <label id="photo-label">Photos:</label><br>
                 <input type="file" id="photo-input" multiple>
             </div>
-            <div id="Schedule">
-                <label id="schedule-label">Schedule:</label>
-                <input type="date" id="date-input">
-                <input type="time" id="time-input">
+            <div id="dimension">
+                <div id="width-wrapper">
+                    <label id="width-label">Width:</label>
+                    <input type="number" id="width-input">
+                </div>
+                <div id="height-wrapper">
+                    <label id="height-label">Height:</label>
+                    <input type="number" id="height-input">
+                </div>
             </div>
             <div id="submit">
-                <button type="reset" href="./main.html" id="cancel">Cancel</button>
-                <button id="submit-button">Submit</button>
+                <button type="button" id="submit-button">Submit</button>
+                <button type="reset" href="main.html" id="cancel">Cancel</button>
             </div>
         </form>
     </div>
