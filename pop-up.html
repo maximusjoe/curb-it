@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h2, h1 {
+        h2,
+        h1 {
             text-align: center;
         }
         
@@ -21,7 +23,7 @@
             z-index: 10;
             background-color: white;
         }
-
+        
         #overlay {
             position: fixed;
             top: 0;
@@ -33,19 +35,20 @@
         }
     </style>
 </head>
+
 <body>
-    <div id='buttonArea'>
+    <div id="buttonArea">
         <button id="btn">Edit</button>
     </div>
 
-    <div style="display:none" id='popup'>
+    <div style="display:none" id="popup">
         <h1>Checkmark! Image</h1>
         <h2>Edit</h2>
         <h2>Successful!</h2>
     </div>
 
     <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
-    <div style="display:none" id='overlay'></div>
+    <div style="display:none" id="overlay"></div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -63,4 +66,5 @@
         });
     </script>
 </body>
+
 </html>
