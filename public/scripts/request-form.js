@@ -43,20 +43,9 @@ $(document).ready(function() {
                             height: height,
                             numberOfItem: numberOfItem,
                             postedDate: getDateTime()
+                        }).then(function() {
+                            redirectToSuccess()
                         });
-
-                        // db.collection("publicRequests").add({
-                        //     name: n,
-                        //     address: address,
-                        //     city: city,
-                        //     //photo: $("#photo-input").val(),
-                        //     list: itemArray,
-                        //     width: width,
-                        //     height: height,
-                        //     numberOfItem: numberOfItem,
-                        //     postedDate: getDateTime()
-                        // });
-
 
                     })
 
@@ -68,7 +57,13 @@ $(document).ready(function() {
         });
     });
 
+    function redirectToSuccess() {
+        window.location.href = "postSuccess.html";
+    }
+
 });
+
+
 
 function getDateTime() {
     var currentdate = new Date();

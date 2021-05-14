@@ -1,6 +1,27 @@
-.body {
-    margin: 0;
-    padding: 0;
-    border: 0;
+#body {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#top-navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#bot-navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bot-navbar button {
+    width: 25%;
+    height: 3.5rem;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
 }

@@ -22,12 +22,17 @@ $(document).ready(function() {
                 .then(function(reqCol) {
                     reqCol.forEach(function(req) { //read each document in the collection
                         console.log("Reuqest: " + req.id);
-                        let str = '<div>' + req.data().address + '</div>';
-                        $("#content").append(str);
+                        let eachPost = '<div class="each-post" id="' + req.id + '"><div class="number-of-item">' + req.data().numberOfItem + ' item(s)</div><div class="city">' + req.data().address + '</div><div class="date">Posted on ' + req.data().postedDate + '</div></div>'
+                        $("#content").append(eachPost);
                     })
                 })
         });
     }
+
+    $("#filter-button").click(function() {
+        $("#filterContainer").toggle();
+    });
+
 
 
 

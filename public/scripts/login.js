@@ -53,10 +53,10 @@ var loginUI = document.getElementById("firebaseui-auth-container");
 function showLogin() {
     document.body.style.backgroundColor = "lightgray";
     loginButton.style.display = "none";
-  
+
     loginBox.style.display = "inline";
-    
-    setTimeout(function(){ 
-      loginUI.style.opacity = 1;
-  }, 250);
-  }
+
+    setTimeout(function() {
+        loginUI.style.opacity = 1;
+    }, 250);
+}
