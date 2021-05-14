@@ -25,3 +25,8 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+.us {
+  width: 70%;
+  margin: 2rem auto;
+  text-align: center;
+}
