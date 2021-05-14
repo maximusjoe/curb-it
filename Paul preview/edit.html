@@ -15,6 +15,33 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
 
     <title>Curb-It</title>
+    <style>
+        .onEdit {
+            text-align: center;
+        }
+        
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* adding scale(0) after the translate will make it disappear */
+            border: 1px solid black;
+            padding: 30px;
+            z-index: 10;
+            background-color: white;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .5);
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,7 +79,7 @@
       <br/>
     
       <!-- Main body -->
-    <div id="title">Request Form</div>
+    <div id="title">Request Edit</div>
 
     <div id="form-wrapper">
         <form id="form">
@@ -74,12 +101,23 @@
                 <input type="date" id="date-input">
                 <input type="time" id="time-input">
             </div>
-            <div id="submit">
-                <button type="reset" onclick="location.href='main.html'" id="cancel">Cancel</button>
-                <button type="reset" onclick="location.href='postSuccess.html'" id="submit-button">Submit</button>
-            </div>
+            
         </form>
     </div>
+    <div id='buttonArea'>
+        <button id="btn">Edit</button>
+    </div>
+
+    
+
+    <div style="display:none" id='popup'>
+        <h1 class="onEdit">Checkmark! Image</h1>
+        <h2 class="onEdit">Edit</h2>
+        <h2 class="onEdit">Successful!</h2>
+    </div>
+
+    <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
+    <div style="display:none" id='overlay'></div>
 
 
     <!-- Botton nav bar -->
@@ -99,8 +137,24 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="../scripts/firebase_api.js"></script>
     <script src="../scripts/request-form.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                let delay = 2000;
+                $("#popup").show();
+                $("#overlay").show();
+
+                setTimeout(function() {
+                    window.location = 'main.html';
+                }, delay);
+            });
+        });
+    </script>
 
 </body>
 
