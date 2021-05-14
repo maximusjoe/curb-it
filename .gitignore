@@ -1,3 +1,10 @@
 desktop.ini
 node_modules
 package-lock.json
+// firebase files
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules
+storage.rules
+.firebase

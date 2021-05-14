@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+}
+
+#sticky {
+    overflow: hidden;
+    position: fixed;
+    background-color: gray;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+#sticky a {
+    padding: 20px;
+}
+
+#sticky a:hover {
+    background-color: lightgray;
+    padding-top: 10px;
+}
