@@ -40,36 +40,31 @@
         <button id="btn">Edit</button>
     </div>
 
-    <<<<<<< HEAD:pop-up.html <div style="display:none" id="popup">
-        <h1>Checkmark! Image</h1>
-        <h2>Edit</h2>
-        <h2>Successful!</h2>
-        =======
-        <div style="display:none" id='popup'>
-            <h1 class="onEdit">Checkmark! Image</h1>
-            <h2 class="onEdit">Edit</h2>
-            <h2 class="onEdit">Successful!</h2>
-            >>>>>>> a655e9da8a6654e4d082591327f3ed91b689ddaa:public/pop-up.html
-        </div>
 
-        <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
-        <div style="display:none" id="overlay"></div>
+    <div style="display:none" id='popup'>
+        <h1 class="onEdit">Checkmark! Image</h1>
+        <h2 class="onEdit">Edit</h2>
+        <h2 class="onEdit">Successful!</h2>
+    </div>
+
+    <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
+    <div style="display:none" id="overlay"></div>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#btn").click(function() {
-                    let delay = 1000;
-                    $("#popup").show();
-                    $("#overlay").show();
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                let delay = 1000;
+                $("#popup").show();
+                $("#overlay").show();
 
-                    setTimeout(function() {
-                        window.location = 'main.html';
-                    }, delay);
-                });
+                setTimeout(function() {
+                    window.location = 'main.html';
+                }, delay);
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
