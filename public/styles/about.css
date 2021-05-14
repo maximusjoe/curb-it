@@ -1,6 +1,7 @@
 .d-block {
+  height: 20%;
   width: 100%;
-  height: 60vh;
+  max-height: 500px;
 }
 .content {
   width: 100%;
