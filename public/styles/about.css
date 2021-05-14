@@ -15,3 +15,13 @@
 .card-img-top {
   width: 50px;
 }
+h1 {
+  padding: 2rem;
+  padding-bottom: 0;
+  text-align: center;
+}
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
