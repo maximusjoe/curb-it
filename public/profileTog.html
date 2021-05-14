@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Curb It - Profile</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -66,6 +66,7 @@
             float: right;
             margin-right: 5px;
         }
+
         #username {
             text-align: center;
             color: blue;
@@ -76,27 +77,30 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./main.html">Curb-it</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a class="navbar-brand" href="./main.html">
+                <img src="./img/logo.png" alt="logo" width="40px" />
+            </a>
+            <a class="navbar-brand" href="notification.html">Alert</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="main.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="profileTog.html">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login/Sign-in</a>
+                        <a class="nav-link" href="login.html">Login/Sign-in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                        <a class="nav-link" href="help.html">Help</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                 </ul>
             </div>
@@ -105,7 +109,7 @@
 
     <div>
         <h1 style="text-align: center; margin-top: 50px; margin-bottom: 50px;">Image of Profile</h1>
-        <h2 id="username"></h2> <br/> <br/>
+        <h2 id="username"></h2> <br /> <br />
     </div>
     <div>
         <div class="beside" id="acceptedRequest">Accepted Request</div>

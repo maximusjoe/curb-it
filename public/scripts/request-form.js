@@ -36,16 +36,18 @@ $(document).ready(function() {
 
                         db.collection("users").doc(user.uid).collection("postedRequests").add({
                             name: n,
-                            address: address,
-                            city: city,
+                            address,
+                            city,
                             list: itemArray,
-                            width: width,
-                            height: height,
-                            numberOfItem: numberOfItem,
-                            postedDate: getDateTime()
+                            width,
+                            height,
+                            numberOfItem,
+                            postedDate: getDateTime(),
+                            available: true
                         }).then(function() {
+                            console.log('Upload Successful!')
                             redirectToSuccess()
-                        });
+                        }).catch(error => console.log(error))
 
                     })
 
