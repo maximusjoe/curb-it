@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-    <link href="./styles/request-form.css" rel="stylesheet" />
+    <link href="./styles/request-info.css" rel="stylesheet" />
     <link href="./styles/styles.css" rel="stylesheet" />
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
 
@@ -21,8 +21,8 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
                 <a class="navbar-brand" href="./main.html">
-                <img src="./img/logo.png" alt="logo" width="40px" />
-            </a>
+                    <img src="./img/logo.png" alt="logo" width="40px" />
+                </a>
                 <a class="navbar-brand" href="notification.html">Alert</a>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -47,48 +47,31 @@
             </div>
         </nav>
     </div>
-    <div id="title">Request Form</div>
+    <div id="info-wrapper">
+        <div id="title">Request Info</div>
+        <div>Request by: <span id="requester">Requester Name goes here</span></div>
+        <div id="info-header">
+            <div id="chat-icon"><span>Chatbox Icon</span></div>
+            <button id="accept-button">Accept</button>
+        </div>
+        <hr>
+        <div>City: <span id="city">City goes here</span></div>
+        <div id="photo-wrapper">
+            <label id="photo-label">Photos:</label>
+            <img src="./img/AvatarMaker.png" />
+            <img src="./img/AvatarMaker.png" />
+            <img src="./img/AvatarMaker.png" />
+        </div>
 
-    <div id="form-wrapper">
-        <form id="form">
-            <div id="address">
-                <div>
-                    <label id="address-label">Address:</label><br>
-                    <input id="address-input" type="text" /> <br>
-                </div>
-                <div>
-                    <label id="city-label">City:</label><br>
-                    <input id="city-input" type="text" />
-                </div>
-            </div>
-            <div id="item-list">
-                <label id="list-label">Item list:</label><br>
-                <input id="list-input" type="search" />
-                <button type="submit" id="add-button">Add</button><br>
-            </div>
-            <div id="number">
-                <label id="number-label">Number of items:</label><br>
-                <input type="number" id="number-input">
-            </div>
-            <div id="add-photo">
-                <label id="photo-label">Photos:</label><br>
-                <input type="file" id="photo-input" multiple>
-            </div>
-            <div id="dimension">
-                <div id="width-wrapper">
-                    <label id="width-label">Width:</label>
-                    <input type="number" id="width-input">
-                </div>
-                <div id="height-wrapper">
-                    <label id="height-label">Height:</label>
-                    <input type="number" id="height-input">
-                </div>
-            </div>
-            <div id="submit">
-                <button type="button" id="submit-button">Submit</button>
-                <button type="reset" onclick="window.location.href='main.html'" id="cancel">Cancel</button>
-            </div>
-        </form>
+        <div id="list-wrapper">
+            <label id="list-label">Item list:</label>
+            <ul id="item-list">
+                <li>Item goes here</li>
+                <li>Item goes here</li>
+                <li>Item goes here</li>
+                <li>Item goes here</li>
+            </ul>
+        </div>
     </div>
 
     <footer id="footer">
@@ -109,7 +92,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="./scripts/firebase_api.js"></script>
-    <script src="./scripts/request-form.js"></script>
+    <script src="./scripts/request-info.js"></script>
 
 </body>
 
