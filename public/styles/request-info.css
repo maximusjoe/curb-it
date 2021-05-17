@@ -1,0 +1,44 @@
+#info-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 50pt;
+}
+
+#info-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+#title {
+    font-size: 2em;
+    font-weight: bolder;
+    margin: 10pt auto 10pt auto;
+}
+
+#chat-icon {
+    display: flex;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#chat-icon span {
+    align-self: flex-end;
+}
+
+#accept-button {
+    cursor: pointer;
+    height: 2.5rem;
+    width: 100%;
+    max-width: 100px;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
+    border-radius: 5px;
+}
+
+#photo-wrapper img {
+    width: 90%;
+    display: block;
+    margin: 10pt auto;
+}

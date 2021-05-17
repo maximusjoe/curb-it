@@ -7,37 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curb It - Profile</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <style>
         .beside {
             width: 50%;
             float: left;
             text-align: left;
         }
-
+        
         #acceptedRequest {
             background-color: gray;
             color: white;
             padding: 20px;
         }
-
+        
         #postedRequest {
             background-color: lightgray;
             padding: 20px;
         }
-
+        
         #requestAccept {
             background-color: gray;
             height: 600px;
-
         }
-
+        
         #requestPosted {
             background-color: lightgray;
             height: 600px;
         }
-
+        
         .acceptBoxes {
             margin-right: auto;
             margin-left: auto;
@@ -46,12 +44,12 @@
             padding: 30px 10px 10px 10px;
             margin-top: 15px;
         }
-
+        
         .acceptBoxes button {
             float: right;
             margin-right: 5px;
         }
-
+        
         .postBoxes {
             margin-right: auto;
             margin-left: auto;
@@ -61,12 +59,12 @@
             padding: 30px 10px 10px 10px;
             margin-top: 15px;
         }
-
+        
         .postBoxes button {
             float: right;
             margin-right: 5px;
         }
-
+        
         #username {
             text-align: center;
             color: blue;
@@ -77,8 +75,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="./main.html">
@@ -170,8 +167,7 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
@@ -186,13 +182,13 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#acceptedRequest").click(function () {
+        $(document).ready(function() {
+            $("#acceptedRequest").click(function() {
                 $("#requestAccept").show();
                 $("#requestPosted").hide();
             });
 
-            $("#postedRequest").click(function () {
+            $("#postedRequest").click(function() {
                 $("#requestPosted").show();
                 $("#requestAccept").hide();
             });
