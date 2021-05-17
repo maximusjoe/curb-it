@@ -19,6 +19,8 @@ $(document).ready(function () {
 
     allRequests();
 
+    window.aFunc= aFunc;
+
     function userRequests(userID) {
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("users").doc(userID).collection("postedRequests")
@@ -26,7 +28,7 @@ $(document).ready(function () {
                 .then(function (reqCol) {
                     reqCol.forEach(function (req) { //read each document in the collection
                         // console.log("Request: " + req.id);
-                        let eachPost = '<a onClick="aFunc()"><div class="each-post" id="' + req.id + '"><div class="number-of-item">' + req.data().numberOfItem + ' item(s)</div><div class="city">' + req.data().address + '</div><div class="date">Posted on ' + req.data().postedDate + '</div></div></a>'
+                        let eachPost = '<a onClick="aFunc();"><div class="each-post" id="' + req.id + '"><div class="number-of-item">' + req.data().numberOfItem + ' item(s)</div><div class="city">' + req.data().address + '</div><div class="date">Posted on ' + req.data().postedDate + '</div></div></a>'
                         if (req.data().available) {
                             $("#content").append(eachPost);
                         }
