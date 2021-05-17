@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    'use strict'
+    function aFunc() {
+        console.log('hi')
+    }
 
     function allRequests() {
         firebase.auth().onAuthStateChanged(function (user) {
@@ -22,7 +26,7 @@ $(document).ready(function () {
                 .then(function (reqCol) {
                     reqCol.forEach(function (req) { //read each document in the collection
                         // console.log("Request: " + req.id);
-                        let eachPost = '<div class="each-post" id="' + req.id + '"><div class="number-of-item">' + req.data().numberOfItem + ' item(s)</div><div class="city">' + req.data().address + '</div><div class="date">Posted on ' + req.data().postedDate + '</div></div>'
+                        let eachPost = '<a onClick="aFunc()"><div class="each-post" id="' + req.id + '"><div class="number-of-item">' + req.data().numberOfItem + ' item(s)</div><div class="city">' + req.data().address + '</div><div class="date">Posted on ' + req.data().postedDate + '</div></div></a>'
                         if (req.data().available) {
                             $("#content").append(eachPost);
                         }
@@ -31,7 +35,10 @@ $(document).ready(function () {
         });
     }
 
+    
     $("#filter-button").click(function () {
         $("#filterContainer").toggle(250);
     });
+
+    
 });
