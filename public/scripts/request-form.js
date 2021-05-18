@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $("#add-button").click(function(e) {
+$(document).ready(function () {
+    $("#add-button").click(function (e) {
         e.preventDefault();
 
         let idCount = 0;
@@ -16,7 +16,7 @@ $(document).ready(function() {
     var itemArray = new Array();
     console.log(itemArray);
 
-    $('#submit-button').click(function(e) {
+    $('#submit-button').click(function (e) {
         e.preventDefault();
 
         let address = $("#address-input").val();
@@ -27,15 +27,17 @@ $(document).ready(function() {
         console.log(numberOfItem);
 
 
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 db.collection("users").doc(user.uid)
                     .get()
-                    .then(function(doc) {
-                        var n = doc.data().name;
-
+                    .then(function (doc) {
+                        const name = doc.data().name;
+                        const email = doc.data().email
                         db.collection("users").doc(user.uid).collection("postedRequests").add({
-                            name: n,
+                            name,
+                            email,
+                            uid: user.uid,
                             address,
                             city,
                             list: itemArray,
@@ -44,7 +46,7 @@ $(document).ready(function() {
                             numberOfItem,
                             postedDate: getDateTime(),
                             available: true
-                        }).then(function() {
+                        }).then(function () {
                             console.log('Upload Successful!')
                             redirectToSuccess()
                         }).catch(error => console.log(error))
@@ -53,7 +55,7 @@ $(document).ready(function() {
 
             } else {
                 // No user is signed in.
-                console.log("No User Signed In");
+                alert('You need to sign in first to make a request')
                 window.location.href = "login.html";
             }
         });
