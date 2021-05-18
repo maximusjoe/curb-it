@@ -1,0 +1,82 @@
+.beside {
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+
+#acceptedRequest {
+    text-align: center;
+    background-color: gray;
+    color: white;
+    padding: 20px;
+}
+
+#acceptedRequest:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+#postedRequest:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+#postedRequest {
+    text-align: center;
+    background-color: lightgray;
+    padding: 20px;
+}
+
+#requestAccept {
+    background-color: gray;
+    height: 600px;
+}
+
+#requestPosted {
+    background-color: lightgray;
+    height: 600px;
+}
+
+.acceptBoxes:hover {
+    cursor: pointer;
+    width: 93.5%;
+}
+
+.acceptBoxes {
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    background-color: lightgray;
+    padding: 30px 10px 10px 10px;
+    margin-top: 15px;
+}
+
+.acceptBoxes button {
+    float: right;
+    margin-right: 5px;
+}
+
+.postBoxes:hover {
+    cursor: pointer;
+    width: 93.5%;
+}
+
+.postBoxes {
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    background-color: gray;
+    color: white;
+    padding: 30px 10px 10px 10px;
+    margin-top: 15px;
+}
+
+.postBoxes button {
+    float: right;
+    margin-right: 5px;
+}
+
+#username {
+    text-align: center;
+    color: blue;
+}
