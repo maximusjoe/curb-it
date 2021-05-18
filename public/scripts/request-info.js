@@ -10,7 +10,7 @@ $(document).ready(() => {
                 return sParameterName[1];
             }
         }
-    }
+    }       
 
     const post_id = GetURLParameter('id')
     const poster_id = GetURLParameter('poster')
