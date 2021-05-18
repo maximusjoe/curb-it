@@ -14,7 +14,7 @@ $(document).ready(() => {
 
     const post_id = GetURLParameter('id')
 
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async(user) => {
         if (user) {
             console.log(user.uid)
             $('#request-info-button').on('click', (e) => {

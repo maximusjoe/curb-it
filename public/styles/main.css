@@ -7,10 +7,6 @@
     margin: 20pt auto 20pt auto;
 }
 
-.each-post {
-    cursor: pointer;
-}
-
 #make-request-button {
     cursor: pointer;
     font-size: 1.2rem;
@@ -88,11 +84,11 @@
     padding: 8pt;
     background-color: white;
     border-radius: 8pt;
+    cursor: pointer;
 }
 
 .each-post:hover {
     cursor: pointer;
-    width: 94%;
 }
 
 .number-of-item {
