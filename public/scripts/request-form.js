@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     $("#add-button").click(function (e) {
         e.preventDefault();
 
@@ -15,6 +16,21 @@ $(document).ready(function () {
 
     var itemArray = new Array();
     console.log(itemArray);
+
+    
+    var fileInput = document.getElementById("photo-input");
+    fileInput.addEventListener('change', function (e) {
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var file = e.target.files[0];
+        var imgRef = storageRef.child("images/test.jpg");
+        
+
+        imgRef.put(file) 
+        .then(function(){
+            console.log('Uploaded to Cloud Storage.');
+        })
+    });
 
     $('#submit-button').click(function (e) {
         e.preventDefault();
