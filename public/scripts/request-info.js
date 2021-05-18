@@ -54,8 +54,9 @@ $(document).ready(() => {
                 } else {
                     await db.collection('users').doc(poster_id).collection('postedRequests')
                         .doc(post_id).update({
-                            available: false,
+                            available: false
                         })
+                    await db.collection('users').doc(user.uid).collection('acceptedRequests').doc(post_id).set({posterID: poster_id})
                     window.location.href = `profile.html?uid=${user.uid}`
                 }
             })
