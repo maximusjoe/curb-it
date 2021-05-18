@@ -90,6 +90,11 @@
     border-radius: 8pt;
 }
 
+.each-post:hover {
+    cursor: pointer;
+    width: 94%;
+}
+
 .number-of-item {
     font-size: 1.5rem;
     font-weight: bolder;

@@ -26,3 +26,8 @@
     background-color: rgb(47, 48, 48);
     color: rgb(197, 243, 233);
 }
+
+.navbar-brand {
+    position: center;
+    color:rgb(197, 243, 233);
+}
