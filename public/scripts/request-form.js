@@ -46,9 +46,9 @@ $(document).ready(function () {
                             numberOfItem,
                             postedDate: getDateTime(),
                             available: true
-                        }).then(function () {
+                        }).then(function (result) {
                             console.log('Upload Successful!')
-                            redirectToSuccess()
+                            redirectToSuccess(result.id)
                         }).catch(error => console.log(error))
 
                     })
@@ -61,8 +61,8 @@ $(document).ready(function () {
         });
     });
 
-    function redirectToSuccess() {
-        window.location.href = "postSuccess.html";
+    function redirectToSuccess(id) {
+        window.location.href = `postSuccess.html?id=${id}`;
     }
 
 });

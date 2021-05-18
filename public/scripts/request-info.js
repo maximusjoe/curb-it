@@ -42,16 +42,21 @@ $(document).ready(() => {
         } = data
         $('#requester').html(name)
         $('#city').html(city)
+
         for (let i = 0; i < itemsList.length; i++) {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
         }
         if (user) {
             // User is signed in.
-            $('#accept-button').on('click', (e) => {
+            $('#accept-button').on('click', async (e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
-                    alert('Accepted -> Redirect')
+                    await db.collection('users').doc(poster_id).collection('postedRequests')
+                        .doc(post_id).update({
+                            available: false,
+                        })
+                    window.location.href = `profile.html?uid=${user.uid}`
                 }
             })
         } else {
