@@ -63,7 +63,7 @@ $(document).ready(() => {
         } else {
             // No user is signed in.
             alert('You need to sign in first to volunteer')
-            window.location.href = "login.html";
+            window.location.href = "index.html";
         }
     });
 
