@@ -23,6 +23,7 @@ $(document).ready(function() {
                     reqCol.forEach(function(req) { //read each document in the collection
                         let eachPost = `<div class="each-post" id="${req.id}"><div class="number-of-item">${req.data().numberOfItem} item(s)</div><div class="city"> ${req.data().address}</div><div class="date">Posted on ${req.data().postedDate}</div></div>`
                         if (req.data().available) {
+                            $('#spinner').hide()
                             $("#content").append(eachPost);
                             redirectToInfo(req.id, req.data().uid);
                         }
