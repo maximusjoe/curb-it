@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     $("#add-button").click(function (e) {
         e.preventDefault();
 
@@ -16,21 +16,26 @@ $(document).ready(function () {
 
     var itemArray = new Array();
     console.log(itemArray);
+    var photoURL;
+    var photoID = uniqueID();
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+    var imgRef = storageRef.child("images/" + photoID + ".jpg");
+    
 
     
     var fileInput = document.getElementById("photo-input");
     fileInput.addEventListener('change', function (e) {
-        var storage = firebase.storage();
-        var storageRef = storage.ref();
-        var file = e.target.files[0];
-        var imgRef = storageRef.child("images/test.jpg");
         
-
+        var file = e.target.files[0];
+        
         imgRef.put(file) 
         .then(function(){
             console.log('Uploaded to Cloud Storage.');
         })
+        
     });
+
 
     $('#submit-button').click(function (e) {
         e.preventDefault();
@@ -41,6 +46,11 @@ $(document).ready(function () {
         let height = $("#width-input").val();
         let numberOfItem = $("#number-input").val();
         console.log(numberOfItem);
+
+        imgRef.getDownloadURL()
+        .then((url) => {
+            photoURL = url;
+        })
 
 
         firebase.auth().onAuthStateChanged(function (user) {
@@ -60,6 +70,7 @@ $(document).ready(function () {
                             width,
                             height,
                             numberOfItem,
+                            photo: photoURL,
                             postedDate: getDateTime(),
                             available: true
                         }).then(function (result) {
@@ -83,6 +94,9 @@ $(document).ready(function () {
 
 });
 
+function uniqueID() {
+    return Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+}
 
 
 function getDateTime() {
@@ -94,4 +108,4 @@ function getDateTime() {
         currentdate.getMinutes() + ":" +
         currentdate.getSeconds();
     return datetime;
-}
+};
