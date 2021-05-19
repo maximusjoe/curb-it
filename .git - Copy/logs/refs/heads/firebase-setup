@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 be74ec10dc66caeefd5d8b672f07e2a3a7ef1b23 XANDRA <tuhudohoi102@gmail.com> 1620681531 -0700	branch: Created from refs/remotes/origin/firebase-setup
+be74ec10dc66caeefd5d8b672f07e2a3a7ef1b23 71348a7bb2a9fe6f325440d70464d42e01d49eef XANDRA <tuhudohoi102@gmail.com> 1620685361 -0700	commit: login feature and save user name and email into firestore
