@@ -34,7 +34,8 @@
                             <a class="nav-link" href="profile.html">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" id="login-logout"></a>                        </li>
+                            <a class="nav-link" href="#" id="login-logout"></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="help.html">Help</a>
                         </li>
@@ -66,8 +67,8 @@
                 <button type="submit" id="add-button">Add</button><br>
             </div>
             <div id="number">
-                <label id="number-label">Number of items:</label><br>
-                <input type="number" id="number-input">
+                <label id="number-label">Number of items: <span id="number-value"></span></label><br>
+                <input type="range" min="1" max="100" value="10" step="1" id="number-input">
             </div>
             <div id="add-photo">
                 <label id="photo-label">Photos:</label><br>
@@ -75,12 +76,12 @@
             </div>
             <div id="dimension">
                 <div id="width-wrapper">
-                    <label id="width-label">Width:</label>
-                    <input type="number" id="width-input">
+                    <label id="width-label">Width: <span id="width-value"></span></label>
+                    <input type="range" min="1" max="50" value="25" step="1" id="width-input">
                 </div>
                 <div id="height-wrapper">
-                    <label id="height-label">Height:</label>
-                    <input type="number" id="height-input">
+                    <label id="height-label">Height: <span id="height-value"></span></label>
+                    <input type="range" min="1" max="50" value="25" step="1" id="height-input">
                 </div>
             </div>
             <div id="submit">

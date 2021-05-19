@@ -82,9 +82,10 @@
     margin: 20pt auto 10pt auto;
     width: 90%;
     padding: 8pt;
-    background-color: white;
     border-radius: 8pt;
     cursor: pointer;
+    background-color: rgb(47, 48, 48);
+    color: lightgray;
 }
 
 .each-post:hover {

@@ -1,8 +1,6 @@
-$(document).ready(function () {
-    $("#add-button").click(function (e) {
+$(document).ready(function() {
+    $("#add-button").click(function(e) {
         e.preventDefault();
-
-        let idCount = 0;
 
         let item_input = $("#list-input").val();
         itemArray.push(item_input);
@@ -16,7 +14,31 @@ $(document).ready(function () {
     var itemArray = new Array();
     console.log(itemArray);
 
-    $('#submit-button').click(function (e) {
+    var numberRange = document.getElementById("number-input");
+    var numberValue = document.getElementById("number-value");
+    numberValue.innerHTML = numberRange.value;
+
+    numberRange.oninput = function() {
+        numberValue.innerHTML = this.value;
+    }
+
+    var widthRange = document.getElementById("width-input");
+    var widthValue = document.getElementById("width-value");
+    widthValue.innerHTML = widthRange.value;
+
+    widthRange.oninput = function() {
+        widthValue.innerHTML = this.value;
+    }
+
+    var heightRange = document.getElementById("height-input");
+    var heightValue = document.getElementById("height-value");
+    heightValue.innerHTML = heightRange.value;
+
+    heightRange.oninput = function() {
+        heightValue.innerHTML = this.value;
+    }
+
+    $('#submit-button').click(function(e) {
         e.preventDefault();
 
         let address = $("#address-input").val();
@@ -25,13 +47,15 @@ $(document).ready(function () {
         let height = $("#width-input").val();
         let numberOfItem = $("#number-input").val();
         console.log(numberOfItem);
+        console.log(width)
+        console.log(height)
 
 
-        firebase.auth().onAuthStateChanged(function (user) {
+        firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 db.collection("users").doc(user.uid)
                     .get()
-                    .then(function (doc) {
+                    .then(function(doc) {
                         const name = doc.data().name;
                         const email = doc.data().email
                         db.collection("users").doc(user.uid).collection("postedRequests").add({
@@ -46,7 +70,7 @@ $(document).ready(function () {
                             numberOfItem,
                             postedDate: getDateTime(),
                             available: true
-                        }).then(function (result) {
+                        }).then(function(result) {
                             console.log('Upload Successful!')
                             redirectToSuccess(result.id)
                         }).catch(error => console.log(error))

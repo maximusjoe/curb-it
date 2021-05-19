@@ -52,12 +52,22 @@ $(document).ready(() => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
-                    await db.collection('users').doc(poster_id).collection('postedRequests')
-                        .doc(post_id).update({
+                    await db.collection('users').doc(poster_id)
+                        .collection('postedRequests')
+                        .doc(post_id)
+                        .update({
                             available: false
                         })
-                    await db.collection('users').doc(user.uid).collection('acceptedRequests').doc(post_id).set({ posterID: poster_id })
-                    window.location.href = `profile.html?uid=${user.uid}`
+                    await db.collection('users').doc(user.uid)
+                        .collection('acceptedRequests')
+                        .doc(post_id)
+                        .set({
+                            posterID: poster_id,
+                            postID: post_id
+                        })
+                        //window.location.href = `profile.html?uid=${user.uid}`
+                        // $("#popup").show();
+                        // $("#overlay").show();
                 }
             })
         } else {
@@ -66,5 +76,9 @@ $(document).ready(() => {
             window.location.href = "index.html";
         }
     });
+
+    function accepted() {
+
+    }
 
 })

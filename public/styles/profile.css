@@ -6,35 +6,30 @@
 
 #acceptedRequest {
     text-align: center;
-    background-color: gray;
-    color: white;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
     padding: 20px;
-}
-
-#acceptedRequest:hover {
-    cursor: pointer;
-    background-color: blue;
-}
-
-#postedRequest:hover {
-    cursor: pointer;
-    background-color: blue;
 }
 
 #postedRequest {
     text-align: center;
-    background-color: lightgray;
+    background-color: rgb(197, 243, 233);
     padding: 20px;
 }
 
+h4 {
+    color: rgba(0, 0, 0, 0);
+    line-height: 5pt;
+}
+
 #requestAccept {
-    background-color: gray;
-    height: 600px;
+    background-color: rgb(47, 48, 48);
+    height: 80vh;
 }
 
 #requestPosted {
-    background-color: lightgray;
-    height: 600px;
+    background-color: rgb(197, 243, 233);
+    height: 80vh;
 }
 
 .acceptBoxes:hover {
@@ -43,17 +38,28 @@
 }
 
 .acceptBoxes {
-    margin-right: auto;
-    margin-left: auto;
+    box-shadow: 0px 0px 3px 1px rgb(172, 172, 172);
+    margin: 20pt auto 10pt auto;
     width: 90%;
+    padding: 8pt;
+    border-radius: 8pt;
+    cursor: pointer;
     background-color: lightgray;
-    padding: 30px 10px 10px 10px;
-    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.acceptBoxes button {
-    float: right;
-    margin-right: 5px;
+.request-number {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.schedule {
+    margin-top: 5pt;
+    color: rgb(182, 182, 182);
+    font-style: italic;
+    font-size: 0.8rem;
 }
 
 .postBoxes:hover {
@@ -62,21 +68,50 @@
 }
 
 .postBoxes {
-    margin-right: auto;
-    margin-left: auto;
+    box-shadow: 0px 0px 3px 1px rgb(172, 172, 172);
+    margin: 20pt auto 10pt auto;
     width: 90%;
-    background-color: gray;
-    color: white;
-    padding: 30px 10px 10px 10px;
-    margin-top: 15px;
+    padding: 8pt;
+    border-radius: 8pt;
+    cursor: pointer;
+    background-color: rgb(47, 48, 48);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: lightgray;
 }
 
-.postBoxes button {
-    float: right;
-    margin-right: 5px;
+.edit-button {
+    cursor: pointer;
+    height: 2.5rem;
+    width: 5rem;
+    background-color: lightgray;
+    color: rgb(47, 48, 48);
+    border-radius: 5px;
+    display: block;
+}
+
+.done-button {
+    cursor: pointer;
+    height: 2.5rem;
+    width: 5rem;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 8pt;
+}
+
+.decline-button {
+    background-color: rgba(31, 32, 32, 0);
+    color: rgb(63, 5, 29);
+    border-radius: 5px;
+    height: 2.5rem;
+    width: 5rem;
+    display: block;
 }
 
 #username {
     text-align: center;
-    color: blue;
+    color: rgb(65, 110, 103);
 }
