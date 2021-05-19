@@ -57,13 +57,25 @@
         <div>Request by: <span id="requester">Requester Name goes here</span></div>
         <div id="info-header">
             <div id="chat-icon"><span>Chatbox Icon</span></div>
-            <button id="accept-button">Accept</button>
+            <button id="accept-button1">Accept</button>
         </div>
-        <!-- <div style="display:none" id="popup">
-            <h1 class="onEdit">Checkmark! Image</h1>
-            <h2 class="onEdit">Edit</h2>
-            <h2 class="onEdit">Successful!</h2>
-        </div> -->
+        <div style="display:none" id="popup">
+
+            <div id="schedule-label">Pickup Shedule:</div>
+            <div id="date-wrapper">
+                <label for="date" id="date-label">Date:</label>
+                <input type="date" id="date-input">
+            </div>
+            <div id="time-wrapper">
+                <label for="time" id="time-label">Time:</label>
+                <input type="time" id="time-input">
+            </div>
+            <div id="button-wrapper">
+                <button id="cancel-button">Cancel</button>
+                <button id="accept-button2">Accept</button>
+            </div>
+        </div>
+        <div style="display:none" id="overlay"></div>
         <hr>
         <div>City: <span id="city">City goes here</span></div>
         <div id="list-wrapper">

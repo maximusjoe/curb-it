@@ -27,7 +27,8 @@
     align-self: flex-end;
 }
 
-#accept-button {
+#accept-button1,
+#accept-button2 {
     cursor: pointer;
     height: 2.5rem;
     width: 100%;
@@ -37,24 +38,59 @@
     border-radius: 5px;
 }
 
+#cancel-button {
+    background-color: rgba(31, 32, 32, 0);
+    color: rgb(63, 5, 29);
+    cursor: pointer;
+    height: 2.5rem;
+    width: 100%;
+    max-width: 100px;
+    border-radius: 5px;
+}
+
 #photo-wrapper img {
     width: 90%;
     display: block;
     margin: 10pt auto;
 }
 
-.onEdit {
+#schedule-label {
+    height: 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     text-align: center;
 }
 
+#popup div {
+    width: 90%;
+    margin: 20pt auto;
+}
+
+#popup label {
+    width: 25%;
+}
+
+#popup input {
+    width: 70%;
+}
+
+#button-wrapper {
+    margin-top: 15pt;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #popup {
+    min-width: 150px;
+    width: 80%;
+    max-width: 350px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* adding scale(0) after the translate will make it disappear */
     border: 1px solid black;
-    padding: 30px;
+    padding: 15px;
     z-index: 10;
     background-color: white;
 }

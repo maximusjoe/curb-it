@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#requestPosted").hide();
+
     $("#acceptedRequest").click(function() {
         $("#requestAccept").show();
         $("#requestPosted").hide();
@@ -38,7 +38,7 @@ $(document).ready(function() {
                             <div>
                             <div class="request-number">${post.numberOfItem} item(s)</div>
                             <div class="request-address">${post.address}</div>
-                            <div class="schedule">Shedule: </div>
+                            <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
                             </div>
                             <div>
                             <button class='edit-button'>Edit</button>
@@ -63,7 +63,7 @@ $(document).ready(function() {
                             <div>
                             <div class="request-number">${post.numberOfItem} items</div>
                             <div class="request-address">${post.address}</div>
-                            <div class="schedule">Shedule: </div>
+                            <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
                             </div>
                             <div class="decline-done">
                             <button class='done-button'>Done</button>

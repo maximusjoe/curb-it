@@ -15,7 +15,19 @@ $(document).ready(() => {
     const post_id = GetURLParameter('id')
     const poster_id = GetURLParameter('poster')
 
-    // Check whether a user is logged in.
+    $("#accept-button1").on('click', e => {
+        e.preventDefault()
+        $("#popup").fadeIn(250);
+        $("#overlay").show();
+    })
+
+    $("#cancel-button").on('click', e => {
+        e.preventDefault()
+        $("#popup").fadeOut(250);
+        $("#overlay").hide();
+    })
+
+    //Check whether a user is logged in .
     firebase.auth().onAuthStateChanged(async(user) => {
         const data = await db.collection('users').doc(poster_id).collection('postedRequests')
             .doc(post_id).get().then(doc => {
@@ -48,15 +60,19 @@ $(document).ready(() => {
         }
         if (user) {
             // User is signed in.
-            $('#accept-button').on('click', async(e) => {
+            $('#accept-button2').on('click', async(e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
+                    let pickupDate = $("#date-input").val();
+                    let pickupTime = $("#time-input").val();
                     await db.collection('users').doc(poster_id)
                         .collection('postedRequests')
                         .doc(post_id)
                         .update({
-                            available: false
+                            available: false,
+                            pickupDate,
+                            pickupTime
                         })
                     await db.collection('users').doc(user.uid)
                         .collection('acceptedRequests')
@@ -65,9 +81,8 @@ $(document).ready(() => {
                             posterID: poster_id,
                             postID: post_id
                         })
-                        //window.location.href = `profile.html?uid=${user.uid}`
-                        // $("#popup").show();
-                        // $("#overlay").show();
+                        //console.log("Accepted!!!")
+                    window.location.href = "profile.html";
                 }
             })
         } else {
@@ -78,7 +93,14 @@ $(document).ready(() => {
     });
 
     function accepted() {
-
+        $("#accept-button1:disabled").css({
+            backgroundRolor: "rgb(2, 99, 70)",
+            color: "rgb(63, 5, 29)",
+            height: "2.5rem",
+            width: "100%",
+            maxWidth: "100px",
+            borderRadius: "5px",
+        })
     }
 
-})
+});

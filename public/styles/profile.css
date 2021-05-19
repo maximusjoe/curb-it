@@ -24,12 +24,16 @@ h4 {
 
 #requestAccept {
     background-color: rgb(47, 48, 48);
-    height: 80vh;
+    min-height: 80vh;
+    max-height: fit-content;
+    padding-bottom: 5rem;
 }
 
 #requestPosted {
     background-color: rgb(197, 243, 233);
-    height: 80vh;
+    min-height: 80vh;
+    max-height: fit-content;
+    padding-bottom: 5rem;
 }
 
 .acceptBoxes:hover {
