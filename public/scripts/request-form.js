@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $("#add-button").click(function(e) {
+$(document).ready(function () {
+    $("#add-button").click(function (e) {
         e.preventDefault();
 
         let item_input = $("#list-input").val();
@@ -13,12 +13,32 @@ $(document).ready(function() {
 
     var itemArray = new Array();
     console.log(itemArray);
+    var photoURL;
+    var photoID = uniqueID();
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+    var imgRef = storageRef.child("images/" + photoID + ".jpg");
+
+
+
+    var fileInput = document.getElementById("photo-input");
+    fileInput.addEventListener('change', function (e) {
+
+        var file = e.target.files[0];
+
+        imgRef.put(file)
+            .then(function () {
+                console.log('Uploaded to Cloud Storage.');
+            })
+
+    });
+
 
     var numberRange = document.getElementById("number-input");
     var numberValue = document.getElementById("number-value");
     numberValue.innerHTML = numberRange.value;
 
-    numberRange.oninput = function() {
+    numberRange.oninput = function () {
         numberValue.innerHTML = this.value;
     }
 
@@ -26,7 +46,7 @@ $(document).ready(function() {
     var widthValue = document.getElementById("width-value");
     widthValue.innerHTML = widthRange.value;
 
-    widthRange.oninput = function() {
+    widthRange.oninput = function () {
         widthValue.innerHTML = this.value;
     }
 
@@ -34,11 +54,11 @@ $(document).ready(function() {
     var heightValue = document.getElementById("height-value");
     heightValue.innerHTML = heightRange.value;
 
-    heightRange.oninput = function() {
+    heightRange.oninput = function () {
         heightValue.innerHTML = this.value;
     }
 
-    $('#submit-button').click(function(e) {
+    $('#submit-button').click(function (e) {
         e.preventDefault();
 
         let address = $("#address-input").val();
@@ -50,12 +70,17 @@ $(document).ready(function() {
         console.log(width)
         console.log(height)
 
+        imgRef.getDownloadURL()
+            .then((url) => {
+                photoURL = url;
+            })
 
-        firebase.auth().onAuthStateChanged(function(user) {
+
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 db.collection("users").doc(user.uid)
                     .get()
-                    .then(function(doc) {
+                    .then(function (doc) {
                         const name = doc.data().name;
                         const email = doc.data().email
                         db.collection("users").doc(user.uid).collection("postedRequests").add({
@@ -68,9 +93,10 @@ $(document).ready(function() {
                             width,
                             height,
                             numberOfItem,
+                            photo: photoURL,
                             postedDate: getDateTime(),
                             available: true
-                        }).then(function(result) {
+                        }).then(function (result) {
                             console.log('Upload Successful!')
                             redirectToSuccess(result.id)
                         }).catch(error => console.log(error))
@@ -91,6 +117,9 @@ $(document).ready(function() {
 
 });
 
+function uniqueID() {
+    return Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+}
 
 
 function getDateTime() {
@@ -102,4 +131,4 @@ function getDateTime() {
         currentdate.getMinutes() + ":" +
         currentdate.getSeconds();
     return datetime;
-}
+};
