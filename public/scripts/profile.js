@@ -16,7 +16,6 @@ $(document).ready(function () {
         });
     });
 
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
@@ -72,9 +71,8 @@ $(document).ready(function () {
                         declinePostListener(user.uid, postID, posterID)
                         finishPostListener(user.uid, postID, posterID)
                     }
+                    $('#spinner').hide()
                 })
-
-
         } else {
             // No user is signed in.
             window.location.href = 'index.html'
