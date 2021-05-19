@@ -40,13 +40,13 @@ firebase.auth().onAuthStateChanged(function (user) {
                         .catch(error => console.log(error))
                     $('#requestAccept').append(`<div class="acceptBoxes">
                             <h4>${post.numberOfItem} items
-                            <button class='decline-button btn btn-outline-secondary'>Decline</button>
-                            <button class='finish-button btn btn-outline-secondary'>Done</button>
+                            <button id="${user.uid}${postID}" class='decline-button btn btn-outline-secondary'>Decline</button>
+                            <button id="${postID}${user.uid}" class='finish-button btn btn-outline-secondary'>Done</button>
                             </h4>
                              <p>${post.address}</p>
                             </div>`)
                     declinePostListener(user.uid, postID, posterID)
-                    finishPostListener()
+                    finishPostListener(user.uid, postID, posterID)
                 }
             })
 
@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 const declinePostListener = (uid, postID, posterUID) => {
-    $('.decline-button').on('click', async (event) => {
+    $(`#${uid}${postID}`).on('click', async (event) => {
         await db.collection('users').doc(uid).collection('acceptedRequests').doc(postID).delete()
             .then(() => {
                 console.log('Document successfully removed from the users accepted posts')
@@ -74,8 +74,19 @@ const declinePostListener = (uid, postID, posterUID) => {
     })
 }
 
-const finishPostListener = () => {
-    $('.finish-button').on('click', (event) => {
+const finishPostListener = (uid, postID, posterUID) => {
+    $(`#${postID}${uid}`).on('click', async (event) => {
         // Shoot notifications here!
+        
+        await db.collection('users').doc(uid).collection('acceptedRequests').doc(postID).delete()
+            .then(() => {
+                console.log('Document successfully removed from the users accepted posts')
+            }).catch(error => console.log(error))
+        await db.collection('users').doc(posterUID).collection('postedRequests').doc(postID).delete()
+            .then(() => {
+                console.log('Successfully delete from the posters posted requests')
+            })
+            .catch(error => console.log(error))
+        window.location.href = 'profile.html'
     })
 }
