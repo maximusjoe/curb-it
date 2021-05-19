@@ -50,18 +50,30 @@
     <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
     <div style="display:none" id="overlay"></div>
 
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <p>Value: <span id="demo"></span></p>
+    </div>
+
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#btn").click(function() {
-                let delay = 1000;
-                $("#popup").show();
+
+                $("#popup").fadeIn();
                 $("#overlay").show();
 
-                setTimeout(function() {
-                    window.location = 'main.html';
-                }, delay);
             });
         });
     </script>
