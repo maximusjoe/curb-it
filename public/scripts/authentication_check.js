@@ -8,7 +8,7 @@ $(document).ready(() => {
                     console.log('Signed out Successfully')
                 }).catch((error) => {
                     // An error happened.
-                    console.log (error)
+                    console.log(error)
                 });
             })
             console.log('You are logged in')

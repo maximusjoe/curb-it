@@ -1,3 +1,15 @@
+#acceptedRequest:hover {
+    cursor: pointer;
+}
+
+#postedRequest:hover {
+    cursor: pointer;
+}
+
+.spinner-border {
+    color: rgb(197, 243, 233);
+}
+
 .beside {
     width: 50%;
     float: left;
