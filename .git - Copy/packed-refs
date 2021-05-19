@@ -1,6 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-2a528adec075ee01eeb1539d17b7362c190e503a refs/remotes/origin/dev
-d92ebe94d22f621da30da6c7a7564aa171ad2f41 refs/remotes/origin/feature-1
-d92ebe94d22f621da30da6c7a7564aa171ad2f41 refs/remotes/origin/feature-2
-aa5a002b46b479bea4980ca78fe775b84411a605 refs/remotes/origin/main
-06e928f042737dc8912f3f01e788bae77d1d994b refs/tags/Sprint-2-Deliverable
