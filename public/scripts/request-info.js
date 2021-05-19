@@ -81,8 +81,7 @@ $(document).ready(() => {
                             posterID: poster_id,
                             postID: post_id
                         })
-                        //console.log("Accepted!!!")
-                    window.location.href = "profile.html";
+                    accepted();
                 }
             })
         } else {
@@ -93,14 +92,18 @@ $(document).ready(() => {
     });
 
     function accepted() {
-        $("#accept-button1:disabled").css({
-            backgroundRolor: "rgb(2, 99, 70)",
-            color: "rgb(63, 5, 29)",
-            height: "2.5rem",
-            width: "100%",
-            maxWidth: "100px",
-            borderRadius: "5px",
-        })
+        $("#popup").fadeOut(250);
+        $("#overlay").hide();
+        $("#accept-button1").text("Acceptted")
+            .attr("disabled", true)
+            .css({
+                backgroundColor: "rgba(31, 32, 32, 0)",
+                color: "rgb(0, 95, 71)",
+                height: "2.5rem",
+                width: "100%",
+                maxWidth: "100px",
+                borderRadius: "5px",
+            })
     }
 
 });
