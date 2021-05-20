@@ -46,8 +46,8 @@
 
 
     <div style="display:none" id="popup">
-        <h1 class="onEdit">Congrats!</h1>
-        <h2 class="onEdit">You were our 5th</h2>
+        <h1 class="onEdit" id="egg">Congrats!</h1>
+        <!-- <h2 class="onEdit">You were our 5th</h2> -->
         <h2 class="onEdit">person to find our invisible button!</h2>
     </div>
 
@@ -73,10 +73,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
+            var count = 1;
             $("#btn").click(function () {
 
                 $("#popup").fadeIn();
                 $("#overlay").show();
+                $("#egg").append("<h2>You were our " + count + "th</h2>")
+                count++;
 
             });
 
