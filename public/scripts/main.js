@@ -63,7 +63,7 @@ $(document).ready(function() {
            
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-                function dec_sort(a, b){ return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
+                function dec_sort(b, a){ return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
             }
             $("#content").sortDivs();
         }
@@ -71,7 +71,7 @@ $(document).ready(function() {
            
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-                function dec_sort(b, a){ return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
+                function dec_sort(a, b){ return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
             }
             $("#content").sortDivs();
         }
