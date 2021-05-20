@@ -45,21 +45,21 @@ $(document).ready(function() {
     }
 
     $("#apply").click(function() {
-        if (document.getElementById("all-select").value == "sortLowToHigh"){
+        if (document.getElementById("all-select").value == "sortItemsDesc"){
             $("#content .each-post")
                 .sort(function (a, b) {
                     return $(a).data("items") - $(b).data("items");
                 })
                 .appendTo("#content");
         }
-        if (document.getElementById("all-select").value == "sortHighToLow"){
+        if (document.getElementById("all-select").value == "sortItemsAsc"){
             $("#content .each-post")
                 .sort(function (a, b) {
                     return $(b).data("items") - $(a).data("items");
                 })
                 .appendTo("#content");
         }
-        if (document.getElementById("all-select").value == "sortCity"){
+        if (document.getElementById("all-select").value == "sortCityDesc"){
            
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
@@ -67,10 +67,17 @@ $(document).ready(function() {
             }
             $("#content").sortDivs();
         }
-        if (document.getElementById("all-select").value == "sortDate"){
+        if (document.getElementById("all-select").value == "sortDateDesc"){
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
                 function dec_sort(b, a){ return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
+            }
+            $("#content").sortDivs();
+        }
+        if (document.getElementById("all-select").value == "sortDateAsc"){
+            jQuery.fn.sortDivs = function sortDivs() {
+                $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
+                function dec_sort(a, b){ return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
             }
             $("#content").sortDivs();
         }
