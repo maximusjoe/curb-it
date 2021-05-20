@@ -16,13 +16,28 @@ $(document).ready(function() {
     }
     addItem();
 
-    $("#item-list").on('click', 'div.each-item', function() {
-        console.log($(this).find('button').attr('id'));
-    })
+    function deleteItem() {
+        $("#item-list").on('click', 'div.each-item', function() {
+            console.log($(this).find('button').attr('class'));
 
+            let button = $(this).find('button');
+            let div = $(button).parent();
+            console.log($(button).parent().text())
+
+            for (let i = 0; i < itemArray.length; i++) {
+                let item = $(button).parent().text()
+                if (item === itemArray[i]) {
+                    $(div).remove();
+                    itemArray.splice(i, 1);
+                    console.log(itemArray);
+                }
+            }
+        })
+
+    }
+    deleteItem();
 
     var itemArray = new Array();
-    console.log(itemArray);
 
     var numberRange = document.getElementById("number-input");
     var numberValue = document.getElementById("number-value");
