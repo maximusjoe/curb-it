@@ -71,9 +71,9 @@ $(document).ready(function () {
                             <button id="${user.uid}${postID}" class='decline-button'>Decline</button>
                             </div>
                             </div>`)
-                        console.log('user ID: ', user.uid)
-                        console.log('postID: ', postID)
-                        console.log('posterID: ', posterID)
+                        // console.log('user ID: ', user.uid)
+                        // console.log('postID: ', postID)
+                        // console.log('posterID: ', posterID)
                         viewRequestInfo(postID, posterID)
                         declinePostListener(user.uid, postID, posterID)
                         finishPostListener(user.uid, postID, posterID)
