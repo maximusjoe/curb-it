@@ -48,14 +48,10 @@ var logos = document.getElementById("logos");
 var loginButton = document.getElementById("login-btn");
 var loginUI = document.getElementById("firebaseui-auth-container");
 
+$("#content").hide();
 
 function showLogin() {
-    document.body.style.backgroundColor = "lightgray";
-    loginButton.style.display = "none";
-
-    loginBox.style.display = "inline";
-
-    setTimeout(function() {
-        loginUI.style.opacity = 1;
-    }, 250);
+    $("#content").slideDown(1000);
+    $("#main-view").slideUp(500);
+    $("#videos").hide(0);
 }
