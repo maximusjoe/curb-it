@@ -1,22 +1,27 @@
 body {
-    background-color: lightgray;
-    text-align: center;
+  background-color: lightgray;
+  text-align: center;
 }
 
 img {
-    width: 20vw;
-    max-width: 150px;
+  width: 20vw;
+  max-width: 150px;
 }
 
 .log {
-    margin: auto;
-    padding: 5rem;
+  margin: auto;
+  padding: 5rem;
 }
 
 .content {
-    display: none;
+  display: none;
 }
 
 .center {
-    margin: 0;
+  margin: 0;
+}
+#videos {
+  width: 360px;
+  height: 200px;
+  margin: 3rem;
 }

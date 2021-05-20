@@ -26,19 +26,6 @@
     <div class="log">
       <img src="./img/logo.png" alt="logo" id="easter" />
     </div>
-    <div style="margin-right: auto; margin-left: auto">
-      <iframe
-        id="videos"
-        style="display: none"
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/RZU5q6M2d9g"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
     <div class="container-fluid" id="main-view">
       <div class="logo" id="logos">
         <div class="d-grid gap-2 col-3 mx-auto center">
@@ -51,10 +38,24 @@
         </div>
       </div>
     </div>
+
     <div id="content">
       <!-- <h1>Sign In</h1> -->
       <div id="firebaseui-auth-container"></div>
       <div id="loader">Loading...</div>
+    </div>
+    <div style="margin-right: auto; margin-left: auto">
+      <iframe
+        id="videos"
+        style="display: none"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/RZU5q6M2d9g"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -91,8 +92,8 @@
           obj.play();
           count++;
           console.log(count);
-          if (count == 3) {
-            $("#videos").show("<h2>hello</h2>");
+          if (count % 3 == 0) {
+            $("#videos").toggle("<h2>hello</h2>");
           }
           // obj.pause();
         });
