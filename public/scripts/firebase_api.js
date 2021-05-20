@@ -16,6 +16,7 @@ const messaging = firebase.messaging();
 // subsequent calls to getToken will return from cache.
 messaging.getToken({ vapidKey: 'BBrq9TBflOEHFWj82NU2CEZ3Msr0vjPvC_k6X2NxJ8TzigyQFzz1FqAqHY5K2eDFsJG9dNz4BVZ8B8NuzvECKac' }).then((currentToken) => {
     if (currentToken) {
+        console.log(currentToken);
         messaging.requestPermission()
         .then(function() {
             console.log('Have Permission');

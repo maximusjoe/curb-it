@@ -14,13 +14,13 @@ function sendNotification(){
 
     $headers=array(
         'Authorization: key=AAAA2GHOoB8:APA91bF8D4q56HHNZ5OSSWAz0JfdT3IpDAaoctfzr52uPe7gOaT3zPEC2iky4R3hxIuso2htI7FGlL0QdgEfSQraWWJCE9Vvwu8i-E7DQvmxPaDTg-eTWGqQ5TFiyRIdf6OH6hvLIuRU',
-        'Content-Type:application/json'
+        'Content-Type: application/json'
     )
 
     $ch=curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_HTTPSHEADER, $headers);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopts($ch, CURLOPT_POSTFIELDS, json_encode($fields));
     $result=curl_exec($ch);
