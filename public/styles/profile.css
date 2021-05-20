@@ -1,9 +1,11 @@
 #acceptedRequest:hover {
     cursor: pointer;
+    color: palevioletred;
 }
 
 #postedRequest:hover {
     cursor: pointer;
+    color: palevioletred;
 }
 
 .spinner-border {
@@ -140,6 +142,7 @@ h4 {
     background-color: lightblue;
     border: 2px solid black;
 }
+
 #profile_outline div {
     padding: 10px;
 }

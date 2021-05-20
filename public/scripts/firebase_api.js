@@ -10,3 +10,30 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+
+// const messaging = firebase.messaging();
+// // Get registration token. Initially this makes a network call, once retrieved
+// // subsequent calls to getToken will return from cache.
+// messaging.getToken({ vapidKey: 'BBrq9TBflOEHFWj82NU2CEZ3Msr0vjPvC_k6X2NxJ8TzigyQFzz1FqAqHY5K2eDFsJG9dNz4BVZ8B8NuzvECKac' }).then((currentToken) => {
+//     if (currentToken) {
+//         messaging.requestPermission()
+//         .then(function() {
+//             console.log('Have Permission');
+//         })
+//         .catch(function(err) {
+//             console.log("Error Occurend.")
+//         })
+//     } else {
+//       // Show permission request UI
+//       console.log('No registration token available. Request permission to generate one.');
+//       // ...
+//     }
+//   }).catch((err) => {
+//     console.log('An error occurred while retrieving token. ', err);
+//     // ...
+//   });
+    
+// messaging.onMessage(function(payload) {
+//     console.log('onMessage');
+// });
+
