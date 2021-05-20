@@ -1,11 +1,9 @@
 #acceptedRequest:hover {
     cursor: pointer;
-    color: palevioletred;
 }
 
 #postedRequest:hover {
     cursor: pointer;
-    color: palevioletred;
 }
 
 .view-post-container {
@@ -137,6 +135,7 @@ h4 {
     width: 5rem;
     display: block;
 }
+
 
 /* #username {
     text-align: center;

@@ -16,13 +16,28 @@ $(document).ready(function() {
     }
     addItem();
 
-    $("#item-list").on('click', 'div.each-item', function() {
-        console.log($(this).find('button').attr('id'));
-    })
+    function deleteItem() {
+        $("#item-list").on('click', 'div.each-item', function() {
+            console.log($(this).find('button').attr('class'));
 
+            let button = $(this).find('button');
+            let div = $(button).parent();
+            console.log($(button).parent().text())
+
+            for (let i = 0; i < itemArray.length; i++) {
+                let item = $(button).parent().text()
+                if (item === itemArray[i]) {
+                    $(div).remove();
+                    itemArray.splice(i, 1);
+                    console.log(itemArray);
+                }
+            }
+        })
+
+    }
+    deleteItem();
 
     var itemArray = new Array();
-    console.log(itemArray);
 
     var numberRange = document.getElementById("number-input");
     var numberValue = document.getElementById("number-value");
@@ -47,28 +62,28 @@ $(document).ready(function() {
     heightRange.oninput = function() {
         heightValue.innerHTML = this.value;
     }
-    
+
     var photoURL;
     var photoID = uniqueID();
     var storage = firebase.storage();
     var storageRef = storage.ref();
     var imgRef = storageRef.child("images/" + photoID + ".jpg");
-    
 
-    
+
+
     var fileInput = document.getElementById("photo-input");
-    fileInput.addEventListener('change', function (e) {
-        
+    fileInput.addEventListener('change', function(e) {
+
         var file = e.target.files[0];
         if (e.target.files.length > 1) return alert('You only need to upload 1 image.')
-        
-        imgRef.put(file) 
-        .then(function(){
-            console.log('Uploaded to Cloud Storage.');
-        })
-        
+
+        imgRef.put(file)
+            .then(function() {
+                console.log('Uploaded to Cloud Storage.');
+            })
+
     });
-    
+
 
     $('#submit-button').click(function(e) {
         e.preventDefault();
@@ -83,10 +98,10 @@ $(document).ready(function() {
         // console.log(height)
 
         imgRef.getDownloadURL()
-        .then((url) => {
-            photoURL = url;
-        })
-    
+            .then((url) => {
+                photoURL = url;
+            })
+
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
