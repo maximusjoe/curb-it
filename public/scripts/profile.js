@@ -23,6 +23,8 @@ $(document).ready(function () {
                 .get()
                 .then(async (doc) => {
                     $('#username').html(`${doc.data().name}`)
+                    $('#user_email').html(`${doc.data().email}`)
+                    $('#user_address').html(`${doc.data().address}`)
                     // Posted Requests will appear here
                     const listPostedReqs = await db.collection('users').doc(user.uid).collection('postedRequests')
                         .get()
