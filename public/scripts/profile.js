@@ -15,7 +15,6 @@ $(document).ready(function () {
             backgroundColor: "rgb(47, 48, 48)",
         });
     });
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
@@ -23,6 +22,8 @@ $(document).ready(function () {
                 .get()
                 .then(async (doc) => {
                     $('#username').html(`${doc.data().name}`)
+                    $('#user_email').html(`${doc.data().email}`)
+                    $('#user_address').html(`${doc.data().address}`)
                     // Posted Requests will appear here
                     const listPostedReqs = await db.collection('users').doc(user.uid).collection('postedRequests')
                         .get()
@@ -42,6 +43,7 @@ $(document).ready(function () {
                             <button class='edit-button'>Edit</button>
                             </div>
                             </div>`)
+                        viewRequestInfo(postid, user.uid)
                     }
 
                     // Accepted Requests will appear here
@@ -49,6 +51,7 @@ $(document).ready(function () {
                         .get()
                         .then(docs => docs)
                         .catch(error => console.log(error))
+
                     // Get the list of the accepted requests including the post's ID and the poster's ID
                     for (let i = 0; i < listAcceptedReqs.docs.length; i++) {
                         const postID = listAcceptedReqs.docs[i].id
@@ -68,6 +71,10 @@ $(document).ready(function () {
                             <button id="${user.uid}${postID}" class='decline-button'>Decline</button>
                             </div>
                             </div>`)
+                        console.log('user ID: ', user.uid)
+                        console.log('postID: ', postID)
+                        console.log('posterID: ', posterID)
+                        viewRequestInfo(postID, posterID)
                         declinePostListener(user.uid, postID, posterID)
                         finishPostListener(user.uid, postID, posterID)
                     }
@@ -78,6 +85,12 @@ $(document).ready(function () {
             window.location.href = 'index.html'
         }
     });
+
+    const viewRequestInfo = (postID, posterID) => {
+        $(`#${postID}`).on('click', (event) => {
+            window.location.href = `request-info.html?id=${postID}&poster=${posterID}`
+        })
+    }
 
     const declinePostListener = (uid, postID, posterUID) => {
         $(`#${uid}${postID}`).on('click', async (event) => {

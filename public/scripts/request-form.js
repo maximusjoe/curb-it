@@ -20,6 +20,7 @@ $(document).ready(function() {
         console.log($(this).find('button').attr('id'));
     })
 
+
     var itemArray = new Array();
     console.log(itemArray);
 
@@ -55,9 +56,9 @@ $(document).ready(function() {
         let width = $("#width-input").val();
         let height = $("#width-input").val();
         let numberOfItem = $("#number-input").val();
-        console.log(numberOfItem);
-        console.log(width)
-        console.log(height)
+        // console.log(numberOfItem);
+        // console.log(width)
+        // console.log(height)
 
 
         firebase.auth().onAuthStateChanged(function(user) {

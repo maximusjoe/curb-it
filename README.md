@@ -5,9 +5,11 @@
 - [Technologies](#technologies)
 
 ## General Info
+
 The mobile-first web app lets people posts their recyclables online and other volunteers on the application can come and pick them up.
 
 ## Contributors
+
 - Tony Trinh
 - Marco Duval
 - Xandra Nguyen
@@ -15,10 +17,12 @@ The mobile-first web app lets people posts their recyclables online and other vo
 - Paul Kim
 
 ## Technologies
+
 Technologies used for this project:
-* HTML
-* CSS
-* JavaScript / JQuery
-* Bootstrap 
-* Firebase / Firestore
-* Nodejs
+
+- HTML
+- CSS
+- JavaScript / JQuery
+- Bootstrap
+- Firebase / Firestore
+- Nodejs

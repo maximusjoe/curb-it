@@ -127,7 +127,19 @@ h4 {
     display: block;
 }
 
-#username {
+/* #username {
     text-align: center;
     color: rgb(65, 110, 103);
+} */
+
+#profile_outline {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    display: block;
+    background-color: lightblue;
+    border: 2px solid black;
+}
+#profile_outline div {
+    padding: 10px;
 }
