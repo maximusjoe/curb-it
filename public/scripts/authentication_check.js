@@ -11,7 +11,8 @@ $(document).ready(() => {
                     console.log(error)
                 });
             })
-            console.log('You are logged in')
+            console.log('You are logged in');
+            console.log("Image Storage");
         } else {
             $('#login-logout').text('Sign-in')
             $('#login-logout').on('click', (e) => {
