@@ -75,6 +75,7 @@ $(document).ready(function() {
     fileInput.addEventListener('change', function(e) {
 
         var file = e.target.files[0];
+        if (e.target.files.length > 1) return alert('You only need to upload 1 image.')
 
         imgRef.put(file)
             .then(function() {

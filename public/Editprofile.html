@@ -149,7 +149,7 @@
     <script src="./scripts/authentication_check.js"></script>
 
     <script>
-        function updateProfile() {
+        (function updateProfile() {
             document.getElementById("save").addEventListener('click', function () {
                 firebase.auth().onAuthStateChanged(function (user) {
 
@@ -160,22 +160,20 @@
                     db.collection("users")
                         .doc(user.uid)
                         .update({
-                            "address": address,
-                            "name": name,
-                            "email": email
-
-                        }).then(function(result) {
+                            address,
+                            email,
+                            name
+                        }).then(function (result) {
                             console.log('Upload Successful!')
                             redirectToProfile()
                         }).catch(error => console.log(error))
                 })
             })
-        }
-        updateProfile();
+        })()
 
         function redirectToProfile(id) {
-        window.location.href = `profile.html`;
-    }
+            window.location.href = `profile.html`;
+        }
     </script>
 </body>
 

@@ -43,7 +43,7 @@ $(document).ready(function() {
                             <button class='edit-button'>Edit</button>
                             </div>
                             </div>`)
-                            //viewRequestInfo(postid, user.uid);
+                        viewRequestInfo(postid, user.uid);
                         editRequest(user.uid, postid);
                     }
 
@@ -61,8 +61,8 @@ $(document).ready(function() {
                         const post = await db.collection('users').doc(posterID).collection('postedRequests').doc(postID).get()
                             .then(result => result.data()).catch(error => console.log(error))
                         $('#spinner').hide()
-                        $('#requestAccept').append(`<div class="acceptBoxes" id="${postID}">
-                            <div>
+                        $('#requestAccept').append(`<div class="acceptBoxes" >
+                            <div id="${postID}">
                             <div class="request-number">${post.numberOfItem} items</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
@@ -72,9 +72,9 @@ $(document).ready(function() {
                             <button id="${user.uid}${postID}" class='decline-button'>Decline</button>
                             </div>
                             </div>`)
-                        console.log('user ID: ', user.uid)
-                        console.log('postID: ', postID)
-                        console.log('posterID: ', posterID)
+                            // console.log('user ID: ', user.uid)
+                            // console.log('postID: ', postID)
+                            // console.log('posterID: ', posterID)
                         viewRequestInfo(postID, posterID)
                         declinePostListener(user.uid, postID, posterID)
                         finishPostListener(user.uid, postID, posterID)
