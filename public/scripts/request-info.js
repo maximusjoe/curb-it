@@ -56,7 +56,6 @@ $(document).ready(() => {
         $('#requester').html(name)
         $('#city').html(city)
         $("#photo-info").attr("src", photo);
-
         for (let i = 0; i < itemsList.length; i++) {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
         }
