@@ -5,14 +5,14 @@ $(document).ready(function() {
         let item_input = $("#list-input").val();
         itemArray.push(item_input);
 
-        console.log(item_input);
+        // console.log(item_input);
 
         $("#add-button").after('<div id="' + itemArray.length + '" class="each-item"><span class="item-name">' + item_input + '</span><button id="delete' + itemArray.length + '" type="button" class="cross btn-close"></button></div>')
 
     })
 
     var itemArray = new Array();
-    console.log(itemArray);
+    // console.log(itemArray);
 
     var numberRange = document.getElementById("number-input");
     var numberValue = document.getElementById("number-value");
@@ -46,9 +46,9 @@ $(document).ready(function() {
         let width = $("#width-input").val();
         let height = $("#width-input").val();
         let numberOfItem = $("#number-input").val();
-        console.log(numberOfItem);
-        console.log(width)
-        console.log(height)
+        // console.log(numberOfItem);
+        // console.log(width)
+        // console.log(height)
 
 
         firebase.auth().onAuthStateChanged(function(user) {
