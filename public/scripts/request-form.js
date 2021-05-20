@@ -62,27 +62,27 @@ $(document).ready(function() {
     heightRange.oninput = function() {
         heightValue.innerHTML = this.value;
     }
-    
+
     var photoURL;
     var photoID = uniqueID();
     var storage = firebase.storage();
     var storageRef = storage.ref();
     var imgRef = storageRef.child("images/" + photoID + ".jpg");
-    
 
-    
+
+
     var fileInput = document.getElementById("photo-input");
-    fileInput.addEventListener('change', function (e) {
-        
+    fileInput.addEventListener('change', function(e) {
+
         var file = e.target.files[0];
-        
-        imgRef.put(file) 
-        .then(function(){
-            console.log('Uploaded to Cloud Storage.');
-        })
-        
+
+        imgRef.put(file)
+            .then(function() {
+                console.log('Uploaded to Cloud Storage.');
+            })
+
     });
-    
+
 
     $('#submit-button').click(function(e) {
         e.preventDefault();
@@ -97,10 +97,10 @@ $(document).ready(function() {
         // console.log(height)
 
         imgRef.getDownloadURL()
-        .then((url) => {
-            photoURL = url;
-        })
-    
+            .then((url) => {
+                photoURL = url;
+            })
+
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
