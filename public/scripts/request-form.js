@@ -1,18 +1,28 @@
 $(document).ready(function() {
-    $("#add-button").click(function(e) {
-        e.preventDefault();
 
-        let item_input = $("#list-input").val();
-        itemArray.push(item_input);
+    function addItem() {
+        $("#add-button").click(function(e) {
+            e.preventDefault();
 
-        // console.log(item_input);
+            let item_input = $("#list-input").val();
+            itemArray.push(item_input);
 
-        $("#add-button").after('<div id="' + itemArray.length + '" class="each-item"><span class="item-name">' + item_input + '</span><button id="delete' + itemArray.length + '" type="button" class="cross btn-close"></button></div>')
+            console.log(item_input);
+            console.log(itemArray);
 
+            $("#add-button").after('<div id="' + (itemArray.length - 1) + '" class="each-item"><span class="item-name">' + item_input + '</span><button id="delete' + (itemArray.length - 1) + '" type="button" class="delete btn-close"></button></div>')
+
+        })
+    }
+    addItem();
+
+    $("#item-list").on('click', 'div.each-item', function() {
+        console.log($(this).find('button').attr('id'));
     })
 
+
     var itemArray = new Array();
-    // console.log(itemArray);
+    console.log(itemArray);
 
     var numberRange = document.getElementById("number-input");
     var numberValue = document.getElementById("number-value");
