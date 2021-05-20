@@ -48,14 +48,14 @@ $(document).ready(function() {
         if (document.getElementById("all-select").value == "sortItemsDesc"){
             $("#content .each-post")
                 .sort(function (a, b) {
-                    return $(a).data("items") - $(b).data("items");
+                    return $(b).data("items") - $(a).data("items");
                 })
                 .appendTo("#content");
         }
         if (document.getElementById("all-select").value == "sortItemsAsc"){
             $("#content .each-post")
                 .sort(function (a, b) {
-                    return $(b).data("items") - $(a).data("items");
+                    return $(a).data("items") - $(b).data("items");
                 })
                 .appendTo("#content");
         }
