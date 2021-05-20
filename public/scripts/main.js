@@ -67,6 +67,14 @@ $(document).ready(function() {
             }
             $("#content").sortDivs();
         }
+        if (document.getElementById("all-select").value == "sortCityAsc"){
+           
+            jQuery.fn.sortDivs = function sortDivs() {
+                $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
+                function dec_sort(b, a){ return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
+            }
+            $("#content").sortDivs();
+        }
         if (document.getElementById("all-select").value == "sortDateDesc"){
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
