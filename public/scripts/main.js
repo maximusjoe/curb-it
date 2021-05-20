@@ -44,6 +44,11 @@ $(document).ready(function() {
             });
     }
 
+    
+    function defaultSort(){
+        
+    }
+
     $("#apply").click(function() {
         if (document.getElementById("all-select").value == "sortItemsDesc"){
             $("#content .each-post")
@@ -92,5 +97,15 @@ $(document).ready(function() {
         
     });
 
+    async function asyncCall() {
+        jQuery.fn.sortDivs = function sortDivs() {
+            $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
+            function dec_sort(a, b){ return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
+        }
+        $("#content").sortDivs();
+        console.log("isnt working")
+      }
+      
+    asyncCall();
 
 });
