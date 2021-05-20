@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Filter</title>
+  </head>
+  <body>
+    <button>Sort</button>
+    <div class="wrapper">
+      <div class="item" data-worth="444">444</div>
+      <div class="item" data-worth="720">720</div>
+      <div class="item" data-worth="420">420</div>
+      <div class="item" data-worth="555">555</div>
+      <div class="item" data-worth="333">333</div>
+      <div class="item" data-worth="222">222</div>
+      <div class="item" data-worth="666">666</div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      $("button").click(function () {
+        $(".wrapper div")
+          .sort(function (a, b) {
+            return $(b).data("worth") - $(a).data("worth");
+          })
+          .appendTo(".wrapper");
+      });
+    </script>
+  </body>
+</html>
