@@ -10,6 +10,11 @@
     color: rgb(197, 243, 233);
 }
 
+.container-post {
+    position: relative;
+    width: 100%;
+}
+
 .beside {
     width: 50%;
     float: left;
