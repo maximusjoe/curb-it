@@ -1,11 +1,9 @@
 #acceptedRequest:hover {
     cursor: pointer;
-    color: palevioletred;
 }
 
 #postedRequest:hover {
     cursor: pointer;
-    color: palevioletred;
 }
 
 .spinner-border {

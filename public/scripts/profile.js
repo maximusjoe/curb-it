@@ -40,7 +40,7 @@ $(document).ready(function() {
                             <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
                             </div>
                             <div>
-                            <button class='edit-button'>Edit</button>
+                            <button class='edit-button' id="edit${postid}">Edit</button>
                             </div>
                             </div>`)
                         viewRequestInfo(postid, user.uid);
@@ -87,11 +87,6 @@ $(document).ready(function() {
         }
     });
 
-    function editRequest(uid, postID) {
-        $(".edit-button").on('click', (e) => {
-            window.location.href = `request-edit.html?id=${postID}&poster=${uid}`
-        })
-    }
 
     const viewRequestInfo = (postID, posterID) => {
         $(`#${postID}`).on('click', (event) => {
