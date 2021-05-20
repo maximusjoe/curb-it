@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            background-color: black;
+            padding: 1rem;
+            margin-top: 5%;
+        }
+
+        .draggable {
+            padding: 1rem;
+            background-color: white;
+            border: 1px solid black;
+            cursor: move;
+        }
+
+        #movable {
+            cursor: move;
+        }
+
+        .draggable.dragging {
+            opacity: .75;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- This is from https://www.youtube.com/watch?v=jfYWwQrtzzY -->
+    <img src="../public/img/logo.png" draggable="true" class='draggable' id="movable" alt="logo" width="40px" />
+
+    <div class="container" id="contain1">
+        <p class="draggable" draggable="true">1</p>
+        <p class="draggable" draggable="true">2</p>
+    </div>
+
+    <div class="container">
+        <p class="draggable" draggable="true">3</p>
+        <p class="draggable" draggable="true">4</p>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        const draggables = document.querySelectorAll(".draggable")
+        const containers = document.querySelectorAll(".container")
+
+        // const movable = document.getElementById("movable")
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener("dragstart", () => {
+                console.log("drag start")
+                draggable.classList.add("dragging")
+            })
+
+            draggable.addEventListener("dragend", () => {
+                draggable.classList.remove("dragging")
+            })
+        })
+
+        containers.forEach(container => {
+            container.addEventListener("dragover", e => {
+                e.preventDefault()
+                console.log("drag over")
+                const afterElement = getDragAfterElement(container, e.clientY)
+                const draggable = document.querySelector(".dragging")
+                if (afterElement == null) {
+                    container.appendChild(draggable)
+                } else {
+                    container.insertBefore(draggable, afterElement)
+                }        
+            })
+        })
+
+        // is y mouse?
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll(".draggable:not(.dragging)")]
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect()
+
+                const offset = y - box.top - box.height / 2
+                
+
+                if (offset < 0 && offset > closest.offset) {
+                    return {offset: offset, element: child }
+                } else {
+                    return closest
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #map {
+            height: 100%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d198545.2476626423!2d-122.77450725189212!3d49.1685434060127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1621542659510!5m2!1sen!2sca"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    <div id="map"></div>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlIgYn99FTaPE2i4Klg42_mY2ZIE6JRGo
+        &libraries=visualization&callback=initMap">
+    </script>
+    <script>
+        // javascript code that creates the firebase map goes here
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 0,
+                    lng: 0
+                },
+                zoom: 3,
+                styles: [{
+                    featureType: 'poi',
+                    stylers: [{
+                        visibility: 'off'
+                    }] // Turn off points of interest.
+                }, {
+                    featureType: 'transit.station',
+                    stylers: [{
+                        visibility: 'off'
+                    }] // Turn off bus stations, train stations, etc.
+                }],
+                disableDoubleClickZoom: true,
+                streetViewControl: false
+            });
+            // Create the DIV to hold the control and call the makeInfoBox() constructor
+            // passing in this DIV.
+            var infoBoxDiv = document.createElement('div');
+            var infoBox = new makeInfoBox(infoBoxDiv, map);
+            infoBoxDiv.index = 1;
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBoxDiv);
+        }
+
+        function makeInfoBox(controlDiv, map) {
+            // Set CSS for the control border.
+            var controlUI = document.createElement('div');
+            controlUI.style.boxShadow = 'rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px';
+            controlUI.style.backgroundColor = '#fff';
+            controlUI.style.border = '2px solid #fff';
+            controlUI.style.borderRadius = '2px';
+            controlUI.style.marginBottom = '22px';
+            controlUI.style.marginTop = '10px';
+            controlUI.style.textAlign = 'center';
+            controlDiv.appendChild(controlUI);
+
+            // Set CSS for the control interior.
+            var controlText = document.createElement('div');
+            controlText.style.color = 'rgb(25,25,25)';
+            controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+            controlText.style.fontSize = '100%';
+            controlText.style.padding = '6px';
+            controlText.innerText = 'The map shows all clicks made in the last 10 minutes.';
+            controlUI.appendChild(controlText);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -10,7 +10,7 @@
         .onEdit {
             text-align: center;
         }
-        
+
         #popup {
             position: fixed;
             top: 50%;
@@ -22,7 +22,7 @@
             z-index: 10;
             background-color: white;
         }
-        
+
         #overlay {
             position: fixed;
             top: 0;
@@ -36,15 +36,19 @@
 </head>
 
 <body>
-    <div id="buttonArea">
-        <button id="btn">Edit</button>
+    <div style="display: none;" id="buttonArea">
+        <button style="float: right; opacity: 25%;" id="btn">Edit</button>
+    </div>
+
+    <div>
+        <button id="btn2">click</button>
     </div>
 
 
     <div style="display:none" id="popup">
-        <h1 class="onEdit">Checkmark! Image</h1>
-        <h2 class="onEdit">Edit</h2>
-        <h2 class="onEdit">Successful!</h2>
+        <h1 class="onEdit">Congrats!</h1>
+        <h2 class="onEdit">You were our 5th</h2>
+        <h2 class="onEdit">person to find our invisible button!</h2>
     </div>
 
     <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
@@ -60,7 +64,7 @@
         var output = document.getElementById("demo");
         output.innerHTML = slider.value;
 
-        slider.oninput = function() {
+        slider.oninput = function () {
             output.innerHTML = this.value;
         }
     </script>
@@ -68,11 +72,17 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#btn").click(function() {
+        $(document).ready(function () {
+            $("#btn").click(function () {
 
                 $("#popup").fadeIn();
                 $("#overlay").show();
+
+            });
+
+            $("#btn2").click(function () {
+
+                $("#buttonArea").show();
 
             });
         });
