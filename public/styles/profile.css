@@ -8,6 +8,10 @@
     color: palevioletred;
 }
 
+.view-post-container {
+    width: 100%;
+}
+
 .spinner-border {
     color: rgb(197, 243, 233);
 }

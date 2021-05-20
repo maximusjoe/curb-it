@@ -33,8 +33,8 @@ $(document).ready(function () {
                     for (let i = 0; i < listPostedReqs.docs.length; i++) {
                         let post = listPostedReqs.docs[i].data()
                         let postid = listPostedReqs.docs[i].id
-                        $('#requestPosted').append(`<div class="postBoxes" id="${postid}">
-                            <div>
+                        $('#requestPosted').append(`<div class="postBoxes" >
+                            <div class="view-post-container" id="${postid}">
                             <div class="request-number">${post.numberOfItem} item(s)</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
