@@ -67,7 +67,6 @@
         <div>
             <lable>Address: </lable><textarea id="user_address" row="1"></textarea>
         </div>
-        <button onclick="window.location.href='profile.html'">Go Back</button>
         <button id="save">Save</button>
     </div>
 
@@ -149,7 +148,6 @@
     <script src="./scripts/profile.js"></script>
     <script src="./scripts/authentication_check.js"></script>
 
-    
     <script>
         function updateProfile() {
             document.getElementById("save").addEventListener('click', function () {
@@ -166,11 +164,18 @@
                             "name": name,
                             "email": email
 
-                        })
+                        }).then(function(result) {
+                            console.log('Upload Successful!')
+                            redirectToProfile()
+                        }).catch(error => console.log(error))
                 })
             })
         }
         updateProfile();
+
+        function redirectToProfile(id) {
+        window.location.href = `profile.html`;
+    }
     </script>
 </body>
 

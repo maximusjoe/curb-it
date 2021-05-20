@@ -94,7 +94,7 @@ $(document).ready(() => {
     function accepted() {
         $("#popup").fadeOut(250);
         $("#overlay").hide();
-        $("#accept-button1").text("Acceptted")
+        $("#accept-button1").text("Accepted")
             .attr("disabled", true)
             .css({
                 backgroundColor: "rgba(31, 32, 32, 0)",
