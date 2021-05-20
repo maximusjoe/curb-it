@@ -53,6 +53,11 @@ h4 {
     padding-bottom: 5rem;
 }
 
+.view-post-container {
+    position: relative;
+    width: 100%;
+}
+
 .acceptBoxes:hover {
     cursor: pointer;
     width: 93.5%;

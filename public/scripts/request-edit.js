@@ -24,6 +24,7 @@ $(document).ready(function() {
                 .get()
                 .then(function(doc) {
                     let address = doc.data().address;
+                    console.log(address)
                     let city = doc.data().city;
                     let itemList = doc.data().list;
                     let number = doc.data().numberOfItem;
@@ -31,7 +32,7 @@ $(document).ready(function() {
                     let height = doc.data().height;
                     let photo = doc.data().photoURL;
 
-                    $("#address-input").text(address);
+                    $("#address-input").html(address);
                 })
         }
     })

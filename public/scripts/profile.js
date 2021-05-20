@@ -33,8 +33,8 @@ $(document).ready(function() {
                     for (let i = 0; i < listPostedReqs.docs.length; i++) {
                         let post = listPostedReqs.docs[i].data()
                         let postid = listPostedReqs.docs[i].id
-                        $('#requestPosted').append(`<div class="postBoxes" id="${postid}">
-                            <div>
+                        $('#requestPosted').append(`<div class="postBoxes" >
+                            <div class="view-post-container" id="${postid}">
                             <div class="request-number">${post.numberOfItem} item(s)</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
@@ -61,8 +61,8 @@ $(document).ready(function() {
                         const post = await db.collection('users').doc(posterID).collection('postedRequests').doc(postID).get()
                             .then(result => result.data()).catch(error => console.log(error))
                         $('#spinner').hide()
-                        $('#requestAccept').append(`<div class="acceptBoxes">
-                            <div class="container-post" id="${postID}">
+                        $('#requestAccept').append(`<div class="acceptBoxes" >
+                            <div id="${postID}">
                             <div class="request-number">${post.numberOfItem} items</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
@@ -87,6 +87,11 @@ $(document).ready(function() {
         }
     });
 
+    const editRequest = (uid, postID) => {
+        $(`#edit${postID}`).on('click', async(event) => {
+            window.location.href = `request-edit.html?id=${postID}&poster=${uid}`
+        })
+    }
 
     const viewRequestInfo = (postID, posterID) => {
         $(`#${postID}`).on('click', (event) => {
