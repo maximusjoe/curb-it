@@ -12,11 +12,8 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// const messaging = firebase.messaging();
-// messaging.setBackgroundMessageHandler(function(payload) {
-//     const title = 'Hello World';
-//     const options = {
-//         body: payload.data.status
-//     }
-//     return self.registration.showNotification(title, options);
-// })
+const messaging = firebase.messaging();
+
+messaging.setBackgroundMessagingHandler(function (payload){
+    console.log(payload);
+})
