@@ -60,6 +60,12 @@ $(document).ready(() => {
         for (let i = 0; i < itemsList.length; i++) {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
         }
+        if (!available) {
+            accepted();
+        }
+        if (available && user.uid == poster_id) {
+            pending();
+        }
         if (user) {
             // User is signed in.
             $('#accept-button2').on('click', async(e) => {
@@ -101,6 +107,21 @@ $(document).ready(() => {
             .css({
                 backgroundColor: "rgba(31, 32, 32, 0)",
                 color: "rgb(0, 95, 71)",
+                height: "2.5rem",
+                width: "100%",
+                maxWidth: "100px",
+                borderRadius: "5px",
+            })
+    }
+
+    function pending() {
+        $("#popup").fadeOut(250);
+        $("#overlay").hide();
+        $("#accept-button1").text("Pending")
+            .attr("disabled", true)
+            .css({
+                backgroundColor: "rgba(31, 32, 32, 0)",
+                color: "rgb(143, 4, 62)",
                 height: "2.5rem",
                 width: "100%",
                 maxWidth: "100px",
