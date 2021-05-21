@@ -56,11 +56,12 @@
 }
 
 #accept-button1 {
-    background-color: rgba(31, 32, 32, 0);
-    color: rgb(143, 4, 62);
+    cursor: pointer;
     height: 2.5rem;
     width: 100%;
     max-width: 100px;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
     border-radius: 5px;
 }
 

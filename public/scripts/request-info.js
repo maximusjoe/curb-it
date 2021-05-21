@@ -28,7 +28,7 @@ $(document).ready(() => {
     })
 
     //Check whether a user is logged in .
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async(user) => {
         const data = await db.collection('users').doc(poster_id).collection('postedRequests')
             .doc(post_id).get().then(doc => {
                 if (doc.exists) {
@@ -39,7 +39,7 @@ $(document).ready(() => {
             }).catch(error => {
                 window.location.href = '404.html'
             })
-        // Dereference data
+            // Dereference data
         const {
             address,
             available,
@@ -85,7 +85,7 @@ $(document).ready(() => {
 
         if (user) {
             // User is signed in.
-            $('#accept-button2').on('click', async (e) => {
+            $('#accept-button2').on('click', async(e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
@@ -124,7 +124,8 @@ $(document).ready(() => {
             .attr("disabled", true)
             .css({
                 cursor: "not-allowed",
-                backgroundColor: "rgba(31, 32, 32, 0)"
+                backgroundColor: "rgba(31, 32, 32, 0)",
+                color: "rgba(87, 0, 29, 0.774)",
             })
     }
 
@@ -135,7 +136,8 @@ $(document).ready(() => {
             .attr("disabled", true)
             .css({
                 cursor: "not-allowed",
-                backgroundColor: "rgba(31, 32, 32, 0)"
+                backgroundColor: "rgba(31, 32, 32, 0)",
+                color: "rgba(0, 134, 78, 0.5)"
             })
     }
 
