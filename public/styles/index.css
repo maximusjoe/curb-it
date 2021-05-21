@@ -20,15 +20,10 @@ img {
 .center {
   margin: 0;
 }
-#videos {
-  width: 360px;
-  height: 200px;
-  margin: 3rem;
-}
 #main-view {
   width: 360px;
 }
-.login-btn {
-  width: 360px;
-  width: 100%;
+button {
+  width: 335px;
+  margin: 3rem;
 }

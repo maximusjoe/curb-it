@@ -49,6 +49,8 @@ var loginButton = document.getElementById("login-btn");
 var loginUI = document.getElementById("firebaseui-auth-container");
 
 $("#content").hide();
+$("#videos").hide();
+
 
 function showLogin() {
     $("#content").slideDown(1000);
