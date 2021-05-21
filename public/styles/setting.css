@@ -1,0 +1,30 @@
+#setting-label {
+    font-size: 2em;
+    font-weight: bolder;
+    margin: 10pt auto 10pt auto;
+    text-align: center;
+    display: block;
+}
+
+#setting-wrapper {
+    display: flex;
+    align-items: center;
+    height: 70vh;
+}
+
+#setting-wrapper div {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#edit-button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 3.5rem;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
+    border-radius: 5px;
+    font-weight: 700;
+}
