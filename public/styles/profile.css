@@ -1,11 +1,9 @@
 #acceptedRequest:hover {
     cursor: pointer;
-    color: coral;
 }
 
 #postedRequest:hover {
     cursor: pointer;
-    color: coral;
 }
 
 .view-post-container {
