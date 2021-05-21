@@ -24,6 +24,10 @@
     width: 70%;
 }
 
+#item-list {
+    padding-bottom: 5pt;
+}
+
 .each-item {
     border: 1px solid rgb(10, 116, 98);
     background-color: white;
@@ -60,17 +64,24 @@
     background-color: white;
 }
 
-#submit-button,
+#photo-display {
+    margin: 0 auto;
+    max-width: 350px;
+    width: 90%;
+    border: 1px solid lightgray;
+}
+
+#preview {
+    width: 100%;
+}
+
+#edit-button,
 #cancel {
     float: right;
     margin-left: 5pt;
 }
 
-#add-button {
-    clear: right;
-}
-
-#submit-button,
+#edit-button,
 #add-button {
     background-color: rgb(31, 32, 32);
     color: rgb(197, 243, 233);

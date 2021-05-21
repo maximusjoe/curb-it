@@ -56,8 +56,17 @@ $(document).ready(() => {
         $('#requester').html(name)
         $('#city').html(city)
         $("#photo-info").attr("src", photo);
+        console.log(photo)
         for (let i = 0; i < itemsList.length; i++) {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
+        }
+        if (!available) {
+            accepted();
+            $("#city-wrapper").before(`<div class="address">Address: ${address}</div>`)
+        }
+        if (available && user.uid == poster_id) {
+            pending();
+            $("#city-wrapper").before(`<div class="address">Address: ${address}</div>`)
         }
         if (user) {
             // User is signed in.
@@ -106,6 +115,21 @@ $(document).ready(() => {
                 borderRadius: "5px",
             })
             .hover({cursor: "not-allowed"})
+    }
+
+    function pending() {
+        $("#popup").fadeOut(250);
+        $("#overlay").hide();
+        $("#accept-button1").text("Pending")
+            .attr("disabled", true)
+            .css({
+                backgroundColor: "rgba(31, 32, 32, 0)",
+                color: "rgb(143, 4, 62)",
+                height: "2.5rem",
+                width: "100%",
+                maxWidth: "100px",
+                borderRadius: "5px",
+            })
     }
 
 });

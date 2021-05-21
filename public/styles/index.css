@@ -20,8 +20,10 @@ img {
 .center {
   margin: 0;
 }
-#videos {
+#main-view {
   width: 360px;
-  height: 200px;
+}
+button {
+  width: 335px;
   margin: 3rem;
 }
