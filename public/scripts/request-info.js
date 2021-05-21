@@ -48,26 +48,41 @@ $(document).ready(() => {
             height,
             list: itemsList,
             name,
-            numberOfItems,
+            numberOfItem,
             photo,
             postedDate,
+            pickupDate,
+            pickupTime,
             width
         } = data
-        $('#requester').html(name)
-        $('#city').html(city)
-        $("#photo-info").attr("src", photo);
-        console.log(photo)
-        for (let i = 0; i < itemsList.length; i++) {
-            $('#item-list').append(`<li>${itemsList[i]}</li>`)
+
+        $('#requester-wrapper').append(`<div id="requester">Request by: ${name}</div>`);
+        $('#requester-wrapper').append(`<div id="date">Posted on: ${postedDate}</div>`);
+        if (pickupDate && pickupTime) {
+            $('#requester-wrapper').append(`<div id="pickup">Pick-up Schedule: ${pickupDate} at ${pickupTime}</div>`);
         }
         if (!available) {
             accepted();
-            $("#city-wrapper").before(`<div class="address">Address: ${address}</div>`)
+            $("#location").append(`<div id="address">Address: ${address}</div>`)
         }
         if (available && user.uid == poster_id) {
             pending();
-            $("#city-wrapper").before(`<div class="address">Address: ${address}</div>`)
+            $("#location").append(`<div id="address">Address: ${address}</div>`)
         }
+        $('#location').append(`<div id="city">City: ${city}</div>`)
+
+        $('#list-wrapper').append(`<label id="list-label">Item list:</label>`)
+        $('#list-wrapper').append(`<ul id="item-list"></ul>`)
+        for (let i = 0; i < itemsList.length; i++) {
+            $('#item-list').append(`<li>${itemsList[i]}</li>`)
+        }
+        $('#list-wrapper').append(`<div id="number">Number of items: ${numberOfItem}</div>`)
+        $('#list-wrapper').append(`<div id="dimension">Package dimension: ${width} x ${height}</div>`)
+        $("#photo-wrapper").append(`<label id="photo-label">Photo:</label>`);
+        $("#photo-wrapper").append(`<img id="photo" src="${photo}"/>`)
+        console.log(photo)
+
+
         if (user) {
             // User is signed in.
             $('#accept-button2').on('click', async (e) => {

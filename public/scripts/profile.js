@@ -6,6 +6,9 @@ $(document).ready(function() {
         $("#body").css({
             backgroundColor: "rgb(197, 243, 233)",
         });
+        $("#profile_outline").css({
+            color: "rgb(47, 48, 48)",
+        });
     });
 
     $("#postedRequest").click(function() {
@@ -13,6 +16,9 @@ $(document).ready(function() {
         $("#requestAccept").hide();
         $("#body").css({
             backgroundColor: "rgb(47, 48, 48)",
+        });
+        $("#profile_outline").css({
+            color: "lightgray",
         });
     });
     firebase.auth().onAuthStateChanged(function(user) {
