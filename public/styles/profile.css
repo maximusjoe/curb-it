@@ -6,8 +6,17 @@
     cursor: pointer;
 }
 
+.view-post-container {
+    width: 100%;
+}
+
 .spinner-border {
     color: rgb(197, 243, 233);
+}
+
+.container-post {
+    position: relative;
+    width: 100%;
 }
 
 .beside {
@@ -46,6 +55,11 @@ h4 {
     min-height: 80vh;
     max-height: fit-content;
     padding-bottom: 5rem;
+}
+
+.view-post-container {
+    position: relative;
+    width: 100%;
 }
 
 .acceptBoxes:hover {
@@ -127,6 +141,7 @@ h4 {
     display: block;
 }
 
+
 /* #username {
     text-align: center;
     color: rgb(65, 110, 103);
@@ -140,6 +155,7 @@ h4 {
     background-color: lightblue;
     border: 2px solid black;
 }
+
 #profile_outline div {
     padding: 10px;
 }

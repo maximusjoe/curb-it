@@ -4,6 +4,12 @@
     padding-bottom: 50pt;
 }
 
+#photo-wrapper img {
+    width: 25vw;
+    display: block;
+    margin: 10pt;
+}
+
 #info-header {
     display: flex;
     justify-content: space-between;
@@ -46,12 +52,6 @@
     width: 100%;
     max-width: 100px;
     border-radius: 5px;
-}
-
-#photo-wrapper img {
-    width: 90%;
-    display: block;
-    margin: 10pt auto;
 }
 
 #schedule-label {
