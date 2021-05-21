@@ -25,3 +25,10 @@ img {
   height: 200px;
   margin: 3rem;
 }
+#main-view {
+  width: 360px;
+}
+.login-btn {
+  width: 360px;
+  width: 100%;
+}
