@@ -73,9 +73,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
+            var obj = document.createElement("audio");
+          // sound from https://soundbible.com/165-Door-Bell.html
+          // obj.src = "./sound/Door Bell-SoundBible.com.mp3";
+          obj.src = "../public/sound/full.m4a";
+          obj.volume = 1;
+          obj.autoPlay = false;
+          obj.preLoad = true;
+          obj.controls = true;
+
+
             var count = 1;
             $("#btn").click(function () {
-
+                obj.play();
                 $("#popup").fadeIn();
                 $("#overlay").show();
                 $("#egg").append("<h2>You were our " + count + "th</h2>")
@@ -84,7 +94,7 @@
             });
 
             $("#btn2").click(function () {
-
+                
                 $("#buttonArea").show();
 
             });
