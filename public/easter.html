@@ -89,7 +89,7 @@
       var obj2 = document.createElement("audio");
       // sound from https://soundbible.com/165-Door-Bell.html
       obj2.src = "./sound/Daydreaming.mp3";
-      obj2.volume = 0.8;
+      obj2.volume = 0.5;
       obj2.autoPlay = false;
       obj2.preLoad = true;
       obj2.controls = true;
@@ -102,7 +102,7 @@
         console.log(count);
         if (count == 3) {
             obj2.play();
-            // $(".scale").show();
+            $(".scale").show();
            
                 $(".star-five").addClass("logo");
                 $(".star-five").fadeOut(6000);

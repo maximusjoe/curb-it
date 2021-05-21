@@ -78,5 +78,5 @@ h1 {
 .scale {
     transform: scale(0.25);
     position: absolute;
-    /* display: none; */
+    display: none;
 }
