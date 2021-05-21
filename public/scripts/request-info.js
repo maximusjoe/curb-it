@@ -28,7 +28,7 @@ $(document).ready(() => {
     })
 
     //Check whether a user is logged in .
-    firebase.auth().onAuthStateChanged(async(user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
         const data = await db.collection('users').doc(poster_id).collection('postedRequests')
             .doc(post_id).get().then(doc => {
                 if (doc.exists) {
@@ -39,7 +39,7 @@ $(document).ready(() => {
             }).catch(error => {
                 window.location.href = '404.html'
             })
-            // Dereference data
+        // Dereference data
         const {
             address,
             available,
@@ -70,10 +70,11 @@ $(document).ready(() => {
         }
         if (user) {
             // User is signed in.
-            $('#accept-button2').on('click', async(e) => {
+            $('#accept-button2').on('click', async (e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
+                    accepted();
                     let pickupDate = $("#date-input").val();
                     let pickupTime = $("#time-input").val();
                     await db.collection('users').doc(poster_id)
@@ -91,7 +92,7 @@ $(document).ready(() => {
                             posterID: poster_id,
                             postID: post_id
                         })
-                    accepted();
+
                 }
             })
         } else {
@@ -107,14 +108,9 @@ $(document).ready(() => {
         $("#accept-button1").text("Accepted")
             .attr("disabled", true)
             .css({
-                backgroundColor: "rgba(31, 32, 32, 0)",
-                color: "rgb(0, 95, 71)",
-                height: "2.5rem",
-                width: "100%",
-                maxWidth: "100px",
-                borderRadius: "5px",
+                cursor: "not-allowed",
+                backgroundColor: "rgba(31, 32, 32, 0)"
             })
-            .hover({cursor: "not-allowed"})
     }
 
     function pending() {
@@ -123,12 +119,8 @@ $(document).ready(() => {
         $("#accept-button1").text("Pending")
             .attr("disabled", true)
             .css({
-                backgroundColor: "rgba(31, 32, 32, 0)",
-                color: "rgb(143, 4, 62)",
-                height: "2.5rem",
-                width: "100%",
-                maxWidth: "100px",
-                borderRadius: "5px",
+                cursor: "not-allowed",
+                backgroundColor: "rgba(31, 32, 32, 0)"
             })
     }
 
