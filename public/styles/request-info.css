@@ -1,13 +1,31 @@
+#body {
+    padding-bottom: 50pt;
+}
+
 #info-wrapper {
     width: 90%;
     margin: 0 auto;
     padding-bottom: 50pt;
+    padding-top: 20pt;
+}
+
+#requester-wrapper {
+    margin: 10pt auto;
+}
+
+#list-wrapper {
+    margin: 10pt auto;
+}
+
+#photo-wrapper {
+    margin: 0 auto;
+    max-width: 350px;
+    width: 100%;
+    padding: 10pt auto;
 }
 
 #photo-wrapper img {
-    width: 25vw;
-    display: block;
-    margin: 10pt;
+    width: 100%;
 }
 
 #info-header {
