@@ -153,14 +153,12 @@
                 firebase.auth().onAuthStateChanged(function(user) {
 
                     var name = document.getElementById("username").value;
-                    var email = document.getElementById("user_email").value;
                     var address = document.getElementById("user_address").value;
 
                     db.collection("users")
                         .doc(user.uid)
                         .update({
                             address,
-                            email,
                             name
                         }).then(function(result) {
                             console.log('Upload Successful!')
