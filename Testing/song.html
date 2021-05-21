@@ -36,68 +36,67 @@
 </head>
 
 <body>
-    <div style="display: none;" id="buttonArea">
-        <button style="float: right; opacity: 25%;" id="btn">Edit</button>
-    </div>
 
     <div>
-        <button id="btn2">click</button>
+        <button id="btn">click</button>
+    </div>
+
+    <div id="contents">
+        <h2>if you press the buttons at right timing, its going to sound good!</h2>
+        <button id="first">1st</button><button id="second">2nd</button>
     </div>
 
 
     <div style="display:none" id="popup">
         <h1 class="onEdit" id="egg">Congrats!</h1>
-        <!-- <h2 class="onEdit">You were our 5th</h2> -->
-        <h2 class="onEdit">person to find our invisible button!</h2>
+        <h2 class="onEdit">How do you like the song?</h2>
     </div>
 
     <!-- https://www.youtube.com/watch?v=MBaw_6cPmAw&ab_channel=WebDevSimplified -->
     <div style="display:none" id="overlay"></div>
 
-    <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-        <p>Value: <span id="demo"></span></p>
-    </div>
-
-    <script>
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("demo");
-        output.innerHTML = slider.value;
-
-        slider.oninput = function () {
-            output.innerHTML = this.value;
-        }
-    </script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             var obj = document.createElement("audio");
-          // sound from https://soundbible.com/165-Door-Bell.html
-          // obj.src = "./sound/Door Bell-SoundBible.com.mp3";
-          obj.src = "../public/sound/full.m4a";
-          obj.volume = 1;
-          obj.autoPlay = false;
-          obj.preLoad = true;
-          obj.controls = true;
+            // sound from https://soundbible.com/165-Door-Bell.html
+            // obj.src = "./sound/Door Bell-SoundBible.com.mp3";
+            obj.src = "../public/sound/First.m4a";
+            obj.volume = 1;
+            obj.autoPlay = false;
+            obj.preLoad = true;
+            obj.controls = true;
+
+            var obj2 = document.createElement("audio");
+            // sound from https://soundbible.com/165-Door-Bell.html
+            // obj.src = "./sound/Door Bell-SoundBible.com.mp3";
+            obj2.src = "../public/sound/Second.m4a";
+            obj.volume = 1;
+            obj.autoPlay = false;
+            obj.preLoad = true;
+            obj.controls = true;
 
 
-            var count = 1;
             $("#btn").click(function () {
+
+                $("#contents").show();
+
+            });
+
+            $("#first").click(function () {
+                obj2.play();
+
+            });
+
+            $("#second").click(function () {
                 obj.play();
                 $("#popup").fadeIn();
                 $("#overlay").show();
-                $("#egg").append("<h2>You were our " + count + "th</h2>")
-                count++;
 
             });
 
-            $("#btn2").click(function () {
-                
-                $("#buttonArea").show();
-
-            });
         });
     </script>
 </body>
