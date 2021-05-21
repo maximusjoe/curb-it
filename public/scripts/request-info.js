@@ -62,9 +62,11 @@ $(document).ready(() => {
         }
         if (!available) {
             accepted();
+            $("#city-wrapper").before(`<div class="address">Address: ${address}</div>`)
         }
         if (available && user.uid == poster_id) {
             pending();
+            $("#city-wrapper").before(`<div class="address">Address: ${address}</div>`)
         }
         if (user) {
             // User is signed in.
