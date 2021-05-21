@@ -6,7 +6,7 @@ const cvs = document.getElementById("snake");
 const ctx = cvs.getContext("2d");
 
 // create the unit
-const box = 32;
+const box = 16;
 
 // load images
 
@@ -28,12 +28,12 @@ let right = new Audio();
 let left = new Audio();
 let down = new Audio();
 
-dead.src = "audio/dead.mp3";
-eat.src = "audio/eat.mp3";
-up.src = "audio/up.mp3";
-right.src = "audio/right.mp3";
-left.src = "audio/left.mp3";
-down.src = "audio/down.mp3";
+dead.src = "sound/audio/dead.mp3";
+eat.src = "sound/audio/eat.mp3";
+up.src = "sound/audio/up.mp3";
+right.src = "sound/audio/right.mp3";
+left.src = "sound/audio/left.mp3";
+down.src = "sound/audio/down.mp3";
 
 // create the snake
 
@@ -137,12 +137,13 @@ function draw(){
     if(snakeX < box || snakeX > 17 * box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
         clearInterval(game);
         dead.play();
+        $(".reload").show();
     }
     
     snake.unshift(newHead);
     
     ctx.fillStyle = "white";
-    ctx.font = "45px Changa one";
+    ctx.font = "22px Changa one";
     ctx.fillText(score,2*box,1.6*box);
 
     $(document).on('click', '.button-pad .button', function(e) {
@@ -165,15 +166,20 @@ function draw(){
         }
         $(document).trigger(e);
     });	
+
 }
 
 // call draw function every 100 ms
 
 let game = setInterval(draw,100);
 
+$(".reload").hide();
 
-
-
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 
 
