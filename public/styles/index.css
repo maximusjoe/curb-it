@@ -23,7 +23,7 @@ img {
 #main-view {
   width: 360px;
 }
-button {
+.button {
   width: 335px;
   margin: 3rem;
 }
