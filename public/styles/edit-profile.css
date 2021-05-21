@@ -1,0 +1,38 @@
+#profile-outline {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    display: block;
+    display: flex;
+    align-items: center;
+    height: 70vh;
+}
+
+#setting-label {
+    font-size: 2em;
+    font-weight: bolder;
+    margin: 10pt auto 10pt auto;
+    display: block;
+}
+
+#edit-wrapper {
+    width: 100%;
+}
+
+#edit-wrapper div {
+    margin: 10pt auto;
+}
+
+#edit-wrapper textarea {
+    width: 100%;
+}
+
+#save {
+    display: block;
+    float: right;
+    background-color: rgb(31, 32, 32);
+    color: rgb(197, 243, 233);
+    height: 5vh;
+    width: 70pt;
+    border-radius: 5px;
+}

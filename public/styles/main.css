@@ -7,6 +7,14 @@
     margin: 20pt auto 20pt auto;
 }
 
+#title {
+    font-size: 2em;
+    font-weight: bolder;
+    width: 90%;
+    margin: 10pt auto 10pt auto;
+    text-align: center;
+}
+
 #make-request-button {
     cursor: pointer;
     font-size: 1.2rem;
@@ -21,8 +29,9 @@
 #post-header {
     display: flex;
     justify-content: space-between;
-    width: 93%;
+    width: 90%;
     margin: 0 auto;
+    padding-top: 15pt;
 }
 
 #header-label {

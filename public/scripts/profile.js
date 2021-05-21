@@ -75,7 +75,7 @@ $(document).ready(function() {
                             </div>
                             <div class="decline-done">
                             <button id="${postID}${user.uid}" class='done-button'>Done</button>
-                            <button id="${user.uid}${postID}" class='decline-button'>Decline</button>
+                            <button id="${user.uid}${postID}" class='decline-button'>Cancel</button>
                             </div>
                             </div>`)
                             // console.log('user ID: ', user.uid)

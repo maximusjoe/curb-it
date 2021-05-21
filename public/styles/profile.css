@@ -152,10 +152,15 @@ h4 {
     margin: 20px auto;
     padding: 20px;
     display: block;
-    background-color: lightblue;
-    border: 2px solid black;
+    border: 1px solid rgb(94, 94, 94);
 }
 
 #profile_outline div {
-    padding: 10px;
+    padding: 5px;
+}
+
+#user-name {
+    font-size: 1.3em;
+    font-weight: bolder;
+    width: 90%
 }
