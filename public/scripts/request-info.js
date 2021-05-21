@@ -105,6 +105,7 @@ $(document).ready(() => {
                 maxWidth: "100px",
                 borderRadius: "5px",
             })
+            .hover({cursor: "not-allowed"})
     }
 
 });

@@ -1,4 +1,4 @@
-#body {
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(197, 243, 233);
 }
@@ -27,4 +27,22 @@
     color: rgb(197, 243, 233);
 }
 
+#request:hover {
+    color: black;
+    background-color: lightgoldenrodyellow;
+}
 
+#home:hover {
+    color: black;
+    background-color: lightgoldenrodyellow;
+}
+
+#profile:hover {
+    color: black;
+    background-color: lightgoldenrodyellow;
+}
+
+#setting:hover {
+    color: black;
+    background-color: lightgoldenrodyellow;
+}

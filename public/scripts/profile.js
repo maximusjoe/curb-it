@@ -62,7 +62,7 @@ $(document).ready(function() {
                             .then(result => result.data()).catch(error => console.log(error))
                         $('#spinner').hide()
                         $('#requestAccept').append(`<div class="acceptBoxes" >
-                            <div id="${postID}">
+                            <div class="accept-container" id="${postID}">
                             <div class="request-number">${post.numberOfItem} items</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>

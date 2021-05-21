@@ -90,6 +90,7 @@
 
 .each-post:hover {
     cursor: pointer;
+    width: 93.5%;
 }
 
 .number-of-item {
