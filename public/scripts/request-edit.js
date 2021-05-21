@@ -13,6 +13,7 @@ $(document).ready(function() {
 
     const post_id = GetURLParameter('id')
     const poster_id = GetURLParameter('poster')
+    var photo;
 
     console.log(post_id);
     console.log(poster_id);
@@ -26,13 +27,29 @@ $(document).ready(function() {
                     let address = doc.data().address;
                     console.log(address)
                     let city = doc.data().city;
-                    let itemList = doc.data().list;
+                    itemArray = doc.data().list;
                     let number = doc.data().numberOfItem;
                     let width = doc.data().width;
                     let height = doc.data().height;
-                    let photo = doc.data().photoURL;
+                    photo = doc.data().photo;
 
-                    $("#address-input").html(address);
+                    for (let i = 0; i < itemArray.length; i++) {
+                        $("#add-button").after('<div id="' + i + '" class="each-item"><span class="item-name">' + itemArray[i] + '</span><button id="delete' + i + '" type="button" class="delete btn-close"></button></div>')
+                    }
+
+                    $("#address-input").attr('value', address);
+                    $("#city-input").attr('value', city);
+                    $("#number-value").text(number);
+                    $("#number-input").attr('value', number);
+
+                    if (photo != "undefined") {
+                        $("#preview").attr('src', photo);
+                    }
+                    // (`<div><img src="${photo}" class="photo-preview"/></div>`);
+                    $("#width-value").text(width);
+                    $("#width-input").attr('value', width);
+                    $("#height-value").text(height);
+                    $("#height-input").attr('value', height);
                 })
         }
     })
@@ -46,23 +63,32 @@ $(document).ready(function() {
     var storage = firebase.storage();
     var storageRef = storage.ref();
     var imgRef = storageRef.child("images/" + photoID + ".jpg");
-
-
+    var added = false;
 
     var fileInput = document.getElementById("photo-input");
+
     fileInput.addEventListener('change', function(e) {
 
         var file = e.target.files[0];
 
         imgRef.put(file)
-            .then(function() {
-                console.log('Uploaded to Cloud Storage.');
-            })
+
+        .then(function() {
+            console.log('Uploaded to Cloud Storage.');
+            added = true;
+            // imgRef.getDownloadURL()
+            //     .then((url) => {
+            //         photoURL = url;
+            //         $("#preview").attr('src', url);
+            //         console.log('Downloaded.');
+            //         added = true;
+            //     })
+        })
 
     });
 
 
-    $('#submit-button').click(function(e) {
+    $('#edit-button').click(function(e) {
         e.preventDefault();
 
         let address = $("#address-input").val();
@@ -74,11 +100,17 @@ $(document).ready(function() {
         // console.log(width)
         // console.log(height)
 
-        imgRef.getDownloadURL()
-            .then((url) => {
-                photoURL = url;
-            })
 
+
+        if (added) {
+            imgRef.getDownloadURL()
+                .then((url) => {
+                    photoURL = url;
+                    console.log('url: ' + photoURL);
+                })
+        } else {
+            photoURL = photo;
+        }
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
@@ -87,23 +119,23 @@ $(document).ready(function() {
                     .then(function(doc) {
                         const name = doc.data().name;
                         const email = doc.data().email
-                        db.collection("users").doc(user.uid).collection("postedRequests").add({
-                            name,
-                            email,
-                            uid: user.uid,
-                            address,
-                            city,
-                            list: itemArray,
-                            width,
-                            height,
-                            numberOfItem,
-                            photo: photoURL,
-                            postedDate: getDateTime(),
-                            available: true
-                        }).then(function(result) {
-                            console.log('Upload Successful!')
-                            redirectToSuccess(result.id)
-                        }).catch(error => console.log(error))
+                        db.collection("users").doc(user.uid)
+                            .collection("postedRequests").doc(post_id).update({
+                                name,
+                                email,
+                                uid: user.uid,
+                                address,
+                                city,
+                                list: itemArray,
+                                width,
+                                height,
+                                numberOfItem,
+                                photo: photoURL,
+                                available: true
+                            }).then(function(result) {
+                                console.log('Upload Successful!')
+                                redirectToSuccess(user.uid);
+                            }).catch(error => console.log(error))
 
                     })
 

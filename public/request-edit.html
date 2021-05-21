@@ -54,7 +54,7 @@
             <div id="address">
                 <div>
                     <label id="address-label">Address:</label><br>
-                    <input id="address-input" type="text" /> <br>
+                    <input id="address-input" type="text" value="" /> <br>
                 </div>
                 <div>
                     <label id="city-label">City:</label><br>
@@ -64,29 +64,31 @@
             <div id="item-list">
                 <label id="list-label">Item list:</label><br>
                 <input id="list-input" type="search" />
-                <button type="submit" id="add-button">Add</button><br>
+                <button type="submit" id="add-button">Add</button>
             </div>
             <div id="number">
                 <label id="number-label">Number of items: <span id="number-value"></span></label><br>
-                <input type="range" min="1" max="100" value="10" step="1" id="number-input">
-            </div>
-            <div id="add-photo">
-                <label id="photo-label">Photos:</label><br>
-                <input type="file" id="photo-input" multiple>
+                <input type="range" min="1" max="100" value="" step="1" id="number-input">
             </div>
             <div id="dimension">
+                <label>Package dimension:</label>
                 <div id="width-wrapper">
                     <label id="width-label">Width: <span id="width-value"></span></label>
-                    <input type="range" min="1" max="50" value="25" step="1" id="width-input">
+                    <input type="range" min="1" max="50" step="1" id="width-input">
                 </div>
                 <div id="height-wrapper">
                     <label id="height-label">Height: <span id="height-value"></span></label>
-                    <input type="range" min="1" max="50" value="25" step="1" id="height-input">
+                    <input type="range" min="1" max="50" step="1" id="height-input">
                 </div>
             </div>
-            <div id="submit">
-                <button type="button" id="submit-button">Submit</button>
-                <button type="reset" onclick="window.location.href='main.html'" id="cancel">Cancel</button>
+            <div id="add-photo">
+                <label id="photo-label">Photos:</label>
+                <div id="photo-display"><img id="preview" /></div>
+                <input type="file" id="photo-input">
+            </div>
+            <div id="edit">
+                <button type="button" id="edit-button">Edit</button>
+                <button type="reset" onclick="window.location.href='profile.html'" id="cancel">Cancel</button>
             </div>
         </form>
     </div>
