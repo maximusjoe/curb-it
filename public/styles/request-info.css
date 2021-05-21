@@ -51,7 +51,19 @@
     align-self: flex-end;
 }
 
-#accept-button1,
+#accept-button1:hover {
+    cursor: pointer;
+}
+
+#accept-button1 {
+    background-color: rgba(31, 32, 32, 0);
+    color: rgb(143, 4, 62);
+    height: 2.5rem;
+    width: 100%;
+    max-width: 100px;
+    border-radius: 5px;
+}
+
 #accept-button2 {
     cursor: pointer;
     height: 2.5rem;
