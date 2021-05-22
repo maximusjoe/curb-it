@@ -1,0 +1,39 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100wh;
+    height: 100vh;
+    background: black;
+    font-weight: 100;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+button {
+    position: relative;
+    bottom: 20%;
+    font-size: 24pt;
+    letter-spacing: 3px;
+    background: #9b1c2c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+button:hover {
+    color: #041e42;
+}
+
+button:focus {
+    outline: none;
+}

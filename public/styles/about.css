@@ -3,30 +3,65 @@
   width: 100%;
   max-height: 500px;
 }
+
 .content {
   width: 100%;
   margin: auto;
 }
+
 .row {
   margin-bottom: 100px;
   margin: 4rem;
   padding: 3rem;
 }
+
 .card-img-top {
   width: 50px;
 }
+
 h1 {
   padding: 2rem;
   padding-bottom: 0;
   text-align: center;
 }
+
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
 .us {
   width: 70%;
   margin: 2rem auto;
   text-align: center;
+}
+
+.wrapper {
+  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-animation {
+  width: 11ch;
+  animation: typing 2s steps(20), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
 }
