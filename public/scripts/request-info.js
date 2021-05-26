@@ -60,7 +60,7 @@ $(document).ready(() => {
 
         $('#requester-wrapper').append(`<div id="requester">Request by: ${name}</div>`);
         $('#requester-wrapper').append(`<div id="date">Posted on: ${postedDate}</div>`);
-        if (pickupDate && pickupTime) {
+        if ((pickupDate && pickupTime) && (pickupDate != "undefined")) {
             $('#requester-wrapper').append(`<div id="pickup">Pick-up Schedule: ${pickupDate} at ${pickupTime}</div>`);
         }
         if (!available) {

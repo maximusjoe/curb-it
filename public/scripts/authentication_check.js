@@ -41,6 +41,7 @@ $(document).ready(() => {
                 firebase.auth().signOut().then(() => {
                     // Sign-out successful.
                     console.log('Signed out Successfully')
+                    window.location.href = 'index.html'
                 }).catch((error) => {
                     // An error happened.
                     console.log(error)

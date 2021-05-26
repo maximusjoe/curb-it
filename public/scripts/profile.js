@@ -51,7 +51,8 @@ $(document).ready(function() {
                     for (let i = 0; i < listPostedReqs.docs.length; i++) {
                         let post = listPostedReqs.docs[i].data()
                         let postid = listPostedReqs.docs[i].id
-                        $('#requestPosted').append(`<div class="postBoxes" >
+                        if (post.pickupDate != "undefined") {
+                            $('#requestPosted').append(`<div class="postBoxes" >
                             <div class="view-post-container" id="${postid}">
                             <div class="request-number">Size ${post.size}</div>
                             <div class="request-address">${post.address}</div>
@@ -61,6 +62,19 @@ $(document).ready(function() {
                             <button class='edit-button' id="edit${postid}">Edit</button>
                             </div>
                             </div>`)
+                        } else {
+                            $('#requestPosted').append(`<div class="postBoxes" >
+                            <div class="view-post-container" id="${postid}">
+                            <div class="request-number">Size ${post.size}</div>
+                            <div class="request-address">${post.address}</div>
+                            <div class="schedule">Pickup on: </div>
+                            </div>
+                            <div>
+                            <button class='edit-button' id="edit${postid}">Edit</button>
+                            </div>
+                            </div>`)
+
+                        }
                         viewRequestInfo(postid, user.uid);
                         editRequest(user.uid, postid);
                     }
