@@ -76,11 +76,13 @@ $(document).ready(function() {
                             <div class="decline-done">
                             <button id="${postID}${user.uid}" class='done-button'>Done</button>
                             <button id="${user.uid}${postID}" class='decline-button'>Cancel</button>
+                            <button id="${user.uid}${posterID}" class='chat-button'>Chat</button>
                             </div>
                             </div>`)
                             // console.log('user ID: ', user.uid)
                             // console.log('postID: ', postID)
                             // console.log('posterID: ', posterID)
+                        openChat(user.uid, postID, posterID)
                         viewRequestInfo(postID, posterID)
                         declinePostListener(user.uid, postID, posterID)
                         finishPostListener(user.uid, postID, posterID)
@@ -102,6 +104,12 @@ $(document).ready(function() {
     const viewRequestInfo = (postID, posterID) => {
         $(`#${postID}`).on('click', (event) => {
             window.location.href = `request-info.html?id=${postID}&poster=${posterID}`
+        })
+    }
+
+    const openChat = (uid, postID, posterUID) => {
+        $(`#${uid}${posterUID}`).on('click', (event) => {
+            window.location.href = `real-time-messaging.html?id=${postID}&poster=${posterUID}&acceptee=${uid}`
         })
     }
 
