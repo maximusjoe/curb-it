@@ -47,6 +47,19 @@
             </div>
         </nav>
     </div>
+
+    <!--The toast for notifications pop up, put this below nav-bar-->
+  <div aria-live="polite" aria-atomic="true" class="position-relative">
+    <!-- Position it: -->
+    <!-- - `.toast-container` for spacing between toasts -->
+    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+    <div id="toast-container" class="toast-container position-absolute top-0 end-0 p-3">
+
+      <!-- Then put toasts within -->
+    </div>
+  </div>
+
     <div id="title">Request Form</div>
 
     <div id="form-wrapper">
@@ -66,15 +79,24 @@
                 <input id="list-input" type="search" />
                 <button type="submit" id="add-button">Add</button><br>
             </div>
-            <div id="number">
+            <!-- <div id="number">
                 <label id="number-label">Number of items: <span id="number-value"></span></label>
                 <input type="range" min="1" max="100" value="10" step="1" id="number-input">
+            </div> -->
+
+            <div id="size-wrapper">
+                <label id="size-label">Size(S, M, L): Dimension(w x l x h)<span id="size-value"></span></label>
+                <div id="size-choice">
+                    <input class="choice" type="radio" name="choice" value="L : 30x20x20">L : 30x20x20<br>
+                    <input class="choice" type="radio" name="choice" value="M : 20x10x10">M : 20x10x10<br>
+                    <input class="choice" type="radio" name="choice" value="S : 10x10x5">S : 10x10x5
+                </div>
             </div>
             <div id="add-photo">
                 <label id="photo-label">Photos:</label><br>
                 <input type="file" id="photo-input" multiple>
             </div>
-            <div id="dimension">
+            <!-- <div id="dimension">
                 <div id="width-wrapper">
                     <label id="width-label">Width: <span id="width-value"></span></label>
                     <input type="range" min="1" max="50" value="25" step="1" id="width-input">
@@ -83,7 +105,8 @@
                     <label id="height-label">Height: <span id="height-value"></span></label>
                     <input type="range" min="1" max="50" value="25" step="1" id="height-input">
                 </div>
-            </div>
+            </div> -->
+
             <div id="submit">
                 <button type="button" id="submit-button">Submit</button>
                 <button type="reset" onclick="window.location.href='main.html'" id="cancel">Cancel</button>
@@ -113,13 +136,13 @@
           </svg> <br>
           Profile
         </button>
-            <button id="setting" onclick="window.location.href='settings.html'">
+            <!-- <button id="setting" onclick="window.location.href='settings.html'">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear" viewbox="-5 -5 25 20">
             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
             <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
           </svg> <br>
           Setting
-        </button>
+        </button> -->
         </div>
     </footer>
 

@@ -161,11 +161,74 @@ h4 {
 }
 
 #profile_outline div {
-    padding: 5px;
+    padding: 4px;
 }
 
 #user-name {
     font-size: 1.3em;
     font-weight: bolder;
     width: 90%
+}
+
+#edit-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#edit-button {
+    background-color: rgb(31, 32, 32);
+    color: rgb(197, 243, 233);
+    height: 5vh;
+    width: 120pt;
+    border-radius: 5px;
+}
+
+#done-success {
+    min-width: 150px;
+    width: 80%;
+    max-width: 350px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* adding scale(0) after the translate will make it disappear */
+    border: 1px solid black;
+    padding: 15px;
+    z-index: 10;
+    background-color: white;
+}
+
+#done-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#decline-success {
+    min-width: 150px;
+    width: 80%;
+    max-width: 350px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* adding scale(0) after the translate will make it disappear */
+    border: 1px solid black;
+    padding: 15px;
+    z-index: 10;
+    background-color: white;
+}
+
+#decline-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
 }

@@ -29,7 +29,7 @@ $(document).ready(() => {
     })
 
     //Check whether a user is logged in .
-    firebase.auth().onAuthStateChanged(async(user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
         const data = await db.collection('users').doc(poster_id).collection('postedRequests')
             .doc(post_id).get().then(doc => {
                 if (doc.exists) {
@@ -40,21 +40,19 @@ $(document).ready(() => {
             }).catch(error => {
                 window.location.href = '404.html'
             })
-            // Dereference data
+        // Dereference data
         const {
             address,
             available,
             city,
             email,
-            height,
+            size,
             list: itemsList,
             name,
-            numberOfItem,
             photo,
             postedDate,
             pickupDate,
             pickupTime,
-            width,
             acceptee
         } = data
 
@@ -74,25 +72,28 @@ $(document).ready(() => {
             $("#location").append(`<div id="address">Address: ${address}</div>`)
         }
         $('#location').append(`<div id="city">City: ${city}</div>`)
-
+        $('#list-wrapper').append(`<div id="size">Package: size ${size}</div>`)
         $('#list-wrapper').append(`<label id="list-label">Item list:</label>`)
         $('#list-wrapper').append(`<ul id="item-list"></ul>`)
         for (let i = 0; i < itemsList.length; i++) {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
         }
-        $('#list-wrapper').append(`<div id="number">Number of items: ${numberOfItem}</div>`)
-        $('#list-wrapper').append(`<div id="dimension">Package dimension: ${width} x ${height}</div>`)
+
+
+        // $('#list-wrapper').append(`<div id="number">Number of items: ${numberOfItem}</div>`)
+        // $('#list-wrapper').append(`<div id="dimension">Package dimension: ${width} x ${height}</div>`)
         $("#photo-wrapper").append(`<label id="photo-label">Photo:</label>`);
         $("#photo-wrapper").append(`<img id="photo" src="${photo}"/>`)
-        console.log(photo)
+        // console.log(photo)
 
 
         if (user) {
             // User is signed in.
-            $('#accept-button2').on('click', async(e) => {
+            $('#accept-button2').on('click', async (e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
+                    sendNotification(poster_id)
                     accepted();
                     let pickupDate = $("#date-input").val();
                     let pickupTime = $("#time-input").val();
@@ -123,6 +124,22 @@ $(document).ready(() => {
         }
     });
 
+    const sendNotification = async (poster_id) => {
+        // Add to poster id collection
+        const data = await db.collection('users')
+            .doc(poster_id)
+            .collection('notifications').add({
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                text: 'A volunteer has accepted your post, expect them to drop by soon!'
+            })
+        // Update the data so that it would be of type 'modified' in db changes
+        db.collection('users')
+        .doc(poster_id).collection('notifications')
+        .doc(data.id).update({
+            posterID: poster_id
+        })
+    }
+
     function accepted() {
         $("#popup").fadeOut(250);
         $("#overlay").hide();
@@ -131,7 +148,7 @@ $(document).ready(() => {
             .css({
                 cursor: "not-allowed",
                 backgroundColor: "rgba(31, 32, 32, 0)",
-                color: "rgba(87, 0, 29, 0.774)",
+                color: "rgba(0, 87, 39, 0.774)",
             })
     }
 
@@ -143,7 +160,7 @@ $(document).ready(() => {
             .css({
                 cursor: "not-allowed",
                 backgroundColor: "rgba(31, 32, 32, 0)",
-                color: "rgba(0, 134, 78, 0.5)"
+                color: "rgba(107, 1, 45, 0.788)"
             })
     }
 

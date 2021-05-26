@@ -21,7 +21,7 @@ $(document).ready(function() {
                 .get() //READ asynch
                 .then(function(reqCol) {
                     reqCol.forEach(function(req) { //read each document in the collection
-                        let eachPost = `<div class="each-post" id="${req.id}" data-items="${req.data().numberOfItem}" data-city="${req.data().city}" data-date="${req.data().postedDate}"><div class="number-of-item">${req.data().numberOfItem} item(s)</div><div class="city"> ${req.data().city}</div><div class="date">Posted on ${req.data().postedDate}</div></div>`
+                        let eachPost = `<div class="each-post" id="${req.id}" data-items="${req.data().numberOfItem}" data-city="${req.data().city}" data-date="${req.data().postedDate}"><div class="number-of-item">Size ${req.data().size}</div><div class="city"> ${req.data().city}</div><div class="date">Posted on ${req.data().postedDate}</div></div>`
                         $('#spinner').hide()
                         if (req.data().available) {
                             $("#content").append(eachPost);
@@ -44,68 +44,73 @@ $(document).ready(function() {
             });
     }
 
-    
-    function defaultSort(){
-        
+
+    function defaultSort() {
+
     }
 
     $("#apply").click(function() {
-        if (document.getElementById("all-select").value == "sortItemsDesc"){
+        if (document.getElementById("all-select").value == "sortItemsDesc") {
             $("#content .each-post")
-                .sort(function (a, b) {
+                .sort(function(a, b) {
                     return $(b).data("items") - $(a).data("items");
                 })
                 .appendTo("#content");
         }
-        if (document.getElementById("all-select").value == "sortItemsAsc"){
+        if (document.getElementById("all-select").value == "sortItemsAsc") {
             $("#content .each-post")
-                .sort(function (a, b) {
+                .sort(function(a, b) {
                     return $(a).data("items") - $(b).data("items");
                 })
                 .appendTo("#content");
         }
-        if (document.getElementById("all-select").value == "sortCityDesc"){
-           
+        if (document.getElementById("all-select").value == "sortCityDesc") {
+
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-                function dec_sort(b, a){ return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
+
+                function dec_sort(b, a) { return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
             }
             $("#content").sortDivs();
         }
-        if (document.getElementById("all-select").value == "sortCityAsc"){
-           
+        if (document.getElementById("all-select").value == "sortCityAsc") {
+
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-                function dec_sort(a, b){ return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
+
+                function dec_sort(a, b) { return ($(b).data("city")) < ($(a).data("city")) ? 1 : -1; }
             }
             $("#content").sortDivs();
         }
-        if (document.getElementById("all-select").value == "sortDateDesc"){
+        if (document.getElementById("all-select").value == "sortDateDesc") {
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-                function dec_sort(b, a){ return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
+
+                function dec_sort(b, a) { return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
             }
             $("#content").sortDivs();
         }
-        if (document.getElementById("all-select").value == "sortDateAsc"){
+        if (document.getElementById("all-select").value == "sortDateAsc") {
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-                function dec_sort(a, b){ return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
+
+                function dec_sort(a, b) { return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
             }
             $("#content").sortDivs();
         }
-        
+
     });
 
     async function asyncCall() {
         jQuery.fn.sortDivs = function sortDivs() {
             $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-            function dec_sort(a, b){ return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
+
+            function dec_sort(a, b) { return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
         }
         $("#content").sortDivs();
         console.log("isnt working")
-      }
-      
+    }
+
     asyncCall();
 
 });
