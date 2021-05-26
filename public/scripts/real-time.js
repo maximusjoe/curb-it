@@ -49,7 +49,7 @@ $(document).ready(() => {
                     querySnapshot.forEach(doc => {
                         console.log(doc.data().text)
                         const date = doc.data().createdAt.toDate()
-                        if (uid == user.uid) {
+                        if (doc.data.uid == user.uid) {
                             $('#messages').append(`<li style="text-align: right">${date.getHours()}:${date.getMinutes()} ${doc.data().text}</li>`)
                         } else {
                             $('#messages').append(`<li style="text-align: left">${doc.data().text} ${date.getHours()}:${date.getMinutes()}</li>`)
