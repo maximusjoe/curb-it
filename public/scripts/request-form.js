@@ -39,29 +39,40 @@ $(document).ready(function() {
 
     var itemArray = new Array();
 
-    var numberRange = document.getElementById("number-input");
-    var numberValue = document.getElementById("number-value");
-    numberValue.innerHTML = numberRange.value;
+    // var numberRange = document.getElementById("number-input");
+    // var numberValue = document.getElementById("number-value");
+    // numberValue.innerHTML = numberRange.value;
 
-    numberRange.oninput = function() {
-        numberValue.innerHTML = this.value;
+    // numberRange.oninput = function() {
+    //     numberValue.innerHTML = this.value;
+    // }
+
+    // var widthRange = document.getElementById("width-input");
+    // var widthValue = document.getElementById("width-value");
+    // widthValue.innerHTML = widthRange.value;
+
+    // widthRange.oninput = function() {
+    //     widthValue.innerHTML = this.value;
+    // }
+
+    // var heightRange = document.getElementById("height-input");
+    // var heightValue = document.getElementById("height-value");
+    // heightValue.innerHTML = heightRange.value;
+
+    // heightRange.oninput = function() {
+    //     heightValue.innerHTML = this.value;
+    // }
+
+    var size = "";
+
+    function choosingSize() {
+        $("#size-choice").on('click', 'input', function() {
+            console.log($(this).attr('value'));
+            size = $(this).attr('value');
+        })
+
     }
-
-    var widthRange = document.getElementById("width-input");
-    var widthValue = document.getElementById("width-value");
-    widthValue.innerHTML = widthRange.value;
-
-    widthRange.oninput = function() {
-        widthValue.innerHTML = this.value;
-    }
-
-    var heightRange = document.getElementById("height-input");
-    var heightValue = document.getElementById("height-value");
-    heightValue.innerHTML = heightRange.value;
-
-    heightRange.oninput = function() {
-        heightValue.innerHTML = this.value;
-    }
+    choosingSize();
 
     var photoURL;
     var photoID = uniqueID();
@@ -90,12 +101,6 @@ $(document).ready(function() {
 
         let address = $("#address-input").val();
         let city = $("#city-input").val();
-        let width = $("#width-input").val();
-        let height = $("#width-input").val();
-        let numberOfItem = $("#number-input").val();
-        // console.log(numberOfItem);
-        // console.log(width)
-        // console.log(height)
 
         imgRef.getDownloadURL()
             .then((url) => {
@@ -117,9 +122,7 @@ $(document).ready(function() {
                             address,
                             city,
                             list: itemArray,
-                            width,
-                            height,
-                            numberOfItem,
+                            size,
                             photo: photoURL,
                             postedDate: getDateTime(),
                             available: true
