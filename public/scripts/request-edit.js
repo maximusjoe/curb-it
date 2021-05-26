@@ -28,28 +28,31 @@ $(document).ready(function() {
                     console.log(address)
                     let city = doc.data().city;
                     itemArray = doc.data().list;
-                    let number = doc.data().numberOfItem;
-                    let width = doc.data().width;
-                    let height = doc.data().height;
                     photo = doc.data().photo;
+                    size = doc.data().size;
 
                     for (let i = 0; i < itemArray.length; i++) {
                         $("#add-button").after('<div id="' + i + '" class="each-item"><span class="item-name">' + itemArray[i] + '</span><button id="delete' + i + '" type="button" class="delete btn-close"></button></div>')
                     }
 
+                    let option = $("#size-choice input")
+                    for (let i = 0; i < option.length; i++) {
+                        console.log(option[i].value)
+                        if (option[i].value === size) {
+                            $(option[i]).attr('checked', true)
+                            break;
+                        }
+                    }
+
                     $("#address-input").attr('value', address);
                     $("#city-input").attr('value', city);
-                    $("#number-value").text(number);
-                    $("#number-input").attr('value', number);
 
                     if (photo != "undefined") {
+                        $("#photo-label").after(`<div id="photo-wrapper"><img id="preview"/></div>`)
                         $("#preview").attr('src', photo);
                     }
                     // (`<div><img src="${photo}" class="photo-preview"/></div>`);
-                    $("#width-value").text(width);
-                    $("#width-input").attr('value', width);
-                    $("#height-value").text(height);
-                    $("#height-input").attr('value', height);
+
                 })
         }
     })
@@ -76,13 +79,13 @@ $(document).ready(function() {
         .then(function() {
             console.log('Uploaded to Cloud Storage.');
             added = true;
-            // imgRef.getDownloadURL()
-            //     .then((url) => {
-            //         photoURL = url;
-            //         $("#preview").attr('src', url);
-            //         console.log('Downloaded.');
-            //         added = true;
-            //     })
+            imgRef.getDownloadURL()
+                .then((url) => {
+                    photoURL = url;
+                    console.log('url: ' + photoURL);
+                    $("#preview").attr('src', photoURL);
+                })
+
         })
 
     });
@@ -93,14 +96,6 @@ $(document).ready(function() {
 
         let address = $("#address-input").val();
         let city = $("#city-input").val();
-        let width = $("#width-input").val();
-        let height = $("#width-input").val();
-        let numberOfItem = $("#number-input").val();
-        // console.log(numberOfItem);
-        // console.log(width)
-        // console.log(height)
-
-
 
         if (added) {
             imgRef.getDownloadURL()
@@ -127,9 +122,7 @@ $(document).ready(function() {
                                 address,
                                 city,
                                 list: itemArray,
-                                width,
-                                height,
-                                numberOfItem,
+                                size,
                                 photo: photoURL,
                                 available: true
                             }).then(function(result) {
@@ -151,32 +144,6 @@ $(document).ready(function() {
         window.location.href = `profile.html?id=${id}`;
     }
 
-    function numberSlider() {
-        var numberRange = document.getElementById("number-input");
-        var numberValue = document.getElementById("number-value");
-        numberValue.innerHTML = numberRange.value;
-
-        numberRange.oninput = function() {
-            numberValue.innerHTML = this.value;
-        }
-
-        var widthRange = document.getElementById("width-input");
-        var widthValue = document.getElementById("width-value");
-        widthValue.innerHTML = widthRange.value;
-
-        widthRange.oninput = function() {
-            widthValue.innerHTML = this.value;
-        }
-
-        var heightRange = document.getElementById("height-input");
-        var heightValue = document.getElementById("height-value");
-        heightValue.innerHTML = heightRange.value;
-
-        heightRange.oninput = function() {
-            heightValue.innerHTML = this.value;
-        }
-    }
-    numberSlider();
 
     function addItem() {
         $("#add-button").click(function(e) {
@@ -214,6 +181,17 @@ $(document).ready(function() {
 
     }
     deleteItem();
+
+    var size = "";
+
+    function choosingSize() {
+        $("#size-choice").on('click', 'input', function() {
+            console.log($(this).attr('value'));
+            size = $(this).attr('value');
+        })
+
+    }
+    choosingSize();
 
 });
 

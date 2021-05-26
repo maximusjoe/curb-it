@@ -27,10 +27,22 @@ $(document).ready(function() {
             db.collection("users").doc(user.uid)
                 .get()
                 .then(async(doc) => {
-                    $('#username').html(`${doc.data().name}`)
-                    $('#user_email').html(`${doc.data().email}`)
-                    $('#user_address').html(`${doc.data().address}`)
-                        // Posted Requests will appear here
+                    $('#username').html(`${doc.data().name}`);
+                    $('#user_email').html(`${doc.data().email}`);
+                    let userCity = doc.data().city;
+                    let userAddress = doc.data().address;
+                    if (userCity) {
+                        $('#user_city').html(`${doc.data().city}`);
+                    } else {
+                        $('#user_city').text('Edit profile to add city');
+                    }
+                    if (userAddress) {
+                        $('#user_address').html(`${doc.data().address}`);
+                    } else {
+                        $('#user_address').text('Edit profile to add address');
+                    }
+
+                    // Posted Requests will appear here
                     const listPostedReqs = await db.collection('users').doc(user.uid).collection('postedRequests')
                         .get()
                         .then(docs => docs)
@@ -41,7 +53,7 @@ $(document).ready(function() {
                         let postid = listPostedReqs.docs[i].id
                         $('#requestPosted').append(`<div class="postBoxes" >
                             <div class="view-post-container" id="${postid}">
-                            <div class="request-number">${post.numberOfItem} item(s)</div>
+                            <div class="request-number">Size ${post.size}</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
                             </div>
@@ -67,7 +79,7 @@ $(document).ready(function() {
                         const post = await db.collection('users').doc(posterID).collection('postedRequests').doc(postID).get()
                             .then(result => result.data()).catch(error => console.log(error))
                         $('#spinner').hide()
-                        $('#requestAccept').append(`<div class="acceptBoxes" >
+                        $('#requestAccept').append(`<div class="acceptBoxes" id="box${postID}" >
                             <div class="accept-container" id="${postID}">
                             <div class="request-number">${post.numberOfItem} items</div>
                             <div class="request-address">${post.address}</div>
@@ -113,12 +125,15 @@ $(document).ready(function() {
                 }).catch(error => console.log(error))
 
             await db.collection('users').doc(posterUID).collection('postedRequests').doc(postID).update({
-                    available: true
+                    available: true,
+                    pickupDate: "undefined",
+                    pickupTime: "undefined"
                 }).then(() => {
                     console.log('Successfully added back to newsfeed')
                 })
                 .catch(error => console.log(error))
-            window.location.href = 'profile.html'
+                //window.location.href = 'profile.html'
+            decline(postID);
         })
     }
 
@@ -136,7 +151,8 @@ $(document).ready(function() {
                     console.log('Successfully delete from the posters posted requests')
                 })
                 .catch(error => console.log(error))
-            window.location.href = 'profile.html'
+            done(postID);
+
         })
     }
 
@@ -155,4 +171,28 @@ $(document).ready(function() {
             posterID: poster_id
         })
     }
+    function done(postID) {
+        $("#done-success").fadeIn(300);
+        $("#overlay").show();
+        $(`#box${postID}`).remove();
+        console.log("remove request")
+        $("#done-close").on('click', function(e) {
+            e.preventDefault();
+            $("#done-success").fadeOut(250);
+            $("#overlay").hide();
+        })
+
+    };
+
+    function decline(postid) {
+        $("#decline-success").fadeIn(300);
+        $("#overlay").show();
+        $(`#box${postid}`).remove();
+        console.log("decline request")
+        $("#decline-close").on('click', function(e) {
+            e.preventDefault();
+            $("#decline-success").fadeOut(250);
+            $("#overlay").hide();
+        })
+    };
 });

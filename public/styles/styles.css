@@ -21,7 +21,7 @@
 }
 
 #bot-navbar button {
-    width: 25%;
+    width: 33.33%;
     height: 3.5rem;
     background-color: rgb(47, 48, 48);
     color: rgb(197, 243, 233);
@@ -29,20 +29,20 @@
 
 #request:hover {
     color: black;
-    background-color: lightgoldenrodyellow;
+    background-color: lightgray;
 }
 
 #home:hover {
     color: black;
-    background-color: lightgoldenrodyellow;
+    background-color: lightgray;
 }
 
 #profile:hover {
     color: black;
-    background-color: lightgoldenrodyellow;
+    background-color: lightgray;
 }
 
 #setting:hover {
     color: black;
-    background-color: lightgoldenrodyellow;
+    background-color: lightgray;
 }
