@@ -161,13 +161,26 @@ h4 {
 }
 
 #profile_outline div {
-    padding: 5px;
+    padding: 4px;
 }
 
 #user-name {
     font-size: 1.3em;
     font-weight: bolder;
     width: 90%
+}
+
+#edit-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#edit-button {
+    background-color: rgb(31, 32, 32);
+    color: rgb(197, 243, 233);
+    height: 5vh;
+    width: 120pt;
+    border-radius: 5px;
 }
 
 #done-success {

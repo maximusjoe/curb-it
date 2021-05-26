@@ -27,10 +27,22 @@ $(document).ready(function() {
             db.collection("users").doc(user.uid)
                 .get()
                 .then(async(doc) => {
-                    $('#username').html(`${doc.data().name}`)
-                    $('#user_email').html(`${doc.data().email}`)
-                    $('#user_address').html(`${doc.data().address}`)
-                        // Posted Requests will appear here
+                    $('#username').html(`${doc.data().name}`);
+                    $('#user_email').html(`${doc.data().email}`);
+                    let userCity = doc.data().city;
+                    let userAddress = doc.data().address;
+                    if (userCity) {
+                        $('#user_city').html(`${doc.data().city}`);
+                    } else {
+                        $('#user_city').text('Edit profile to add city');
+                    }
+                    if (userAddress) {
+                        $('#user_address').html(`${doc.data().address}`);
+                    } else {
+                        $('#user_address').text('Edit profile to add address');
+                    }
+
+                    // Posted Requests will appear here
                     const listPostedReqs = await db.collection('users').doc(user.uid).collection('postedRequests')
                         .get()
                         .then(docs => docs)

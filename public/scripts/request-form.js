@@ -95,6 +95,20 @@ $(document).ready(function() {
 
     });
 
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            db.collection("users").doc(user.uid)
+                .get()
+                .then(function(doc) {
+                    let defaultAddress = doc.data().address;
+                    let defaultCity = doc.data().city;
+
+                    $("#address-input").attr('value', defaultAddress);
+                    $("#city-input").attr('value', defaultCity);
+                })
+        }
+    })
+
 
     $('#submit-button').click(function(e) {
         e.preventDefault();

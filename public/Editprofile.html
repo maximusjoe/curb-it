@@ -65,6 +65,10 @@
                 <lable>Address: </lable><br>
                 <textarea id="user_address"></textarea>
             </div>
+            <div id="user-city">
+                <lable>City: </lable><br>
+                <textarea id="userCity"></textarea>
+            </div>
             <button id="save">Save</button>
         </div>
 
@@ -154,12 +158,14 @@
 
                     var name = document.getElementById("username").value;
                     var address = document.getElementById("user_address").value;
+                    var city = document.getElementById("userCity").value;
 
                     db.collection("users")
                         .doc(user.uid)
                         .update({
                             address,
-                            name
+                            name,
+                            city
                         }).then(function(result) {
                             console.log('Upload Successful!')
                             redirectToProfile()

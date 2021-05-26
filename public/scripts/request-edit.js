@@ -144,32 +144,6 @@ $(document).ready(function() {
         window.location.href = `profile.html?id=${id}`;
     }
 
-    function numberSlider() {
-        var numberRange = document.getElementById("number-input");
-        var numberValue = document.getElementById("number-value");
-        numberValue.innerHTML = numberRange.value;
-
-        numberRange.oninput = function() {
-            numberValue.innerHTML = this.value;
-        }
-
-        var widthRange = document.getElementById("width-input");
-        var widthValue = document.getElementById("width-value");
-        widthValue.innerHTML = widthRange.value;
-
-        widthRange.oninput = function() {
-            widthValue.innerHTML = this.value;
-        }
-
-        var heightRange = document.getElementById("height-input");
-        var heightValue = document.getElementById("height-value");
-        heightValue.innerHTML = heightRange.value;
-
-        heightRange.oninput = function() {
-            heightValue.innerHTML = this.value;
-        }
-    }
-    //numberSlider();
 
     function addItem() {
         $("#add-button").click(function(e) {
