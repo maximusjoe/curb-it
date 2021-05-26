@@ -14,6 +14,7 @@ $(document).ready(() => {
 
     const post_id = GetURLParameter('id')
     const poster_id = GetURLParameter('poster')
+    var acceptee_id = null;
 
     $("#accept-button1").on('click', e => {
         e.preventDefault()
@@ -53,8 +54,11 @@ $(document).ready(() => {
             postedDate,
             pickupDate,
             pickupTime,
-            width
+            width,
+            acceptee
         } = data
+
+        acceptee_id = acceptee;
 
         $('#requester-wrapper').append(`<div id="requester">Request by: ${name}</div>`);
         $('#requester-wrapper').append(`<div id="date">Posted on: ${postedDate}</div>`);
@@ -98,18 +102,20 @@ $(document).ready(() => {
                         .update({
                             available: false,
                             pickupDate,
-                            pickupTime
+                            pickupTime,
+                            acceptee: user.uid
                         })
                     await db.collection('users').doc(user.uid)
                         .collection('acceptedRequests')
                         .doc(post_id)
                         .set({
                             posterID: poster_id,
-                            postID: post_id
+                            postID: post_id,
                         })
 
                 }
             })
+            openChat(poster_id, post_id, acceptee_id)
         } else {
             // No user is signed in.
             alert('You need to sign in first to volunteer')
@@ -139,6 +145,18 @@ $(document).ready(() => {
                 backgroundColor: "rgba(31, 32, 32, 0)",
                 color: "rgba(0, 134, 78, 0.5)"
             })
+    }
+
+    const openChat = (posterUID,  postID, accepteeID) => {
+        if (acceptee_id == null) {
+            $(`#chat-button1`).on('click', (event) => {
+             alert("The request has not been accepted");
+            })
+        }else {
+            $(`#chat-button1`).on('click', (event) => {
+                window.location.href = `real-time-messaging.html?id=${postID}&poster=${posterUID}&acceptee=${accepteeID}`
+            })
+        }
     }
 
 });
