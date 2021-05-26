@@ -125,6 +125,7 @@ $(document).ready(function() {
     const finishPostListener = (uid, postID, posterUID) => {
         $(`#${postID}${uid}`).on('click', async(event) => {
             // Shoot notifications here!
+            sendNotification(posterUID)
 
             await db.collection('users').doc(uid).collection('acceptedRequests').doc(postID).delete()
                 .then(() => {
@@ -136,6 +137,22 @@ $(document).ready(function() {
                 })
                 .catch(error => console.log(error))
             window.location.href = 'profile.html'
+        })
+    }
+
+    const sendNotification = async (poster_id) => {
+        // Add to poster id collection
+        const data = await db.collection('users')
+        .doc(poster_id).collection('notifications')
+        .add({
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            text: 'A volunteer has picked up your request!'
+        })
+        // Update the data so that it would be of type 'modified' in db changes
+        db.collection('users').doc(poster_id)
+        .collection('notifications').doc(data.id)
+        .update({
+            posterID: poster_id
         })
     }
 });
