@@ -97,6 +97,24 @@
     <script src="./scripts/firebase_api.js"></script>
     <script src="./scripts/authentication_check.js"></script>
     <script src="./scripts/main.js"></script>
+    <!-- <script>
+        $(document).ready(function() {
+            function showNotification() {
+                firebase.auth().onAuthStateChanged(function (user) {
+                    db.collection("users")
+                    .doc(user.uid)
+                    .collection("postedRequests")
+                    .where(available, "==", false)
+                    .get()
+                    .then(function(snap) {
+                        snap.forEach(function (doc) {
+                            $(".testing").append("<p>hello</p>")
+                        })
+                    })
+                })
+            }
+        });
+    </script> -->
 </body>
 
 </html>
