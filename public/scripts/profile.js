@@ -101,7 +101,7 @@ $(document).ready(function() {
                         $('#spinner').hide()
                         $('#requestAccept').append(`<div class="acceptBoxes" id="box${postID}" >
                             <div class="accept-container" id="${postID}">
-                            <div class="request-number">${post.size} items</div>
+                            <div class="request-number">Size ${post.size}</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} at ${post.pickupTime}</div>
                             </div>
