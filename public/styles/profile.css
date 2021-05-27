@@ -19,6 +19,10 @@
     color: rgb(197, 243, 233);
 }
 
+#spinner-border2 {
+    color: rgb(47, 48, 48);
+}
+
 .container-post {
     position: relative;
     width: 100%;
@@ -146,12 +150,6 @@ h4 {
     display: block;
 }
 
-
-/* #username {
-    text-align: center;
-    color: rgb(65, 110, 103);
-} */
-
 #profile_outline {
     width: 90%;
     margin: 20px auto;
@@ -192,15 +190,21 @@ h4 {
     left: 50%;
     transform: translate(-50%, -50%);
     /* adding scale(0) after the translate will make it disappear */
-    border: 1px solid black;
+    border: 2px solid rgb(197, 243, 233);
     padding: 15px;
     z-index: 10;
-    background-color: white;
+    background-color: rgb(31, 32, 32);
+    color: lightgray;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 #done-header {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 8pt;
+    border-bottom: 1px solid rgb(197, 243, 233);
 }
 
 #decline-success {
@@ -212,15 +216,21 @@ h4 {
     left: 50%;
     transform: translate(-50%, -50%);
     /* adding scale(0) after the translate will make it disappear */
-    border: 1px solid black;
+    border: 2px solid rgb(212, 0, 81);
     padding: 15px;
     z-index: 10;
-    background-color: white;
+    background-color: rgb(31, 32, 32);
+    color: lightgray;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 #decline-header {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 8pt;
+    border-bottom: 1px solid rgb(212, 0, 81);
 }
 
 #overlay {

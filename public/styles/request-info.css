@@ -26,6 +26,7 @@
 
 #photo-wrapper img {
     width: 100%;
+    padding-top: 12pt;
 }
 
 #info-header {
@@ -148,4 +149,25 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
+}
+
+#address {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#city {
+    font-size: 1.2rem;
+}
+
+* hr {
+    height: 5px;
+}
+
+* label {
+    font-weight: 700;
+}
+
+#pickup {
+    font-weight: 700;
 }

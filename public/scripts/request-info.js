@@ -29,7 +29,7 @@ $(document).ready(() => {
     })
 
     //Check whether a user is logged in .
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async(user) => {
         const data = await db.collection('users').doc(poster_id).collection('postedRequests')
             .doc(post_id).get().then(doc => {
                 if (doc.exists) {
@@ -40,7 +40,7 @@ $(document).ready(() => {
             }).catch(error => {
                 window.location.href = '404.html'
             })
-        // Dereference data
+            // Dereference data
         const {
             address,
             available,
@@ -65,31 +65,31 @@ $(document).ready(() => {
         }
         if (!available) {
             accepted();
-            $("#location").append(`<div id="address">Address: ${address}</div>`)
+            $("#location").append(`<div id="address"><label id="address-label">Address:</label> ${address}</div>`)
+
         }
         if (available && user.uid == poster_id) {
             pending();
-            $("#location").append(`<div id="address">Address: ${address}</div>`)
+            $("#location").append(`<div id="address"><label id="address-label">Address:</label> ${address}</div>`)
         }
-        $('#location').append(`<div id="city">City: ${city}</div>`)
-        $('#list-wrapper').append(`<div id="size">Package: size ${size}</div>`)
+        $('#location').append(`<div id="city"><label id="city-label">City:</label> ${city}</div>`)
+        $('#location').after(`<hr/>`)
+        $('#list-wrapper').append(`<label id="size-label">Package Size: </label>`)
+        $('#list-wrapper').append(`<ul id="size"><li>${size}</li></ul>`)
         $('#list-wrapper').append(`<label id="list-label">Item list:</label>`)
         $('#list-wrapper').append(`<ul id="item-list"></ul>`)
         for (let i = 0; i < itemsList.length; i++) {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
         }
-
-
-        // $('#list-wrapper').append(`<div id="number">Number of items: ${numberOfItem}</div>`)
-        // $('#list-wrapper').append(`<div id="dimension">Package dimension: ${width} x ${height}</div>`)
-        $("#photo-wrapper").append(`<label id="photo-label">Photo:</label>`);
+        $('#list-wrapper').after(`<hr/>`)
+        $("#photo-wrapper").append(`<label id="photo-label">Photo:</label><br>`);
         $("#photo-wrapper").append(`<img id="photo" src="${photo}"/>`)
-        // console.log(photo)
+
 
 
         if (user) {
             // User is signed in.
-            $('#accept-button2').on('click', async (e) => {
+            $('#accept-button2').on('click', async(e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
@@ -116,7 +116,8 @@ $(document).ready(() => {
 
                 }
             })
-            openChat(poster_id, post_id, acceptee_id)
+            openChat(poster_id, post_id, acceptee_id);
+            $('#spinner').hide();
         } else {
             // No user is signed in.
             alert('You need to sign in first to volunteer')
@@ -124,7 +125,7 @@ $(document).ready(() => {
         }
     });
 
-    const sendNotification = async (poster_id) => {
+    const sendNotification = async(poster_id) => {
         // Add to poster id collection
         const data = await db.collection('users')
             .doc(poster_id)
@@ -132,12 +133,12 @@ $(document).ready(() => {
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 text: 'A volunteer has accepted your post, expect them to drop by soon!'
             })
-        // Update the data so that it would be of type 'modified' in db changes
+            // Update the data so that it would be of type 'modified' in db changes
         db.collection('users')
-        .doc(poster_id).collection('notifications')
-        .doc(data.id).update({
-            posterID: poster_id
-        })
+            .doc(poster_id).collection('notifications')
+            .doc(data.id).update({
+                posterID: poster_id
+            })
     }
 
     function accepted() {
@@ -164,12 +165,12 @@ $(document).ready(() => {
             })
     }
 
-    const openChat = (posterUID,  postID, accepteeID) => {
+    const openChat = (posterUID, postID, accepteeID) => {
         if (acceptee_id == null) {
             $(`#chat-button1`).on('click', (event) => {
-             alert("The request has not been accepted");
+                alert("The request has not been accepted");
             })
-        }else {
+        } else {
             $(`#chat-button1`).on('click', (event) => {
                 window.location.href = `real-time-messaging.html?id=${postID}&poster=${posterUID}&acceptee=${accepteeID}`
             })

@@ -42,17 +42,27 @@ $(document).ready(() => {
                     uid
                 })
             })
-            db.collection('users').doc(uid).collection('chatrooms').doc(poster_id + "" + post_id ).collection('messages')
+            db.collection('users').doc(uid).collection('chatrooms').doc(poster_id + "" + post_id).collection('messages')
                 .orderBy('createdAt')
                 .onSnapshot(querySnapshot => {
                     $('#messages').empty()
                     querySnapshot.forEach(doc => {
                         console.log(doc.data().text)
                         const date = doc.data().createdAt.toDate()
-                        if (doc.data.uid == user.uid) {
-                            $('#messages').append(`<li style="text-align: right">${date.getHours()}:${date.getMinutes()} ${doc.data().text}</li>`)
+                        if (uid == user.uid) {
+                            $('#messages').append(`<div class="each-textbox" style="text-align: right">
+                            <div class="name"><span class="time">${date.getHours()}:${date.getMinutes()}</span> - You</div>
+                            <div class="text-content">
+                            <div class="text">${doc.data().text}</div>
+                            </div>
+                            </div>`)
                         } else {
-                            $('#messages').append(`<li style="text-align: left">${doc.data().text} ${date.getHours()}:${date.getMinutes()}</li>`)
+                            $('#messages').append(`<div class="each-textbox" style="text-align: left">
+                            <div class="name">Sender - <span class="time">${date.getHours()}:${date.getMinutes()}</span></div>
+                            <div class="text-content">
+                            <div class="text">${doc.data().text}</div>
+                            </div>
+                            </div>`)
                         }
                     })
                 })

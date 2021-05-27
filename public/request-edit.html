@@ -49,16 +49,16 @@
     </div>
 
     <!--The toast for notifications pop up, put this below nav-bar-->
-  <div aria-live="polite" aria-atomic="true" class="position-relative">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <div id="toast-container" class="toast-container position-absolute top-0 end-0 p-3">
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <!-- Position it: -->
+        <!-- - `.toast-container` for spacing between toasts -->
+        <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+        <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+        <div id="toast-container" class="toast-container position-absolute top-0 end-0 p-3">
 
-      <!-- Then put toasts within -->
+            <!-- Then put toasts within -->
+        </div>
     </div>
-  </div>
 
     <div id="title">Request Edit</div>
 
@@ -87,25 +87,15 @@
             <div id="size-wrapper">
                 <label id="size-label">Size(S, M, L): Dimension(w x l x h)<span id="size-value"></span></label>
                 <div id="size-choice">
-                    <input class="choice" type="radio" name="choice" value="L : 30x20x20">L : 30x20x20<br>
-                    <input class="choice" type="radio" name="choice" value="M : 20x10x10">M : 20x10x10<br>
-                    <input class="choice" type="radio" name="choice" value="S : 10x10x5">S : 10x10x5
+                    <input class="choice" type="radio" name="choice" value="L : 21x16x21">L : 21"x16"x21"<br>
+                    <input class="choice" type="radio" name="choice" value="M : 15x15x15">M : 15"x15"x15"<br>
+                    <input class="choice" type="radio" name="choice" value="S : 17x12x8">S : 17"x12"x8"
                 </div>
             </div>
             <div id="add-photo">
                 <label id="photo-label">Photos:</label><br>
                 <input type="file" id="photo-input">
             </div>
-            <!-- <div id="dimension">
-                <div id="width-wrapper">
-                    <label id="width-label">Width: <span id="width-value"></span></label>
-                    <input type="range" min="1" max="50" value="25" step="1" id="width-input">
-                </div>
-                <div id="height-wrapper">
-                    <label id="height-label">Height: <span id="height-value"></span></label>
-                    <input type="range" min="1" max="50" value="25" step="1" id="height-input">
-                </div>
-            </div> -->
 
             <div id="edit">
                 <button type="button" id="edit-button">Edit</button>
