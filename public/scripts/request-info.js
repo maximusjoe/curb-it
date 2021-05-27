@@ -14,6 +14,7 @@ $(document).ready(() => {
 
     const post_id = GetURLParameter('id')
     const poster_id = GetURLParameter('poster')
+    var acceptee_id = null;
 
     $("#accept-button1").on('click', e => {
         e.preventDefault()
@@ -28,7 +29,7 @@ $(document).ready(() => {
     })
 
     //Check whether a user is logged in .
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async(user) => {
         const data = await db.collection('users').doc(poster_id).collection('postedRequests')
             .doc(post_id).get().then(doc => {
                 if (doc.exists) {
@@ -39,7 +40,7 @@ $(document).ready(() => {
             }).catch(error => {
                 window.location.href = '404.html'
             })
-        // Dereference data
+            // Dereference data
         const {
             address,
             available,
@@ -52,16 +53,20 @@ $(document).ready(() => {
             postedDate,
             pickupDate,
             pickupTime,
+            acceptee
         } = data
+
+        acceptee_id = acceptee;
 
         $('#requester-wrapper').append(`<div id="requester">Request by: ${name}</div>`);
         $('#requester-wrapper').append(`<div id="date">Posted on: ${postedDate}</div>`);
-        if (pickupDate && pickupTime) {
+        if ((pickupDate && pickupTime) && (pickupDate != "undefined")) {
             $('#requester-wrapper').append(`<div id="pickup">Pick-up Schedule: ${pickupDate} at ${pickupTime}</div>`);
         }
         if (!available) {
             accepted();
             $("#location").append(`<div id="address">Address: ${address}</div>`)
+
         }
         if (available && user.uid == poster_id) {
             pending();
@@ -75,17 +80,14 @@ $(document).ready(() => {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
         }
 
-
-        // $('#list-wrapper').append(`<div id="number">Number of items: ${numberOfItem}</div>`)
-        // $('#list-wrapper').append(`<div id="dimension">Package dimension: ${width} x ${height}</div>`)
         $("#photo-wrapper").append(`<label id="photo-label">Photo:</label>`);
         $("#photo-wrapper").append(`<img id="photo" src="${photo}"/>`)
-        // console.log(photo)
+
 
 
         if (user) {
             // User is signed in.
-            $('#accept-button2').on('click', async (e) => {
+            $('#accept-button2').on('click', async(e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
@@ -99,18 +101,20 @@ $(document).ready(() => {
                         .update({
                             available: false,
                             pickupDate,
-                            pickupTime
+                            pickupTime,
+                            acceptee: user.uid
                         })
                     await db.collection('users').doc(user.uid)
                         .collection('acceptedRequests')
                         .doc(post_id)
                         .set({
                             posterID: poster_id,
-                            postID: post_id
+                            postID: post_id,
                         })
 
                 }
             })
+            openChat(poster_id, post_id, acceptee_id)
         } else {
             // No user is signed in.
             alert('You need to sign in first to volunteer')
@@ -118,7 +122,7 @@ $(document).ready(() => {
         }
     });
 
-    const sendNotification = async (poster_id) => {
+    const sendNotification = async(poster_id) => {
         // Add to poster id collection
         const data = await db.collection('users')
             .doc(poster_id)
@@ -126,12 +130,12 @@ $(document).ready(() => {
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 text: 'A volunteer has accepted your post, expect them to drop by soon!'
             })
-        // Update the data so that it would be of type 'modified' in db changes
+            // Update the data so that it would be of type 'modified' in db changes
         db.collection('users')
-        .doc(poster_id).collection('notifications')
-        .doc(data.id).update({
-            posterID: poster_id
-        })
+            .doc(poster_id).collection('notifications')
+            .doc(data.id).update({
+                posterID: poster_id
+            })
     }
 
     function accepted() {
@@ -156,6 +160,18 @@ $(document).ready(() => {
                 backgroundColor: "rgba(31, 32, 32, 0)",
                 color: "rgba(107, 1, 45, 0.788)"
             })
+    }
+
+    const openChat = (posterUID, postID, accepteeID) => {
+        if (acceptee_id == null) {
+            $(`#chat-button1`).on('click', (event) => {
+                alert("The request has not been accepted");
+            })
+        } else {
+            $(`#chat-button1`).on('click', (event) => {
+                window.location.href = `real-time-messaging.html?id=${postID}&poster=${posterUID}&acceptee=${accepteeID}`
+            })
+        }
     }
 
 });

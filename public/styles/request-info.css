@@ -65,6 +65,20 @@
     border-radius: 5px;
 }
 
+#chat-button1:hover {
+    cursor: pointer;
+}
+
+#chat-button1 {
+    cursor: pointer;
+    height: 2.5rem;
+    width: 100%;
+    max-width: 100px;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
+    border-radius: 5px;
+}
+
 #accept-button2 {
     cursor: pointer;
     height: 2.5rem;

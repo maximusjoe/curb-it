@@ -51,16 +51,30 @@ $(document).ready(function() {
                     for (let i = 0; i < listPostedReqs.docs.length; i++) {
                         let post = listPostedReqs.docs[i].data()
                         let postid = listPostedReqs.docs[i].id
-                        $('#requestPosted').append(`<div class="postBoxes" >
+                        if (post.pickupDate != "undefined") {
+                            $('#requestPosted').append(`<div class="postBoxes" >
                             <div class="view-post-container" id="${postid}">
                             <div class="request-number">Size ${post.size}</div>
                             <div class="request-address">${post.address}</div>
-                            <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
+                            <div class="schedule">Pickup on: ${post.pickupDate} at ${post.pickupTime}</div>
                             </div>
                             <div>
                             <button class='edit-button' id="edit${postid}">Edit</button>
                             </div>
                             </div>`)
+                        } else {
+                            $('#requestPosted').append(`<div class="postBoxes" >
+                            <div class="view-post-container" id="${postid}">
+                            <div class="request-number">Size ${post.size}</div>
+                            <div class="request-address">${post.address}</div>
+                            <div class="schedule">Waiting for acceptance</div>
+                            </div>
+                            <div>
+                            <button class='edit-button' id="edit${postid}">Edit</button>
+                            </div>
+                            </div>`)
+
+                        }
                         viewRequestInfo(postid, user.uid);
                         editRequest(user.uid, postid);
                     }
@@ -81,9 +95,9 @@ $(document).ready(function() {
                         $('#spinner').hide()
                         $('#requestAccept').append(`<div class="acceptBoxes" id="box${postID}" >
                             <div class="accept-container" id="${postID}">
-                            <div class="request-number">${post.numberOfItem} items</div>
+                            <div class="request-number">${post.size} items</div>
                             <div class="request-address">${post.address}</div>
-                            <div class="schedule">Pickup on: ${post.pickupDate} @ ${post.pickupTime}</div>
+                            <div class="schedule">Pickup on: ${post.pickupDate} at ${post.pickupTime}</div>
                             </div>
                             <div class="decline-done">
                             <button id="${postID}${user.uid}" class='done-button'>Done</button>
@@ -126,6 +140,7 @@ $(document).ready(function() {
 
             await db.collection('users').doc(posterUID).collection('postedRequests').doc(postID).update({
                     available: true,
+                    acceptee: null,
                     pickupDate: "undefined",
                     pickupTime: "undefined"
                 }).then(() => {
@@ -156,21 +171,22 @@ $(document).ready(function() {
         })
     }
 
-    const sendNotification = async (poster_id) => {
+    const sendNotification = async(poster_id) => {
         // Add to poster id collection
         const data = await db.collection('users')
-        .doc(poster_id).collection('notifications')
-        .add({
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            text: 'A volunteer has picked up your request!'
-        })
-        // Update the data so that it would be of type 'modified' in db changes
+            .doc(poster_id).collection('notifications')
+            .add({
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                text: 'A volunteer has picked up your request!'
+            })
+            // Update the data so that it would be of type 'modified' in db changes
         db.collection('users').doc(poster_id)
-        .collection('notifications').doc(data.id)
-        .update({
-            posterID: poster_id
-        })
+            .collection('notifications').doc(data.id)
+            .update({
+                posterID: poster_id
+            })
     }
+
     function done(postID) {
         $("#done-success").fadeIn(300);
         $("#overlay").show();
