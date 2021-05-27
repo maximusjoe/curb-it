@@ -116,7 +116,8 @@ $(document).ready(() => {
 
                 }
             })
-            openChat(poster_id, post_id, acceptee_id)
+            openChat(poster_id, post_id, acceptee_id);
+            $('#spinner').hide();
         } else {
             // No user is signed in.
             alert('You need to sign in first to volunteer')
