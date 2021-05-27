@@ -68,6 +68,11 @@ $(document).ready(function() {
         imgRef.put(file)
             .then(function() {
                 console.log('Uploaded to Cloud Storage.');
+                imgRef.getDownloadURL()
+                    .then((url) => {
+                        photoURL = url;
+                        console.log("got it!!")
+                    })
             })
 
     });
