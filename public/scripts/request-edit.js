@@ -129,7 +129,6 @@ $(document).ready(function() {
                                 console.log('Upload Successful!')
                                 redirectToSuccess(user.uid);
                             }).catch(error => console.log(error))
-
                     })
 
             } else {
