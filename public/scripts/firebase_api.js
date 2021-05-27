@@ -1,11 +1,11 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyDlIgYn99FTaPE2i4Klg42_mY2ZIE6JRGo",
-    authDomain: "team-35-ddc6a.firebaseapp.com",
-    projectId: "team-35-ddc6a",
-    storageBucket: "team-35-ddc6a.appspot.com",
-    messagingSenderId: "929353867295",
-    appId: "1:929353867295:web:3f87a4724dfca45a86752a"
-};
+const firebaseConfig = {
+    apiKey: "AIzaSyA1k_NhbAGCzNFbtpphCxlB1VwP0m9_DL0",
+    authDomain: "curb-it.firebaseapp.com",
+    projectId: "curb-it",
+    storageBucket: "curb-it.appspot.com",
+    messagingSenderId: "562098738795",
+    appId: "1:562098738795:web:15c947a623cc9499ff832e"
+  };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
