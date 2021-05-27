@@ -1995,6 +1995,23 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
+      "id": "c866a9ef-6b8a-426b-bbf5-4ab04feca200",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-logout",
+      "targets": [
+        ["id=login-logout", "id"],
+        ["linkText=Logout", "linkText"],
+        ["css=#login-logout", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[@id='login-logout']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarNav']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": "S"
+    }, {
       "id": "734ccb59-2a9b-4daa-ba99-a0d89fbaeba6",
       "comment": "",
       "command": "click",
@@ -2010,12 +2027,19 @@
         ["xpath=//li[3]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
       ],
-      "value": ""
+      "value": "S"
+    }, {
+      "id": "6c0aa5e9-7805-473a-8d8c-48fc9eac056a",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=login-btn",
+      "targets": [],
+      "value": "5000"
     }, {
       "id": "5d374ab5-db8a-4080-a656-6d34d1575fa1",
       "comment": "",
       "command": "verifyText",
-      "target": "id=login-logout",
+      "target": "id=login-btn",
       "targets": [
         ["id=login-logout", "id"],
         ["linkText=Sign-in", "linkText"],
@@ -2027,7 +2051,7 @@
         ["xpath=//li[3]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Sign-in')]", "xpath:innerText"]
       ],
-      "value": "Sign-in"
+      "value": "Login/Sign-up"
     }, {
       "id": "83a08e2d-bef2-4e8e-8005-2df40b60a6f8",
       "comment": "",
