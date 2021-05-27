@@ -1,3 +1,51 @@
+@media screen and (max-width: 320px) {
+    .right-textbox {
+        text-align: right;
+        margin-left: 50%
+    }
+
+    .left-textbox {
+        text-align: left;
+        margin-right: 50%
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 820px) {
+    .right-textbox {
+        text-align: right;
+        margin-left: 70%
+    }
+
+    .left-textbox {
+        text-align: left;
+        margin-right: 70%
+    }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1200px) {
+    .right-textbox {
+        text-align: right;
+        margin-left: 80%
+    }
+
+    .left-textbox {
+        text-align: left;
+        margin-right: 80%
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .right-textbox {
+        text-align: right;
+        margin-left: 90%
+    }
+
+    .left-textbox {
+        text-align: left;
+        margin-right: 90%
+    }
+}
+
 #body {
     padding-bottom: 70pt;
 }

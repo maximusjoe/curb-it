@@ -12,8 +12,8 @@ $(document).ready(() => {
                         }
                         if (change.type === "modified") {
                             const data = change.doc.data()
-                            console.log("Modified Successful", change.doc.data());
-                            $('#toast-container').append(`<div id="myToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            // console.log("Modified Successful", change.doc.data());
+                            $('#toast-container').append(`<div style="cursor:pointer;" id="myToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                   <img src="./img/favicon.ico" class="rounded me-2" alt="...">
                   <strong class="me-auto">Curb-It</strong>
@@ -29,6 +29,10 @@ $(document).ready(() => {
                             myToastEl.addEventListener('hidden.bs.toast', function () {
                                 document.getElementById('toast-container').lastChild.remove()
                             })
+                            myToastEl.addEventListener('click', (e) => {
+                                window.location.href = data.url
+                            })
+
                         }
                         // if (change.type === "removed") {
                         //     console.log("Removed ", change.doc.data());
