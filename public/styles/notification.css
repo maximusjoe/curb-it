@@ -7,7 +7,7 @@
     box-shadow: 0px 0px 3px 1px rgb(172, 172, 172);
     margin: 5pt auto;
     width: 100%;
-    padding: 8pt;
+    padding: 12pt 10pt;
     cursor: pointer;
     background-color: rgb(197, 243, 233);
 }
@@ -17,8 +17,10 @@
 }
 
 .noti-time {
-    font-size: 0.8;
+    padding-top: 10pt;
+    font-size: 0.7;
     color: lightslategray;
+    text-align: right;
 }
 
 #like-share {
