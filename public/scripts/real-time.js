@@ -21,25 +21,29 @@ $(document).ready(() => {
         if (user) {
             console.log('hi')
             document.getElementById("message").addEventListener("keyup", (e) => {
-                if (e.keyCode === 13) {
+                if (e.key === 'Enter') {
                     e.preventDefault();
                     document.getElementById("submit-button").click();
                 }
             })
-            $('#submit-button').on('click', (e) => {
+            $('#submit-button').on('click', async (e) => {
                 e.preventDefault()
                 const text = $('#message').val()
                 document.getElementById('message').value = ''
-                console.log(text)
-                db.collection('users').doc(uid).collection('chatrooms').doc(poster_id + post_id + "").collection('messages').add({
+                const data = await db.collection('users').doc(uid).collection('chatrooms').doc(poster_id + post_id + "").collection('messages').add({
                     text,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    uid
+                    senderUID: user.uid,
+                    senderName: user.displayName
                 })
-                db.collection('users').doc(poster_id).collection('chatrooms').doc(poster_id + post_id + "").collection('messages').add({
+
+
+
+                await db.collection('users').doc(poster_id).collection('chatrooms').doc(poster_id + post_id + "").collection('messages').add({
                     text,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    uid
+                    senderUID: user.uid,
+                    senderName: user.displayName
                 })
             })
             db.collection('users').doc(uid).collection('chatrooms').doc(poster_id + "" + post_id).collection('messages')
@@ -49,7 +53,7 @@ $(document).ready(() => {
                     querySnapshot.forEach(doc => {
                         console.log(doc.data().text)
                         const date = doc.data().createdAt.toDate()
-                        if (uid == user.uid) {
+                        if (doc.data().senderUID == user.uid) {
                             $('#messages').append(`<div class="each-textbox" style="text-align: right">
                             <div class="name"><span class="time">${date.getHours()}:${date.getMinutes()}</span> - You</div>
                             <div class="text-content">
@@ -58,7 +62,7 @@ $(document).ready(() => {
                             </div>`)
                         } else {
                             $('#messages').append(`<div class="each-textbox" style="text-align: left">
-                            <div class="name">Sender - <span class="time">${date.getHours()}:${date.getMinutes()}</span></div>
+                            <div class="name">${doc.data().senderName} - <span class="time">${date.getHours()}:${date.getMinutes()}</span></div>
                             <div class="text-content">
                             <div class="text">${doc.data().text}</div>
                             </div>
