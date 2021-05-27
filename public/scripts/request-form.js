@@ -95,6 +95,7 @@ $(document).ready(function() {
         imgRef.getDownloadURL()
             .then((url) => {
                 photoURL = url;
+                console.log("got it!!")
             })
 
 

@@ -26,8 +26,8 @@ img {
     width: 360px;
 }
 
-.button {
-    margin: 3rem;
+.login-button,
+.eateregg-button {
     cursor: pointer;
     height: 2.5rem;
     width: 100%;
@@ -35,4 +35,5 @@ img {
     background-color: rgb(47, 48, 48);
     color: rgb(197, 243, 233);
     border-radius: 5px;
+    margin-top: 10pt;
 }
