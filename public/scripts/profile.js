@@ -103,7 +103,7 @@ $(document).ready(function () {
                             <div class="accept-container" id="${postID}">
                             <div class="request-number">Size ${post.size}</div>
                             <div class="request-address">${post.address}</div>
-                            <div class="schedule">Pickup on: ${post.pickupDate} at ${post.pickupTime}</div>
+                            <div class="accept-schedule">Pickup on: ${post.pickupDate} at ${post.pickupTime}</div>
                             </div>
                             <div class="decline-done">
                             <button id="${postID}${user.uid}" class='done-button'>Done</button>

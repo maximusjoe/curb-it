@@ -101,6 +101,13 @@ h4 {
     font-size: 0.8rem;
 }
 
+.accept-schedule {
+    margin-top: 5pt;
+    color: rgb(54, 54, 54);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
 .postBoxes:hover {
     cursor: pointer;
     width: 93.5%;
