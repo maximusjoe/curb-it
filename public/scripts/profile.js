@@ -9,6 +9,9 @@ $(document).ready(function() {
         $("#profile_outline").css({
             color: "rgb(47, 48, 48)",
         });
+        $("#tab-label").css({
+            borderTop: "1.2px solid rgb(47, 48, 48)",
+        })
     });
 
     $("#postedRequest").click(function() {
@@ -20,6 +23,9 @@ $(document).ready(function() {
         $("#profile_outline").css({
             color: "lightgray",
         });
+        $("#tab-label").css({
+            borderTop: "1px solid rgb(197, 243, 233)",
+        })
     });
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -95,7 +101,7 @@ $(document).ready(function() {
                         $('#spinner').hide()
                         $('#requestAccept').append(`<div class="acceptBoxes" id="box${postID}" >
                             <div class="accept-container" id="${postID}">
-                            <div class="request-number">${post.size} items</div>
+                            <div class="request-number">Size ${post.size}</div>
                             <div class="request-address">${post.address}</div>
                             <div class="schedule">Pickup on: ${post.pickupDate} at ${post.pickupTime}</div>
                             </div>
@@ -111,7 +117,8 @@ $(document).ready(function() {
                         declinePostListener(user.uid, postID, posterID)
                         finishPostListener(user.uid, postID, posterID)
                     }
-                    $('#spinner').hide()
+                    $('#spinner').hide();
+                    $('#spinner2').hide()
                 })
         } else {
             // No user is signed in.

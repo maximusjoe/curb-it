@@ -19,6 +19,10 @@
     color: rgb(197, 243, 233);
 }
 
+#spinner-border2 {
+    color: rgb(47, 48, 48);
+}
+
 .container-post {
     position: relative;
     width: 100%;

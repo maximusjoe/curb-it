@@ -65,22 +65,24 @@ $(document).ready(() => {
         }
         if (!available) {
             accepted();
-            $("#location").append(`<div id="address">Address: ${address}</div>`)
+            $("#location").append(`<div id="address"><label id="address-label">Address:</label> ${address}</div>`)
 
         }
         if (available && user.uid == poster_id) {
             pending();
-            $("#location").append(`<div id="address">Address: ${address}</div>`)
+            $("#location").append(`<div id="address"><label id="address-label">Address:</label> ${address}</div>`)
         }
-        $('#location').append(`<div id="city">City: ${city}</div>`)
-        $('#list-wrapper').append(`<div id="size">Package: size ${size}</div>`)
+        $('#location').append(`<div id="city"><label id="city-label">City:</label> ${city}</div>`)
+        $('#location').after(`<hr/>`)
+        $('#list-wrapper').append(`<label id="size-label">Package Size: </label>`)
+        $('#list-wrapper').append(`<ul id="size"><li>${size}</li></ul>`)
         $('#list-wrapper').append(`<label id="list-label">Item list:</label>`)
         $('#list-wrapper').append(`<ul id="item-list"></ul>`)
         for (let i = 0; i < itemsList.length; i++) {
             $('#item-list').append(`<li>${itemsList[i]}</li>`)
         }
-
-        $("#photo-wrapper").append(`<label id="photo-label">Photo:</label>`);
+        $('#list-wrapper').after(`<hr/>`)
+        $("#photo-wrapper").append(`<label id="photo-label">Photo:</label><br>`);
         $("#photo-wrapper").append(`<img id="photo" src="${photo}"/>`)
 
 
@@ -114,7 +116,8 @@ $(document).ready(() => {
 
                 }
             })
-            openChat(poster_id, post_id, acceptee_id)
+            openChat(poster_id, post_id, acceptee_id);
+            $('#spinner').hide();
         } else {
             // No user is signed in.
             alert('You need to sign in first to volunteer')
