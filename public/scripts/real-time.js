@@ -16,7 +16,14 @@ $(document).ready(() => {
     const poster_id = GetURLParameter('poster')
     const uid = GetURLParameter('acceptee')
 
-
+    function getDocHeight() {
+        var D = document;
+        return Math.max(
+            D.body.scrollHeight, D.documentElement.scrollHeight,
+            D.body.offsetHeight, D.documentElement.offsetHeight,
+            D.body.clientHeight, D.documentElement.clientHeight
+        );
+    }
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             console.log('hi')
@@ -54,21 +61,23 @@ $(document).ready(() => {
                         console.log(doc.data().text)
                         const date = doc.data().createdAt.toDate()
                         if (doc.data().senderUID == user.uid) {
-                            $('#messages').append(`<div class="each-textbox" style="text-align: right">
+                            $('#messages').append(`<div class="each-textbox right-textbox">
                             <div class="name"><span class="time">${date.getHours()}:${date.getMinutes()}</span> - You</div>
                             <div class="text-content">
                             <div class="text">${doc.data().text}</div>
                             </div>
                             </div>`)
                         } else {
-                            $('#messages').append(`<div class="each-textbox" style="text-align: left">
+                            $('#messages').append(`<div class="each-textbox left-textbox">
                             <div class="name">${doc.data().senderName} - <span class="time">${date.getHours()}:${date.getMinutes()}</span></div>
                             <div class="text-content">
                             <div class="text">${doc.data().text}</div>
                             </div>
                             </div>`)
                         }
-                    })
+                    }
+                    )
+                    window.scrollTo(0, document.body.scrollHeight)
                 })
         } else {
             // No user is signed in.
