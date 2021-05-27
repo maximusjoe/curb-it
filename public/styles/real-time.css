@@ -1,18 +1,44 @@
-li {
-    list-style-type: none;
-    padding-right: 3.5%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+#body {
+    padding-bottom: 70pt;
 }
 
-#message {
-    width: 80%;
+#page-content {
+    width: 90%;
+    margin: 0 auto;
     border: none;
-    padding: 0%;
 }
 
 #submit-button {
-    width: 18%;
-    border: none;
-    padding: 0%;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 25%;
+    background-color: rgb(47, 48, 48);
+    color: rgb(197, 243, 233);
+    border-radius: 5px;
+}
+
+#message {
+    width: 75%;
+    height: 2.5rem;
+}
+
+#msg-submit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.each-textbox {
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+}
+
+.text-content {
+    background-color: rgb(47, 48, 48);
+    color: lightgray;
+    border-radius: 8px;
+    padding: 8pt;
+}
+
+.time {
+    font-style: italic;
 }

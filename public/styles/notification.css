@@ -1,0 +1,30 @@
+#body {
+    background-color: rgb(47, 48, 48);
+    padding-bottom: 5rem;
+}
+
+.each-noti {
+    box-shadow: 0px 0px 3px 1px rgb(172, 172, 172);
+    margin: 5pt auto;
+    width: 100%;
+    padding: 8pt;
+    cursor: pointer;
+    background-color: rgb(197, 243, 233);
+}
+
+.noti-text {
+    font-size: 1.2rem;
+}
+
+.noti-time {
+    font-size: 0.8;
+    color: lightslategray;
+}
+
+#like-share {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
