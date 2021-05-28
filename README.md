@@ -61,9 +61,9 @@ If you notice bugs on the website, feel free to contact us directly by sending u
 ## Directory Structure
 Details of what each file does, files that are left blank are pretty self-explanatory  
 📦public : The directory that the project lives in    
+ ┣ 📜Curb-It tests.side : Test cases for automation testing using Selenium IDE  
  ┣ 📂img : I don't want to bore you with all the images descriptions  
  ┣ 📂scripts  
- ┃ ┣ 📜about.js :   
  ┃ ┣ 📜authentication_check.js : Checks whether the user is logged in, contains a listener to notifications collection on Firestore     
  ┃ ┣ 📜firebase_api.js : Contains the app keys and firebase related keys   
  ┃ ┣ 📜login.js  
@@ -81,7 +81,6 @@ Details of what each file does, files that are left blank are pretty self-explan
  ┣ 📂styles : Styling folder for our pages     
  ┣ 📜404.html :  404 page that tells users that they have accessed the wrong link, with a twist  
  ┣ 📜about.html : A brief look at our mission and the team who helped develop the website  
- ┣ 📜Curb-It tests.side : Test cases for automation testing using Selenium IDE  
  ┣ 📜Editprofile.html : Edit profile page  
  ┣ 📜help.html  : Help page  
  ┣ 📜index.html  : Login page  
