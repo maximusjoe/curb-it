@@ -1,4 +1,5 @@
 $(() => {
+    // Load and add all notifications in the database to the page
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection('users').doc(user.uid).collection('notifications').get()
