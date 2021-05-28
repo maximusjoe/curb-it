@@ -125,18 +125,21 @@ $(document).ready(function() {
         }
     });
 
+    // Redirects to edit request page
     const editRequest = (uid, postID) => {
         $(`#edit${postID}`).on('click', async(event) => {
             window.location.href = `request-edit.html?id=${postID}&poster=${uid}`
         })
     }
 
+    // Redirects to view request page
     const viewRequestInfo = (postID, posterID) => {
         $(`#${postID}`).on('click', (event) => {
             window.location.href = `request-info.html?id=${postID}&poster=${posterID}`
         })
     }
 
+    // Declines the post request
     const declinePostListener = (uid, postID, posterUID) => {
         $(`#${uid}${postID}`).on('click', async(event) => {
             await db.collection('users').doc(uid).collection('acceptedRequests').doc(postID).delete()

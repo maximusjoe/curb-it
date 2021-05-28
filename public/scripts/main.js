@@ -47,12 +47,9 @@ $(document).ready(function() {
             });
     }
 
-
-    function defaultSort() {
-
-    }
-
+    // Filter script to rearange the main page divs
     $("#apply").click(function() {
+        // Size filter
         if (document.getElementById("all-select").value == "sortSizeDesc") {
             $("#content .each-post")
                 .sort(function(a, b) {
@@ -62,6 +59,7 @@ $(document).ready(function() {
                 })
                 .appendTo("#content");
         }
+        // Size filter
         if (document.getElementById("all-select").value == "sortSizeAsc") {
             $("#content .each-post")
                 .sort(function(a, b) {
@@ -71,6 +69,7 @@ $(document).ready(function() {
                 })
                 .appendTo("#content");
         }
+        // City filter
         if (document.getElementById("all-select").value == "sortCityDesc") {
 
             jQuery.fn.sortDivs = function sortDivs() {
@@ -82,6 +81,7 @@ $(document).ready(function() {
             }
             $("#content").sortDivs();
         }
+        // City filter
         if (document.getElementById("all-select").value == "sortCityAsc") {
 
             jQuery.fn.sortDivs = function sortDivs() {
@@ -93,6 +93,7 @@ $(document).ready(function() {
             }
             $("#content").sortDivs();
         }
+        // Date filter
         if (document.getElementById("all-select").value == "sortDateDesc") {
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
@@ -103,6 +104,7 @@ $(document).ready(function() {
             }
             $("#content").sortDivs();
         }
+        // Date filter
         if (document.getElementById("all-select").value == "sortDateAsc") {
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);

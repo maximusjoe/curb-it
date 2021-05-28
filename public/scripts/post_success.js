@@ -1,6 +1,7 @@
 $(document).ready(() => {
 
     // https://www.learningjquery.com/2012/06/get-url-parameters-using-jquery
+    // Gets custom variable in url
     function GetURLParameter(sParam) {
         var sPageURL = window.location.search.substring(1);
         var sURLVariables = sPageURL.split('&');

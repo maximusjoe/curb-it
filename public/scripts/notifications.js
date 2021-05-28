@@ -12,6 +12,7 @@ $(() => {
                     })
                 })
         } else {
+            // Redirect to login
             window.location.href = 'index.html'
         }
     })

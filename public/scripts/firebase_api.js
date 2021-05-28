@@ -1,3 +1,5 @@
+
+// Firebase project settings
 const firebaseConfig = {
   apiKey: "AIzaSyA1k_NhbAGCzNFbtpphCxlB1VwP0m9_DL0",
   authDomain: "curb-it.firebaseapp.com",
