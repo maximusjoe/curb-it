@@ -21,7 +21,7 @@ $(document).ready(function() {
                 .get() //READ asynch
                 .then(function(reqCol) {
                     reqCol.forEach(function(req) { //read each document in the collection
-                        let eachPost = `<div class="each-post" id="${req.id}" data-items="${req.data().numberOfItem}" data-city="${req.data().city}" data-date="${req.data().postedDate}"><div class="number-of-item">Size ${req.data().size}</div><div class="city"> ${req.data().city}</div><div class="date">Posted on ${req.data().postedDate}</div></div>`
+                        let eachPost = `<div class="each-post" id="${req.id}" data-size="${req.data().size}" data-city="${req.data().city}" data-date="${req.data().postedDate}"><div class="number-of-item">Size ${req.data().size}</div><div class="city"> ${req.data().city}</div><div class="date">Posted on ${req.data().postedDate}</div></div>`
                         $('#spinner').hide()
                         if (req.data().available) {
                             $("#content").append(eachPost);
@@ -50,17 +50,21 @@ $(document).ready(function() {
     }
 
     $("#apply").click(function() {
-        if (document.getElementById("all-select").value == "sortItemsDesc") {
+        if (document.getElementById("all-select").value == "sortSizeDesc") {
             $("#content .each-post")
                 .sort(function(a, b) {
-                    return $(b).data("items") - $(a).data("items");
+                    console.log($(b).data("size").substring(4))
+                    console.log($(b).data("size").substring(4) - $(a).data("size").substring(4))
+                    return $(b).data("size").substring(4) - $(a).data("size").substring(4);
                 })
                 .appendTo("#content");
         }
-        if (document.getElementById("all-select").value == "sortItemsAsc") {
+        if (document.getElementById("all-select").value == "sortSizeAsc") {
             $("#content .each-post")
                 .sort(function(a, b) {
-                    return $(a).data("items") - $(b).data("items");
+                    console.log($(b).data("size").substring(4))
+                    console.log($(a).data("size").substring(4) - $(b).data("size").substring(4))
+                    return $(a).data("size").substring(4) - $(b).data("size").substring(4);
                 })
                 .appendTo("#content");
         }
@@ -100,17 +104,5 @@ $(document).ready(function() {
         }
 
     });
-
-    async function asyncCall() {
-        jQuery.fn.sortDivs = function sortDivs() {
-            $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-
-            function dec_sort(a, b) { return ($(b).data("date")) < ($(a).data("date")) ? 1 : -1; }
-        }
-        $("#content").sortDivs();
-        console.log("isnt working")
-    }
-
-    asyncCall();
 
 });
