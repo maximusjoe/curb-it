@@ -27,6 +27,7 @@ $(document).ready(() => {
             $('#submit-button').on('click', async (e) => {
                 e.preventDefault()
                 const text = $('#message').val()
+                // If Submit with nothing then do nothing
                 if (text === '') return
                 document.getElementById('message').value = ''
                 db.collection('users').doc(uid).collection('chatrooms').doc(poster_id + post_id + "").collection('messages').add({
@@ -36,6 +37,7 @@ $(document).ready(() => {
                     senderName: user.displayName
                 })
 
+                // Set receiver 
                 let msg_receiver = ''
                 if (user.uid === uid) {
                     msg_receiver = poster_id
@@ -43,15 +45,18 @@ $(document).ready(() => {
                     msg_receiver = uid
                 }
 
+                // Set the notifications collection of receiver
                 const data = await db.collection('users').doc(msg_receiver).collection('notifications').add({
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                     text: `${user.displayName} sent you a message`
                 })
+                // Update the notification collection of receiver so noti would pop up
                 db.collection('users').doc(msg_receiver).collection('notifications').doc(data.id).update({
                     senderID: user.uid,
                     url: `real-time-messaging.html?id=${post_id}&poster=${poster_id}&acceptee=${uid}`
                 })
 
+                // Save messages
                 db.collection('users').doc(poster_id).collection('chatrooms').doc(poster_id + post_id + "").collection('messages').add({
                     text,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -59,7 +64,7 @@ $(document).ready(() => {
                     senderName: user.displayName
                 })
             })
-
+            // Insert new messages to the page
             db.collection('users').doc(uid).collection('chatrooms').doc(poster_id + "" + post_id).collection('messages')
                 .orderBy('createdAt')
                 .onSnapshot(querySnapshot => {
