@@ -150,6 +150,7 @@ $(document).ready(function() {
 
             let item_input = $("#list-input").val();
             itemArray.push(item_input);
+            document.getElementById('list-input').value = ''
 
             console.log(item_input);
             console.log(itemArray);
