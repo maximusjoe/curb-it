@@ -1,36 +1,33 @@
 @media screen and (max-width: 320px) {
     .right-textbox {
         text-align: right;
-        margin-left: 50%
+        margin-left: 20%
     }
-
     .left-textbox {
         text-align: left;
-        margin-right: 50%
+        margin-right: 20%
     }
 }
 
 @media screen and (min-width: 320px) and (max-width: 820px) {
     .right-textbox {
         text-align: right;
-        margin-left: 70%
+        margin-left: 20%
     }
-
     .left-textbox {
         text-align: left;
-        margin-right: 70%
+        margin-right: 20%
     }
 }
 
 @media screen and (min-width: 820px) and (max-width: 1200px) {
     .right-textbox {
         text-align: right;
-        margin-left: 80%
+        margin-left: 20%
     }
-
     .left-textbox {
         text-align: left;
-        margin-right: 80%
+        margin-right: 20%
     }
 }
 
@@ -39,7 +36,6 @@
         text-align: right;
         margin-left: 90%
     }
-
     .left-textbox {
         text-align: left;
         margin-right: 90%
