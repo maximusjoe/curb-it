@@ -34,9 +34,6 @@ $(document).ready(() => {
                             })
 
                         }
-                        // if (change.type === "removed") {
-                        //     console.log("Removed ", change.doc.data());
-                        // }
                     })
                 })
 
