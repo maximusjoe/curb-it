@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $("#acceptedRequest").click(function () {
+    $("#acceptedRequest").click(function() {
         $("#requestAccept").show();
         $("#requestPosted").hide();
         $("#body").css({
@@ -14,7 +14,7 @@ $(document).ready(function () {
         })
     });
 
-    $("#postedRequest").click(function () {
+    $("#postedRequest").click(function() {
         $("#requestPosted").show();
         $("#requestAccept").hide();
         $("#body").css({
@@ -27,12 +27,12 @@ $(document).ready(function () {
             borderTop: "1px solid rgb(197, 243, 233)",
         })
     });
-    firebase.auth().onAuthStateChanged(function (user) {
+    firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
             db.collection("users").doc(user.uid)
                 .get()
-                .then(async (doc) => {
+                .then(async(doc) => {
                     $('#username').html(`${doc.data().name}`);
                     $('#user_email').html(`${doc.data().email}`);
                     let userCity = doc.data().city;
@@ -53,11 +53,11 @@ $(document).ready(function () {
                         .get()
                         .then(docs => docs)
                         .catch(error => console.log(error))
-                    // console.log(listPostedReqs.docs[0].data())
+                        // console.log(listPostedReqs.docs[0].data())
                     for (let i = 0; i < listPostedReqs.docs.length; i++) {
                         let post = listPostedReqs.docs[i].data()
                         let postid = listPostedReqs.docs[i].id
-                        if (post.pickupDate != "undefined") {
+                        if (post.pickupDate) {
                             $('#requestPosted').append(`<div class="postBoxes" >
                             <div class="view-post-container" id="${postid}">
                             <div class="request-number">Size ${post.size}</div>
@@ -79,8 +79,8 @@ $(document).ready(function () {
                             <button class='edit-button' id="edit${postid}">Edit</button>
                             </div>
                             </div>`)
-                        }  
-                            $('#spinner2').hide()
+                        }
+                        $('#spinner2').hide()
                         viewRequestInfo(postid, user.uid);
                         editRequest(user.uid, postid);
                     }
@@ -95,7 +95,7 @@ $(document).ready(function () {
                     for (let i = 0; i < listAcceptedReqs.docs.length; i++) {
                         const postID = listAcceptedReqs.docs[i].id
                         const posterID = listAcceptedReqs.docs[i].data().posterID
-                        // Retrieve the posts from postedRequests
+                            // Retrieve the posts from postedRequests
                         const post = await db.collection('users').doc(posterID).collection('postedRequests').doc(postID).get()
                             .then(result => result.data()).catch(error => console.log(error))
                         $('#spinner').hide()
@@ -110,9 +110,9 @@ $(document).ready(function () {
                             <button id="${user.uid}${postID}" class='decline-button'>Cancel</button>
                             </div>
                             </div>`)
-                        // console.log('user ID: ', user.uid)
-                        // console.log('postID: ', postID)
-                        // console.log('posterID: ', posterID)
+                            // console.log('user ID: ', user.uid)
+                            // console.log('postID: ', postID)
+                            // console.log('posterID: ', posterID)
                         viewRequestInfo(postID, posterID)
                         declinePostListener(user.uid, postID, posterID)
                         finishPostListener(user.uid, postID, posterID)
@@ -126,7 +126,7 @@ $(document).ready(function () {
     });
 
     const editRequest = (uid, postID) => {
-        $(`#edit${postID}`).on('click', async (event) => {
+        $(`#edit${postID}`).on('click', async(event) => {
             window.location.href = `request-edit.html?id=${postID}&poster=${uid}`
         })
     }
@@ -138,7 +138,7 @@ $(document).ready(function () {
     }
 
     const declinePostListener = (uid, postID, posterUID) => {
-        $(`#${uid}${postID}`).on('click', async (event) => {
+        $(`#${uid}${postID}`).on('click', async(event) => {
             await db.collection('users').doc(uid).collection('acceptedRequests').doc(postID).delete()
                 .then(() => {
                     console.log('Document successfully removed from the users accepted posts')
@@ -147,19 +147,19 @@ $(document).ready(function () {
             await db.collection('users').doc(posterUID).collection('postedRequests').doc(postID).update({
                     available: true,
                     acceptee: null,
-                    pickupDate: "undefined",
-                    pickupTime: "undefined"
+                    pickupDate: firebase.firestore.FieldValue.delete(),
+                    pickupTime: firebase.firestore.FieldValue.delete(),
                 }).then(() => {
                     console.log('Successfully added back to newsfeed')
                 })
                 .catch(error => console.log(error))
-            //window.location.href = 'profile.html'
+                //window.location.href = 'profile.html'
             decline(postID);
         })
     }
 
     const finishPostListener = (uid, postID, posterUID) => {
-        $(`#${postID}${uid}`).on('click', async (event) => {
+        $(`#${postID}${uid}`).on('click', async(event) => {
             // Shoot notifications here!
             sendNotification(posterUID)
 
@@ -177,7 +177,7 @@ $(document).ready(function () {
         })
     }
 
-    const sendNotification = async (poster_id) => {
+    const sendNotification = async(poster_id) => {
         // Add to poster id collection
         const data = await db.collection('users')
             .doc(poster_id).collection('notifications')
@@ -185,7 +185,7 @@ $(document).ready(function () {
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 text: 'A volunteer has picked up your request!'
             })
-        // Update the data so that it would be of type 'modified' in db changes
+            // Update the data so that it would be of type 'modified' in db changes
         db.collection('users').doc(poster_id)
             .collection('notifications').doc(data.id)
             .update({
@@ -198,7 +198,7 @@ $(document).ready(function () {
         $("#overlay").show();
         $(`#box${postID}`).remove();
         console.log("remove request")
-        $("#done-close").on('click', function (e) {
+        $("#done-close").on('click', function(e) {
             e.preventDefault();
             $("#done-success").fadeOut(250);
             $("#overlay").hide();
@@ -211,7 +211,7 @@ $(document).ready(function () {
         $("#overlay").show();
         $(`#box${postid}`).remove();
         console.log("decline request")
-        $("#decline-close").on('click', function (e) {
+        $("#decline-close").on('click', function(e) {
             e.preventDefault();
             $("#decline-success").fadeOut(250);
             $("#overlay").hide();
