@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     function addItem() {
-        $("#add-button").click(function(e) {
+        $("#add-button").click(function (e) {
             e.preventDefault();
 
             let item_input = $("#list-input").val();
@@ -18,7 +18,7 @@ $(document).ready(function() {
     addItem();
 
     function deleteItem() {
-        $("#item-list").on('click', 'div.each-item', function() {
+        $("#item-list").on('click', 'div.each-item', function () {
             console.log($(this).find('button').attr('class'));
 
             let button = $(this).find('button');
@@ -43,7 +43,7 @@ $(document).ready(function() {
     var size = "";
 
     function choosingSize() {
-        $("#size-choice").on('click', 'input', function() {
+        $("#size-choice").on('click', 'input', function () {
             console.log($(this).attr('value'));
             size = $(this).attr('value');
         })
@@ -60,13 +60,13 @@ $(document).ready(function() {
 
 
     var fileInput = document.getElementById("photo-input");
-    fileInput.addEventListener('change', function(e) {
+    fileInput.addEventListener('change', function (e) {
 
         var file = e.target.files[0];
         if (e.target.files.length > 1) return alert('You only need to upload 1 image.')
 
         imgRef.put(file)
-            .then(function() {
+            .then(function () {
                 console.log('Uploaded to Cloud Storage.');
                 imgRef.getDownloadURL()
                     .then((url) => {
@@ -77,11 +77,11 @@ $(document).ready(function() {
 
     });
 
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             db.collection("users").doc(user.uid)
                 .get()
-                .then(function(doc) {
+                .then(function (doc) {
                     let defaultAddress = doc.data().address;
                     let defaultCity = doc.data().city;
 
@@ -92,7 +92,7 @@ $(document).ready(function() {
     })
 
 
-    $('#submit-button').click(function(e) {
+    $('#submit-button').click(function (e) {
         e.preventDefault();
 
         let address = $("#address-input").val();
@@ -105,11 +105,11 @@ $(document).ready(function() {
             })
 
 
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 db.collection("users").doc(user.uid)
                     .get()
-                    .then(function(doc) {
+                    .then(function (doc) {
                         const name = doc.data().name;
                         const email = doc.data().email
                         db.collection("users").doc(user.uid).collection("postedRequests").add({
@@ -123,7 +123,7 @@ $(document).ready(function() {
                             photo: photoURL,
                             postedDate: getDateTime(),
                             available: true
-                        }).then(function(result) {
+                        }).then(function (result) {
                             console.log('Upload Successful!')
                             redirectToSuccess(result.id)
                         }).catch(error => console.log(error))

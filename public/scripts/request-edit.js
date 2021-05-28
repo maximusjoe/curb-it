@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     function GetURLParameter(sParam) {
         var sPageURL = window.location.search.substring(1);
@@ -18,12 +18,12 @@ $(document).ready(function() {
     console.log(post_id);
     console.log(poster_id);
 
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             db.collection("users").doc(user.uid)
                 .collection("postedRequests").doc(post_id)
                 .get()
-                .then(function(doc) {
+                .then(function (doc) {
                     let address = doc.data().address;
                     console.log(address)
                     let city = doc.data().city;
@@ -70,28 +70,28 @@ $(document).ready(function() {
 
     var fileInput = document.getElementById("photo-input");
 
-    fileInput.addEventListener('change', function(e) {
+    fileInput.addEventListener('change', function (e) {
 
         var file = e.target.files[0];
 
         imgRef.put(file)
 
-        .then(function() {
-            console.log('Uploaded to Cloud Storage.');
-            added = true;
-            imgRef.getDownloadURL()
-                .then((url) => {
-                    photoURL = url;
-                    console.log('url: ' + photoURL);
-                    $("#preview").attr('src', photoURL);
-                })
+            .then(function () {
+                console.log('Uploaded to Cloud Storage.');
+                added = true;
+                imgRef.getDownloadURL()
+                    .then((url) => {
+                        photoURL = url;
+                        console.log('url: ' + photoURL);
+                        $("#preview").attr('src', photoURL);
+                    })
 
-        })
+            })
 
     });
 
 
-    $('#edit-button').click(function(e) {
+    $('#edit-button').click(function (e) {
         e.preventDefault();
 
         let address = $("#address-input").val();
@@ -107,11 +107,11 @@ $(document).ready(function() {
             photoURL = photo;
         }
 
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 db.collection("users").doc(user.uid)
                     .get()
-                    .then(function(doc) {
+                    .then(function (doc) {
                         const name = doc.data().name;
                         const email = doc.data().email
                         db.collection("users").doc(user.uid)
@@ -125,7 +125,7 @@ $(document).ready(function() {
                                 size,
                                 photo: photoURL,
                                 available: true
-                            }).then(function(result) {
+                            }).then(function (result) {
                                 console.log('Upload Successful!')
                                 redirectToSuccess(user.uid);
                             }).catch(error => console.log(error))
@@ -145,7 +145,7 @@ $(document).ready(function() {
 
 
     function addItem() {
-        $("#add-button").click(function(e) {
+        $("#add-button").click(function (e) {
             e.preventDefault();
 
             let item_input = $("#list-input").val();
@@ -162,7 +162,7 @@ $(document).ready(function() {
     addItem();
 
     function deleteItem() {
-        $("#item-list").on('click', 'div.each-item', function() {
+        $("#item-list").on('click', 'div.each-item', function () {
             console.log($(this).find('button').attr('class'));
 
             let button = $(this).find('button');
@@ -185,7 +185,7 @@ $(document).ready(function() {
     var size = "";
 
     function choosingSize() {
-        $("#size-choice").on('click', 'input', function() {
+        $("#size-choice").on('click', 'input', function () {
             console.log($(this).attr('value'));
             size = $(this).attr('value');
         })
