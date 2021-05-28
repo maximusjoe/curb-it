@@ -10,7 +10,7 @@
       "id": "1da106a1-f816-4cb7-a6d0-551f637f48bc",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -89,7 +89,7 @@
       "id": "2aaf19ab-3ed4-411b-98df-16bb2d53d655",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }]
@@ -100,7 +100,7 @@
       "id": "d5f7e749-3dfd-4d1e-bf36-fc59a672d676",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -200,7 +200,7 @@
       "id": "c3b6193d-3a11-465d-b5eb-9dea15a2bdd9",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }]
@@ -211,7 +211,7 @@
       "id": "d41096ca-44e7-4bf8-b81d-6fb82e06b401",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/about.html",
+      "target": "https://curb-it.web.app/about.html",
       "targets": [],
       "value": ""
     }, {
@@ -345,7 +345,7 @@
       "id": "b377f19a-14c7-4c2c-821d-2889f3196573",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }]
@@ -356,7 +356,7 @@
       "id": "8facbe57-c4f4-41c0-8cf9-d9bdd49ed621",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -505,7 +505,7 @@
       "id": "6e8f54f3-aae0-4f57-a72d-37af945af6c6",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }]
@@ -516,7 +516,7 @@
       "id": "ffcc1524-b9fb-4b30-819c-01034293c0dd",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }, {
@@ -591,7 +591,7 @@
       "id": "13362687-5699-4044-94d0-7f2f5e3aac68",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }]
@@ -602,7 +602,7 @@
       "id": "d32f028e-2ae0-4332-a09e-dcc7027aa6dd",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }, {
@@ -677,7 +677,7 @@
       "id": "4a1a9fea-70d7-41a4-805c-280de9882f8c",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }]
@@ -688,7 +688,7 @@
       "id": "396c0ba2-189b-4909-ac93-f649ef09d40a",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }, {
@@ -763,7 +763,7 @@
       "id": "3013336f-f9f7-4588-a553-fbd8db4996a1",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }]
@@ -774,7 +774,7 @@
       "id": "ffa67e6e-54e2-4edc-9b78-9364378d9b04",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }, {
@@ -849,7 +849,7 @@
       "id": "56257c5e-a965-4561-8aaf-db05a4552d20",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }]
@@ -860,7 +860,7 @@
       "id": "eaaf2136-a169-4958-b4dc-1dd442369a72",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }, {
@@ -935,7 +935,7 @@
       "id": "244211a4-4c45-4657-9fcc-57da9d86be8a",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "hhttps://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }]
@@ -946,7 +946,7 @@
       "id": "c01e0478-6e19-413b-b143-75d74b151212",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }, {
@@ -1021,7 +1021,7 @@
       "id": "f6688943-a278-4dc3-9a6a-c2db7f211592",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/main.html",
+      "target": "https://curb-it.web.app/main.html",
       "targets": [],
       "value": ""
     }]
@@ -1032,7 +1032,7 @@
       "id": "0f348ac9-c410-4af8-b898-4d40a8368393",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/lakjasdlkasjdlksajd22222",
+      "target": "https://curb-it.web.app/lakjasdlkasjdlksajd22222",
       "targets": [],
       "value": ""
     }, {
@@ -1211,7 +1211,7 @@
       "id": "a3203dc4-9d2a-4a18-ad85-722977d5aaf5",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/lakjasdlkasjdlksajd22222",
+      "target": "https://curb-it.web.app/lakjasdlkasjdlksajd22222",
       "targets": [],
       "value": ""
     }]
@@ -1222,7 +1222,7 @@
       "id": "e7fd8374-381c-421e-a533-bad4c4658f9e",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -1354,32 +1354,12 @@
       ],
       "value": ""
     }, {
-      "id": "6dd985e8-0f40-45b1-9d4f-60f0ded6f7aa",
+      "id": "54e4a5b2-7041-40ac-b404-a693030e8b60",
       "comment": "",
-      "command": "click",
-      "target": "id=profile",
-      "targets": [
-        ["id=profile", "id"],
-        ["css=#profile", "css:finder"],
-        ["xpath=//button[@id='profile']", "xpath:attributes"],
-        ["xpath=//div[@id='bot-navbar']/button[3]", "xpath:idRelative"],
-        ["xpath=//button[3]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "dbdb740a-0e76-4a9e-87ed-1e71fa1ba50f",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return window.location.href",
+      "command": "assertText",
+      "target": "id=login-btn",
       "targets": [],
-      "value": "https://team-35-ddc6a.web.app/index.html"
-    }, {
-      "id": "4a15cf07-f35c-4fc4-a127-4f6c8ebc37f0",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
+      "value": "Login/Sign-up"
     }]
   }, {
     "id": "6ddb8e38-c564-46d4-8fc7-d4eddece235a",
@@ -1388,7 +1368,7 @@
       "id": "961b97e4-b4c7-4f65-bb30-2bc4ebbdf3a9",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/index.html",
+      "target": "https://curb-it.web.app/index.html",
       "targets": [],
       "value": ""
     }, {
@@ -1527,7 +1507,7 @@
       "id": "ef0de983-4583-4e14-af34-d6d63ae51211",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/request-info.html?id=C8UenueCnpeemsNvoKU9&poster=Tqjz1UaPWfcAV3wwqeLR6mMp2YF3",
+      "target": "https://curb-it.web.app/request-info.html?id=C8UenueCnpeemsNvoKU9&poster=Tqjz1UaPWfcAV3wwqeLR6mMp2YF3",
       "targets": [],
       "value": ""
     }, {
@@ -1541,7 +1521,7 @@
       "id": "715fc128-ef6a-48fa-b0d4-733406c0c6a8",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/index.html",
+      "target": "https://curb-it.web.app/index.html",
       "targets": [],
       "value": ""
     }]
@@ -1552,7 +1532,7 @@
       "id": "0e82ebc7-f3b2-4cb6-8a4e-75e4ca15a889",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -1646,7 +1626,7 @@
       "id": "9299f485-473b-4e03-bf53-6d3b8253cdfb",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/request-info.html?id=C8UenueCnpeemsNvoKU9&poster=Tqjz1UaPWfcAV3wwqeLR6mMp2YF3",
+      "target": "https://curb-it.web.app/request-info.html?id=vShuNbRxy1OSr4C3se1O&poster=7VWq9M4k3WfC5ETlW6XYe8TMBo73",
       "targets": [],
       "value": ""
     }, {
@@ -1664,7 +1644,7 @@
       "id": "39f9fcc6-9af1-4001-8824-5b4aaec080f6",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -1754,34 +1734,10 @@
       ],
       "value": ""
     }, {
-      "id": "23df3011-dc0f-45b3-866b-e5bc22bbfd68",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.firebaseui-id-submit",
-      "targets": [
-        ["css=.firebaseui-id-submit", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
-        ["xpath=//button", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "112cfe6f-0954-4a93-9af9-7761b534b164",
-      "comment": "",
-      "command": "mouseOut",
-      "target": "css=.firebaseui-id-submit",
-      "targets": [
-        ["css=.firebaseui-id-submit", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
-        ["xpath=//button", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "fc4102cc-e6c7-42d3-8473-de360709e90d",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/request-info.html?id=15pPYxfmr0BSRLVSsGsR&poster=flOMf57QzNPi8DMPiYnNhH22hfp2",
+      "target": "https://curb-it.web.app/request-info.html?id=oa9AdHUYFvd5WfEjRgc0&poster=lVoQIsKQiiT9U2GPJHfnxO5Xz8X2",
       "targets": [],
       "value": ""
     }, {
@@ -1795,7 +1751,7 @@
       "id": "c841e66f-8ee2-4123-91f1-122d5aae35fa",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }]
@@ -1806,7 +1762,7 @@
       "id": "50c02fd2-ba29-4d95-81c3-30067c63b5bd",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -1892,7 +1848,7 @@
       "id": "d15650dd-b28a-4cac-a7f0-965206355d29",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/snakeEasterEgg.html",
+      "target": "https://curb-it.web.app/snakeEasterEgg.html",
       "targets": [],
       "value": ""
     }]
@@ -1903,7 +1859,7 @@
       "id": "d6b03319-8730-4045-a3c0-19c0448d99c5",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -2056,7 +2012,7 @@
       "id": "83a08e2d-bef2-4e8e-8005-2df40b60a6f8",
       "comment": "",
       "command": "close",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }]
@@ -2067,7 +2023,7 @@
       "id": "cad3f895-dd97-433f-8198-4c7a3771d1bd",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -2201,6 +2157,13 @@
       "target": "id=username",
       "targets": [],
       "value": "Tony Trinh"
+    }, {
+      "id": "28ce78e6-bcdf-4cf3-8f89-9d7ad912267d",
+      "comment": "",
+      "command": "close",
+      "target": "https://curb-it.web.app/",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "4736cc72-9b05-4ac4-9bf4-2669f2051387",
@@ -2209,7 +2172,7 @@
       "id": "259cd964-992d-4fe2-b4ea-50bcb1006bb8",
       "comment": "",
       "command": "open",
-      "target": "https://team-35-ddc6a.web.app/",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }, {
@@ -2347,14 +2310,327 @@
       "id": "3aeb83f9-c84a-4389-b96e-8ab9ef9c22de",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "id=box55CDpPoSFmBcfpF16SNF",
+      "target": "id=boxvShuNbRxy1OSr4C3se1O",
       "targets": [],
       "value": "5000"
     }, {
       "id": "cc6a9eac-e88d-4eec-a8bb-cdb4bcc7c3ca",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "id=box55CDpPoSFmBcfpF16SNF",
+      "target": "id=boxvShuNbRxy1OSr4C3se1O",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f75a4571-3db8-4663-8102-08fd0ea3f8fb",
+      "comment": "",
+      "command": "close",
+      "target": "https://curb-it.web.app/",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d1769f2e-65fe-45ff-b6ec-28b6f6f02353",
+    "name": "20. Creating a Request",
+    "commands": [{
+      "id": "cab3e476-326e-4d44-9979-e2d981667add",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68a340e2-8f1b-44ba-b9ad-170e1a98f114",
+      "comment": "",
+      "command": "open",
+      "target": "https://curb-it.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed504ece-6e95-4289-9425-e718b9f8e6a0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "515x687",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "26da3aa2-a481-4d47-9a9b-ef8c37fa42c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-btn",
+      "targets": [
+        ["id=login-btn", "id"],
+        ["css=#login-btn", "css:finder"],
+        ["xpath=//button[@id='login-btn']", "xpath:attributes"],
+        ["xpath=//div[@id='logos']/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login/Sign-up')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee7edf54-636e-4926-9fd2-14496de1e029",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4f2263a-4b0e-4824-bdbc-4b0a260a9838",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "testing@email.com"
+    }, {
+      "id": "468bf9b1-b651-49bb-8a76-96c8a8725cfa",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "3e151835-27e2-4117-8f40-22b1a07b845f",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "paultesting"
+    }, {
+      "id": "ef2473bf-1a48-43e0-a47c-3e4df68d4686",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "5c3c7ef3-0e96-48b1-9c5a-856211c829a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bi-plus-square",
+      "targets": [
+        ["css=.bi-plus-square", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5214305e-3f24-4690-93c0-744d2e9043ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=address-input",
+      "targets": [
+        ["id=address-input", "id"],
+        ["css=#address-input", "css:finder"],
+        ["xpath=//input[@id='address-input']", "xpath:attributes"],
+        ["xpath=//div[@id='address']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "891f1d28-c6f8-4d56-beb1-2c1bc46fcb52",
+      "comment": "",
+      "command": "type",
+      "target": "id=address-input",
+      "targets": [
+        ["id=address-input", "id"],
+        ["css=#address-input", "css:finder"],
+        ["xpath=//input[@id='address-input']", "xpath:attributes"],
+        ["xpath=//div[@id='address']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "111 hello st"
+    }, {
+      "id": "175f16eb-66ec-42e0-b127-f8f052cd69c7",
+      "comment": "",
+      "command": "click",
+      "target": "id=city-input",
+      "targets": [
+        ["id=city-input", "id"],
+        ["css=#city-input", "css:finder"],
+        ["xpath=//input[@id='city-input']", "xpath:attributes"],
+        ["xpath=//div[@id='address']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ea096a9-8f6a-409e-9932-a51d3d324b50",
+      "comment": "",
+      "command": "type",
+      "target": "id=city-input",
+      "targets": [
+        ["id=city-input", "id"],
+        ["css=#city-input", "css:finder"],
+        ["xpath=//input[@id='city-input']", "xpath:attributes"],
+        ["xpath=//div[@id='address']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "coquitlam"
+    }, {
+      "id": "a511bb57-64cf-4c76-8f1e-b8ff91cf1465",
+      "comment": "",
+      "command": "click",
+      "target": "id=list-input",
+      "targets": [
+        ["id=list-input", "id"],
+        ["css=#list-input", "css:finder"],
+        ["xpath=//input[@id='list-input']", "xpath:attributes"],
+        ["xpath=//div[@id='item-list']/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "deabd971-eef6-4d43-9ac8-05223253f5b7",
+      "comment": "",
+      "command": "type",
+      "target": "id=list-input",
+      "targets": [
+        ["id=list-input", "id"],
+        ["css=#list-input", "css:finder"],
+        ["xpath=//input[@id='list-input']", "xpath:attributes"],
+        ["xpath=//div[@id='item-list']/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": "whisky bottles"
+    }, {
+      "id": "1ad8a759-0893-4456-ae0e-0df23aa546e6",
+      "comment": "",
+      "command": "click",
+      "target": "id=add-button",
+      "targets": [
+        ["id=add-button", "id"],
+        ["css=#add-button", "css:finder"],
+        ["xpath=//button[@id='add-button']", "xpath:attributes"],
+        ["xpath=//div[@id='item-list']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da706602-583b-4f09-9bd4-37d8048009eb",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=add-button",
+      "targets": [
+        ["id=add-button", "id"],
+        ["css=#add-button", "css:finder"],
+        ["xpath=//button[@id='add-button']", "xpath:attributes"],
+        ["xpath=//div[@id='item-list']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9adee9b5-3e6c-493e-801e-aadd712afb7f",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=add-button",
+      "targets": [
+        ["id=add-button", "id"],
+        ["css=#add-button", "css:finder"],
+        ["xpath=//button[@id='add-button']", "xpath:attributes"],
+        ["xpath=//div[@id='item-list']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "43d1fd4d-5a78-4196-9763-c5bc458dfda6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.choice:nth-child(5)",
+      "targets": [
+        ["css=.choice:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='choice'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='size-choice']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89923261-212c-4661-8ed0-56c5b8afb2c6",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9cf5cc43-6078-4319-9991-0f9e53b53650",
+      "comment": "",
+      "command": "click",
+      "target": "id=photo-input",
+      "targets": [
+        ["id=photo-input", "id"],
+        ["css=#photo-input", "css:finder"],
+        ["xpath=//input[@id='photo-input']", "xpath:attributes"],
+        ["xpath=//div[@id='add-photo']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f158a44-71bc-4011-9eb1-69da96eed641",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6f09dee9-245c-4ccf-98fc-6f59682671bc",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit-button",
+      "targets": [
+        ["id=submit-button", "id"],
+        ["css=#submit-button", "css:finder"],
+        ["xpath=//button[@id='submit-button']", "xpath:attributes"],
+        ["xpath=//div[@id='submit']/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22accec9-802d-409c-8441-266178535571",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button:nth-child(2)",
+      "targets": [
+        ["css=.button:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"location.href='./main.html'\"]", "xpath:attributes"],
+        ["xpath=//div[@id='all-button']/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f4d1354-9da0-4de8-a750-b216a74fdc66",
+      "comment": "",
+      "command": "close",
+      "target": "https://curb-it.web.app/",
       "targets": [],
       "value": ""
     }]
