@@ -10,6 +10,8 @@ $(document).ready(() => {
                             // console.log('added')
                             // console.log("New : ", change.doc.data());
                         }
+
+                        // Only detects data that are modified in the database, we do this so we can control what is going to send the notifications
                         if (change.type === "modified") {
                             const data = change.doc.data()
                             // console.log("Modified Successful", change.doc.data());
@@ -24,11 +26,13 @@ $(document).ready(() => {
                  ${data.text}
                 </div>
               </div>`)
+                            
                             $('.toast').toast('show')
                             var myToastEl = document.getElementById('myToast')
                             myToastEl.addEventListener('hidden.bs.toast', function () {
                                 document.getElementById('toast-container').lastChild.remove()
                             })
+                            // Enable href to the notification -> click the noti -> load the conversation
                             myToastEl.addEventListener('click', (e) => {
                                 window.location.href = data.url
                             })

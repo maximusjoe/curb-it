@@ -16,6 +16,7 @@ $(document).ready(() => {
     const poster_id = GetURLParameter('poster')
     var acceptee_id = null;
 
+    //Add popup window animation
     $("#accept-button1").on('click', e => {
         e.preventDefault()
         $("#popup").fadeIn(250);
@@ -29,7 +30,7 @@ $(document).ready(() => {
     })
 
     //Check whether a user is logged in .
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async(user) => {
         const data = await db.collection('users').doc(poster_id).collection('postedRequests')
             .doc(post_id).get().then(doc => {
                 if (doc.exists) {
@@ -40,7 +41,7 @@ $(document).ready(() => {
             }).catch(error => {
                 window.location.href = '404.html'
             })
-        // Dereference data
+            // Dereference data
         const {
             address,
             available,
@@ -58,18 +59,20 @@ $(document).ready(() => {
 
         acceptee_id = acceptee;
 
+        //Display the request info 
         $('#requester-wrapper').append(`<div id="requester">Request by: ${name}</div>`);
         $('#requester-wrapper').append(`<div id="date">Posted on: ${postedDate}</div>`);
+
         if ((pickupDate && pickupTime) && (pickupDate != "undefined")) {
             $('#requester-wrapper').append(`<div id="pickup">Pick-up Schedule: ${pickupDate} at ${pickupTime}</div>`);
         }
+        //Only show the address if the post is belong to the user or accepted. 
         if (!available) {
             accepted();
             $("#location").append(`<div id="address"><label id="address-label">Address:</label> ${address}</div>`)
-
         }
         if (available && user.uid == poster_id) {
-            pending();
+            pending(); //if the post belong to user --> disable the accept button and change to pending 
             $("#location").append(`<div id="address"><label id="address-label">Address:</label> ${address}</div>`)
         }
         $('#location').append(`<div id="city"><label id="city-label">City:</label> ${city}</div>`)
@@ -89,19 +92,19 @@ $(document).ready(() => {
 
         if (user) {
             // User is signed in.
-            $('#accept-button2').on('click', async (e) => {
+            $('#accept-button2').on('click', async(e) => {
                 if (user.uid === poster_id) {
                     alert('You cannot accept your own post')
                 } else {
                     sendNotification(poster_id)
-                    accepted();
+                    accepted(); //Disable, and change accept button after the request is accepted 
                     let pickupDate = $("#date-input").val();
                     let pickupTime = $("#time-input").val();
                     await db.collection('users').doc(poster_id)
                         .collection('postedRequests')
                         .doc(post_id)
                         .update({
-                            available: false,
+                            available: false, //change post avaibility status so it wont be listed on the main page
                             pickupDate,
                             pickupTime,
                             acceptee: user.uid
@@ -125,7 +128,7 @@ $(document).ready(() => {
         }
     });
 
-    const sendNotification = async (poster_id) => {
+    const sendNotification = async(poster_id) => {
         // Add to poster id collection
         const data = await db.collection('users')
             .doc(poster_id)
@@ -133,7 +136,7 @@ $(document).ready(() => {
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 text: 'A volunteer has accepted your post, expect them to drop by soon!'
             })
-        // Update the data so that it would be of type 'modified' in db changes
+            // Update the data so that it would be of type 'modified' in db changes
         db.collection('users')
             .doc(poster_id).collection('notifications')
             .doc(data.id).update({
@@ -141,6 +144,7 @@ $(document).ready(() => {
             })
     }
 
+    //Disable, and change accept button after the request is accepted 
     function accepted() {
         $("#popup").fadeOut(250);
         $("#overlay").hide();
@@ -152,7 +156,8 @@ $(document).ready(() => {
                 color: "rgba(0, 87, 39, 0.774)",
             })
     }
-
+    //Disable, and change accept button if the request is not accepted yet,
+    //only trigger in the your own post. 
     function pending() {
         $("#popup").fadeOut(250);
         $("#overlay").hide();

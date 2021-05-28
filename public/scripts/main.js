@@ -1,12 +1,14 @@
-$(document).ready(function () {
+$(document).ready(function() {
     'use strict'
 
+
+    //Display all the users' requests
     function allRequests() {
-        firebase.auth().onAuthStateChanged(function (user) {
+        firebase.auth().onAuthStateChanged(function(user) {
             db.collection("users")
                 .get()
-                .then(function (userCol) {
-                    userCol.forEach(function (eachUser) {
+                .then(function(userCol) { //Get the user collection
+                    userCol.forEach(function(eachUser) { //Each doc of the users collection
                         userRequests(eachUser.id)
                     })
                 })
@@ -16,14 +18,15 @@ $(document).ready(function () {
     allRequests();
 
     function userRequests(userID) {
-        firebase.auth().onAuthStateChanged(function (user) {
+        firebase.auth().onAuthStateChanged(function(user) {
             db.collection("users").doc(userID).collection("postedRequests")
                 .get() //READ asynch
-                .then(function (reqCol) {
-                    reqCol.forEach(function (req) { //read each document in the collection
+                .then(function(reqCol) { //Get posted request collection of one user
+                    reqCol.forEach(function(req) { //read each document in the collection
                         let eachPost = `<div class="each-post" id="${req.id}" data-size="${req.data().size}" data-city="${req.data().city}" data-date="${req.data().postedDate}"><div class="number-of-item">Size ${req.data().size}</div><div class="city"> ${req.data().city}</div><div class="date">Posted on ${req.data().postedDate}</div></div>`
                         $('#spinner').hide()
-                        if (req.data().available) {
+
+                        if (req.data().available) { // Only display posts that are available for acceptance
                             $("#content").append(eachPost);
                             redirectToInfo(req.id, req.data().uid);
                         }
@@ -33,41 +36,40 @@ $(document).ready(function () {
     }
 
 
-    $("#filter-button").click(function () {
+    $("#filter-button").click(function() {
         $("#filterContainer").toggle(250);
     });
 
     function redirectToInfo(id, uid) {
         document.getElementById(id)
-            .addEventListener("click", function () {
+            .addEventListener("click", function() {
                 window.location.href = `request-info.html?id=${id}&poster=${uid}` // Redirect page when click
             });
     }
 
-
-    function defaultSort() {
-
-    }
-
-    $("#apply").click(function () {
+    // Filter script to rearange the main page divs
+    $("#apply").click(function() {
+        // Size filter
         if (document.getElementById("all-select").value == "sortSizeDesc") {
             $("#content .each-post")
-                .sort(function (a, b) {
+                .sort(function(a, b) {
                     console.log($(b).data("size").substring(4))
                     console.log($(b).data("size").substring(4) - $(a).data("size").substring(4))
                     return $(b).data("size").substring(4) - $(a).data("size").substring(4);
                 })
                 .appendTo("#content");
         }
+        // Size filter
         if (document.getElementById("all-select").value == "sortSizeAsc") {
             $("#content .each-post")
-                .sort(function (a, b) {
+                .sort(function(a, b) {
                     console.log($(b).data("size").substring(4))
                     console.log($(a).data("size").substring(4) - $(b).data("size").substring(4))
                     return $(a).data("size").substring(4) - $(b).data("size").substring(4);
                 })
                 .appendTo("#content");
         }
+        // City filter
         if (document.getElementById("all-select").value == "sortCityDesc") {
 
             jQuery.fn.sortDivs = function sortDivs() {
@@ -79,6 +81,7 @@ $(document).ready(function () {
             }
             $("#content").sortDivs();
         }
+        // City filter
         if (document.getElementById("all-select").value == "sortCityAsc") {
 
             jQuery.fn.sortDivs = function sortDivs() {
@@ -90,6 +93,7 @@ $(document).ready(function () {
             }
             $("#content").sortDivs();
         }
+        // Date filter
         if (document.getElementById("all-select").value == "sortDateDesc") {
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
@@ -100,6 +104,7 @@ $(document).ready(function () {
             }
             $("#content").sortDivs();
         }
+        // Date filter
         if (document.getElementById("all-select").value == "sortDateAsc") {
             jQuery.fn.sortDivs = function sortDivs() {
                 $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
