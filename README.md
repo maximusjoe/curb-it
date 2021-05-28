@@ -40,9 +40,12 @@ Technologies used for this project:
 - Firestore v8.4.3 (Database)
 - Figma (prototype & design)
 - Trello (agile project management)
+- Visual Studio code v1.53.2
 
 ## Installation
 To run the test file <b>Curb-It tests.side</b>, visit https://www.selenium.dev/ to learn how to add Selenium IDE plugin to your browser and how to run it. 
+Download Visual Studio code at https://code.visualstudio.com/Download and download depending on your device.
+For deploying Firebase, go to https://firebase.google.com/docs/cli?authuser=0#install-cli-windows and download the correct one depending on your device.
 
 ## Development
 Want to contribute and help us grow? Perfect!
